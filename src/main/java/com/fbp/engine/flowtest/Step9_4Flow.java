@@ -6,7 +6,7 @@ import com.fbp.engine.node.*;
 
 public class Step9_4Flow {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("=== 과제 9-4, 9-5: 온도, 습도 모니터링 시스템 시작 ===");
+        System.out.println("=== 과제 9-4: 온도 모니터링 시스템 시작 ===");
 
         FlowEngine engine = new FlowEngine();
 
@@ -15,6 +15,8 @@ public class Step9_4Flow {
         TemperatureSensorNode temperatureSensor = new TemperatureSensorNode("sensor", 15.0, 45.0);
         ThresholdFilterNode filter = new ThresholdFilterNode("filter","temperature", 30.0);
 
+        //FileWriteNode 추가
+        FileWriteNode fileWrite = new FileWriteNode("file", "./log/temperature");
 
         AlertNode alert = new AlertNode("alert-node");
         PrintNode logger = new PrintNode("normal-log");
@@ -25,10 +27,12 @@ public class Step9_4Flow {
                 .addNode(filter)
                 .addNode(alert)
                 .addNode(logger)
+                .addNode(fileWrite)
                 .connect("timer", "out", "sensor", "trigger")
                 .connect("sensor", "out", "filter", "in")
                 .connect("filter", "alert", "alert-node", "in")
-                .connect("filter", "normal", "normal-log", "in");
+                .connect("filter", "normal", "normal-log", "in")
+                .connect("filter", "normal", "file", "in");
 
         engine.register(monitoringFlow);
         engine.startFlow("temp-monitor");

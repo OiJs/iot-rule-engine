@@ -1,6 +1,5 @@
 package com.fbp.engine.core;
 
-import com.fbp.engine.core.port.InputPort;
 import com.fbp.engine.message.Message;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

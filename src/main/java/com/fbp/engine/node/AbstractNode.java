@@ -1,10 +1,10 @@
 package com.fbp.engine.node;
 
 import com.fbp.engine.core.Node;
-import com.fbp.engine.core.port.DefaultInputPort;
-import com.fbp.engine.core.port.DefaultOutputPort;
-import com.fbp.engine.core.port.InputPort;
-import com.fbp.engine.core.port.OutputPort;
+import com.fbp.engine.core.DefaultInputPort;
+import com.fbp.engine.core.DefaultOutputPort;
+import com.fbp.engine.core.InputPort;
+import com.fbp.engine.core.OutputPort;
 import com.fbp.engine.message.Message;
 import java.util.HashMap;
 import java.util.Map;

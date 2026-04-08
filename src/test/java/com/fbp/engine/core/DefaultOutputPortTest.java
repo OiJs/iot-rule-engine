@@ -2,7 +2,6 @@ package com.fbp.engine.core;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.fbp.engine.core.port.DefaultOutputPort;
 import com.fbp.engine.message.Message;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;

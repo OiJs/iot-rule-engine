@@ -1,0 +1,6 @@
+{id='bc797c64-9ef4-4580-9356-96f00412291c', payload={unit=°C, inputPort=in, temperature=18.7, timestamp=1775631064787, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.788063}
+{id='3b89de7a-f07e-4180-b439-d7ea883bc708', payload={unit=°C, inputPort=in, temperature=27.0, timestamp=1775631064787, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.790598}
+{id='1d1fa31d-ff5a-4fac-858d-ab05bcca40ad', payload={unit=°C, inputPort=in, temperature=15.8, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.790989}
+{id='2b34f55d-9f80-479f-af7e-56731cd37ddf', payload={unit=°C, inputPort=in, temperature=28.4, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791106}
+{id='adb163fe-1165-4a44-9c47-21d64e7a31d6', payload={unit=°C, inputPort=in, temperature=17.7, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791190}
+{id='f8f35dc7-21d2-4bac-ae49-a156cb03772d', payload={unit=°C, inputPort=in, temperature=29.2, timestamp=1775631064789, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791297}

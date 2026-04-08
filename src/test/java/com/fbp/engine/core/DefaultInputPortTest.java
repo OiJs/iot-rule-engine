@@ -2,7 +2,6 @@ package com.fbp.engine.core;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.fbp.engine.core.port.DefaultInputPort;
 import com.fbp.engine.message.Message;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
@@ -33,7 +32,10 @@ class DefaultInputPortTest {
         port.receive(msg);
 
         assertTrue(stubOwner.processCalled);
-        assertEquals(msg, stubOwner.receivedMessage);
+
+        assertEquals("val", stubOwner.receivedMessage.get("key"));
+
+        assertEquals("in", stubOwner.receivedMessage.get("inputPort"));
     }
 
     @Test

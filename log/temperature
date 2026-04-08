@@ -1,0 +1,13 @@
+{id='42bd6c10-0d25-4987-b2cf-bac0645278d4', payload={unit=°C, temperature=25.0, sensorId=sensor, timestamp=1775621710601}, timestamp=2026-04-08T13:15:10.601061}
+{id='cf251ad4-f30b-4402-b925-4b29f19c4556', payload={unit=°C, temperature=17.5, sensorId=sensor, timestamp=1775621711577}, timestamp=2026-04-08T13:15:11.577877}
+{id='32671820-b4a4-427e-b671-e47d57f99f92', payload={unit=°C, temperature=27.7, sensorId=sensor, timestamp=1775621712579}, timestamp=2026-04-08T13:15:12.579612}
+{id='6caf4d02-0b78-4276-9379-7f38600d712e', payload={unit=°C, temperature=15.1, sensorId=sensor, timestamp=1775621714580}, timestamp=2026-04-08T13:15:14.580475}
+{id='5bc8bb06-1fb8-428f-ba99-f2408123048a', payload={unit=°C, temperature=27.6, sensorId=sensor, timestamp=1775621718580}, timestamp=2026-04-08T13:15:18.580823}
+{id='5b6009c3-dfd6-4ebd-9594-f835de6a1dda', payload={sensorId=sensor, timestamp=1775621767737, unit=°C, temperature=25.5}, timestamp=2026-04-08T13:16:07.737758}
+{id='d7cacb96-392c-40fc-8596-17e91e1f53d4', payload={sensorId=sensor, timestamp=1775621768717, unit=°C, temperature=24.5}, timestamp=2026-04-08T13:16:08.717305}
+{id='1a6229b9-1726-4c98-bfc4-503378c99424', payload={sensorId=sensor, timestamp=1775621769713, unit=°C, temperature=16.4}, timestamp=2026-04-08T13:16:09.714017}
+{id='183514a4-3518-4096-ad0e-93ed22632380', payload={sensorId=sensor, timestamp=1775621770717, unit=°C, temperature=19.3}, timestamp=2026-04-08T13:16:10.717297}
+{id='8960dcfc-84b2-4bed-ad3e-0925d4f4ec3b', payload={sensorId=sensor, timestamp=1775621772713, unit=°C, temperature=30.0}, timestamp=2026-04-08T13:16:12.713130}
+{id='db87be5f-8cc9-443a-81ce-a2ec761d4df0', payload={sensorId=sensor, timestamp=1775621773713, unit=°C, temperature=25.5}, timestamp=2026-04-08T13:16:13.713881}
+{id='dd2c1be7-a432-4dbd-9506-c2dfa1358ca7', payload={sensorId=sensor, timestamp=1775621774717, unit=°C, temperature=19.8}, timestamp=2026-04-08T13:16:14.717321}
+{id='c3c4a915-d749-4e68-8580-7cd2d6018b2b', payload={sensorId=sensor, timestamp=1775621776715, unit=°C, temperature=21.8}, timestamp=2026-04-08T13:16:16.715288}

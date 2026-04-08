@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.TimerNodeTest" time="4.228" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260408151122844_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-08T15-11-22_027-jvmRun1 surefire-20260408151122844_1tmp surefire_0-20260408151122844_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260408151122844_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="test3_ShutdownStopsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="1.21">
+    <system-out><![CDATA[[timer] initialized.
+[p2] processing message...
+[print-p2] {id='eaa3ed4a-2c3c-472c-9aaf-c5bf2cb6c438', payload={inputPort=in, timestamp=1775628691175, tick=8}, timestamp=2026-04-08T15:11:31.176143}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='d41f9fac-5511-4622-86f4-50559262ebd1', payload={inputPort=in, timestamp=1775628691176, tick=16}, timestamp=2026-04-08T15:11:31.176567}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='ce26206e-76c0-45ec-a99a-24c29f88fa81', payload={inputPort=in, timestamp=1775628691182, tick=16}, timestamp=2026-04-08T15:11:31.182894}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='05088564-6f5d-46e5-83c5-21c71c6422cc', payload={inputPort=in, timestamp=1775628691676, tick=17}, timestamp=2026-04-08T15:11:31.677148}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='d7fae220-ecfa-4486-b2d7-f929fc9e9126', payload={inputPort=in, timestamp=1775628691683, tick=17}, timestamp=2026-04-08T15:11:31.684111}
+[p1] done.
+[timer] shutdown.
+[p1] processing message...
+[print-p1] {id='eab73c3a-6b98-4040-8e6f-230bbc00d2a3', payload={inputPort=in, timestamp=1775628692174, tick=18}, timestamp=2026-04-08T15:11:32.174749}
+[p1] done.
+[p2] processing message...
+[p1] processing message...
+[print-p2] {id='0e5d12fd-75e3-4bf8-8453-6fc42b8ed136', payload={inputPort=in, timestamp=1775628692180, tick=9}, timestamp=2026-04-08T15:11:32.180557}
+[print-p1] {id='6e00b9c8-6d3f-4979-8765-2019b06c548e', payload={inputPort=in, timestamp=1775628692180, tick=18}, timestamp=2026-04-08T15:11:32.180624}
+[p2] done.
+[p1] done.
+[timer] shutdown.
+]]></system-out>
+  </testcase>
+  <testcase name="test2_TickIncrementsSequentially" classname="com.fbp.engine.node.TimerNodeTest" time="1.004">
+    <system-out><![CDATA[[timer] initialized.
+[p1] processing message...
+[print-p1] {id='bed8ee74-94c9-462b-907f-162ba39b39f2', payload={inputPort=in, timestamp=1775628692676, tick=19}, timestamp=2026-04-08T15:11:32.677511}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='5da1c5ce-dd4e-401a-9550-b2e1dfc9cdb6', payload={inputPort=in, timestamp=1775628692681, tick=19}, timestamp=2026-04-08T15:11:32.681758}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='b44e34da-6157-484a-bc00-dab6f5206b7f', payload={inputPort=in, timestamp=1775628693176, tick=20}, timestamp=2026-04-08T15:11:33.177415}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='679f0073-ad5b-42d5-b892-cf4ee9633f21', payload={inputPort=in, timestamp=1775628693177, tick=10}, timestamp=2026-04-08T15:11:33.178013}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='1e7e1bfb-1615-446f-b4bf-59b1d3614773', payload={inputPort=in, timestamp=1775628693183, tick=20}, timestamp=2026-04-08T15:11:33.184187}
+[p1] done.
+[timer] shutdown.
+]]></system-out>
+  </testcase>
+  <testcase name="test4_IntervalProducesExpectedMessageCount" classname="com.fbp.engine.node.TimerNodeTest" time="2.008">
+    <system-out><![CDATA[[timer] initialized.
+[p1] processing message...
+[print-p1] {id='5cb08f4c-8974-42fe-a354-eed99eaa60a7', payload={inputPort=in, timestamp=1775628693674, tick=21}, timestamp=2026-04-08T15:11:33.675128}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='aaad03a6-b723-4dbd-a996-0cd46aa465cc', payload={inputPort=in, timestamp=1775628693681, tick=21}, timestamp=2026-04-08T15:11:33.681595}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='7e5fb0da-67c4-4a0c-89a4-01e3bf6cf1b8', payload={inputPort=in, timestamp=1775628694175, tick=22}, timestamp=2026-04-08T15:11:34.175794}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='787246aa-cb44-4242-a5c9-895db83a341b', payload={inputPort=in, timestamp=1775628694178, tick=11}, timestamp=2026-04-08T15:11:34.179208}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='aff1bdf7-21d7-4059-bb1d-3fc85642ec30', payload={inputPort=in, timestamp=1775628694183, tick=22}, timestamp=2026-04-08T15:11:34.184001}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='3fd6a60b-162a-4a0f-be8c-b480bff911ca', payload={inputPort=in, timestamp=1775628694672, tick=23}, timestamp=2026-04-08T15:11:34.673164}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='e61d0727-80da-432c-88ba-ba921574ee45', payload={inputPort=in, timestamp=1775628694680, tick=23}, timestamp=2026-04-08T15:11:34.680943}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='c4dbb2c7-85b5-4429-bb81-321c116495b6', payload={inputPort=in, timestamp=1775628695174, tick=24}, timestamp=2026-04-08T15:11:35.175281}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='0b6cb5ed-67f5-4bd6-b878-1a4c77f855ae', payload={inputPort=in, timestamp=1775628695177, tick=12}, timestamp=2026-04-08T15:11:35.178699}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='0b8c5938-d99f-4951-8592-e3e113851c47', payload={inputPort=in, timestamp=1775628695183, tick=24}, timestamp=2026-04-08T15:11:35.184359}
+[p1] done.
+[timer] shutdown.
+[timer] shutdown.
+]]></system-out>
+  </testcase>
+  <testcase name="test1_InitializeStartsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="0.002">
+    <system-out><![CDATA[[timer] initialized.
+[timer] shutdown.
+]]></system-out>
+  </testcase>
+</testsuite>
