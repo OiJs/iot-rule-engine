@@ -1,0 +1,43 @@
+package com.fbp.engine.flowtest;
+
+import com.fbp.engine.core.Flow;
+import com.fbp.engine.core.FlowEngine;
+import com.fbp.engine.node.PrintNode;
+import com.fbp.engine.node.TimerNode;
+
+public class Step8_3Flow {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("=== 과제 8-3: FlowEngine 멀티 플로우 테스트 ===");
+
+        FlowEngine engine = new FlowEngine();
+
+        TimerNode timerNodeA = new TimerNode("timerA", 500);
+        PrintNode printNodeA = new PrintNode("printA");
+        Flow flowA = new Flow("flowA")
+                .addNode(timerNodeA)
+                .addNode(printNodeA)
+                .connect("timerA", "out", "printA", "in");
+
+        TimerNode timerNodeB = new TimerNode("timerB", 1000);
+        PrintNode printNodeB = new PrintNode("printB");
+        Flow flowB = new Flow("flowB")
+                .addNode(timerNodeB)
+                .addNode(printNodeB)
+                .connect("timerB", "out", "printB", "in");
+
+        engine.register(flowA);
+        engine.register(flowB);
+
+        engine.startFlow("flowA");
+        engine.startFlow("flowB");
+
+        System.out.println(">>> 두 플로우가 독립적으로 실행 중입니다. (5초간 관찰)");
+
+        Thread.sleep(5000);
+
+        System.out.println(">>> 테스트 종료, 엔진 셧다운 시작...");
+        engine.shutdown();
+
+        System.out.println("=== FlowEngine 테스트 완료 ===");
+    }
+}
