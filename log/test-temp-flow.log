@@ -1,6 +1,6 @@
-{id='bc797c64-9ef4-4580-9356-96f00412291c', payload={unit=°C, inputPort=in, temperature=18.7, timestamp=1775631064787, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.788063}
-{id='3b89de7a-f07e-4180-b439-d7ea883bc708', payload={unit=°C, inputPort=in, temperature=27.0, timestamp=1775631064787, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.790598}
-{id='1d1fa31d-ff5a-4fac-858d-ab05bcca40ad', payload={unit=°C, inputPort=in, temperature=15.8, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.790989}
-{id='2b34f55d-9f80-479f-af7e-56731cd37ddf', payload={unit=°C, inputPort=in, temperature=28.4, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791106}
-{id='adb163fe-1165-4a44-9c47-21d64e7a31d6', payload={unit=°C, inputPort=in, temperature=17.7, timestamp=1775631064788, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791190}
-{id='f8f35dc7-21d2-4bac-ae49-a156cb03772d', payload={unit=°C, inputPort=in, temperature=29.2, timestamp=1775631064789, sensorId=tempSensor}, timestamp=2026-04-08T15:51:04.791297}
+{id='f619bfea-a189-4344-8b83-8313639b712a', payload={temperature=22.7, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371237}, timestamp=2026-04-08T15:56:11.238147}
+{id='0981eb4f-aba1-4efe-ae8f-654dd685746b', payload={temperature=21.5, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371237}, timestamp=2026-04-08T15:56:11.241054}
+{id='3988b0f6-da5b-414d-9226-896ccd20fc27', payload={temperature=25.6, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371241}, timestamp=2026-04-08T15:56:11.241650}
+{id='cb51043f-0b74-405d-99e6-0e97d2befbd8', payload={temperature=28.6, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371241}, timestamp=2026-04-08T15:56:11.241930}
+{id='00a3b245-c390-4a3f-8b08-c8619b94dfe4', payload={temperature=23.4, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371242}, timestamp=2026-04-08T15:56:11.243515}
+{id='fff19ab5-19df-4777-a214-368d12ded7dc', payload={temperature=20.6, inputPort=in, unit=°C, sensorId=tempSensor, timestamp=1775631371242}, timestamp=2026-04-08T15:56:11.243661}
