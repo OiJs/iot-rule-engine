@@ -1,5 +1,6 @@
 package com.fbp.engine.core;
 
+import com.fbp.engine.metrics.MetricsCollector;
 import com.fbp.engine.node.AbstractNode;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,12 +8,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Flow {
+
     public enum FlowState {RUNNING, STOPPED}
 
     private final String id;
     private final Map<String, AbstractNode> nodes;
     private final List<Connection> connections;
-    private FlowState state;
+    private volatile FlowState state;
+    private MetricsCollector collector;
 
     public Flow(String id) {
         this.id = id;
@@ -23,7 +26,15 @@ public class Flow {
 
     public Flow addNode(AbstractNode node) {
         nodes.put(node.getId(), node);
+        if (collector != null) {
+            node.setContext(id, collector);
+        }
         return this;
+    }
+
+    public void setCollector(MetricsCollector collector) {
+        this.collector = collector;
+        nodes.values().forEach(node -> node.setContext(this.id, collector));
     }
 
     public Flow connect(String sourceNodeId, String sourcePort,
@@ -129,6 +140,10 @@ public class Flow {
     public Map<String, AbstractNode> getNodes() { return nodes; }
 
     public List<Connection> getConnections() { return connections; }
+
+    public AbstractNode getNode(String id) {
+        return nodes.get(id);
+    }
 
     public FlowState getFlowState() {
         return state;

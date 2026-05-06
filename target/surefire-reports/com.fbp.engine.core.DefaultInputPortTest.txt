@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.fbp.engine.core.DefaultInputPortTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! -- in com.fbp.engine.core.DefaultInputPortTest
-com.fbp.engine.core.DefaultInputPortTest.test1_ReceiveCallsOwnerProcess -- Time elapsed: 0.016 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <{id='b2dc8186-7426-4554-b686-afcf23d284e0', payload={key=val}, timestamp=2026-04-08T15:11:23.193375}> but was: <{id='aabfb099-0170-4f2a-b07d-c4160365c716', payload={key=val, inputPort=in}, timestamp=2026-04-08T15:11:23.193446}>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at com.fbp.engine.core.DefaultInputPortTest.test1_ReceiveCallsOwnerProcess(DefaultInputPortTest.java:35)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.fbp.engine.core.DefaultInputPortTest

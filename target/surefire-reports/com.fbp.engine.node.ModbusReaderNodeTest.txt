@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: com.fbp.engine.node.ModbusReaderNodeTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.845 s <<< FAILURE! -- in com.fbp.engine.node.ModbusReaderNodeTest
+com.fbp.engine.node.ModbusReaderNodeTest.test5_RegisterRead -- Time elapsed: 0.106 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[111]> but was: <[0]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.fbp.engine.node.ModbusReaderNodeTest.test5_RegisterRead(ModbusReaderNodeTest.java:82)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.fbp.engine.node.ModbusReaderNodeTest.test6_RegisterMapping -- Time elapsed: 0.107 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <255> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.fbp.engine.node.ModbusReaderNodeTest.test6_RegisterMapping(ModbusReaderNodeTest.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

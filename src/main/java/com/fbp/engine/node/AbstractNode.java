@@ -1,31 +1,47 @@
 package com.fbp.engine.node;
 
+import com.fbp.engine.core.ErrorPort;
 import com.fbp.engine.core.Node;
 import com.fbp.engine.core.DefaultInputPort;
 import com.fbp.engine.core.DefaultOutputPort;
 import com.fbp.engine.core.InputPort;
 import com.fbp.engine.core.OutputPort;
 import com.fbp.engine.message.Message;
+import com.fbp.engine.metrics.MetricsCollector;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractNode implements Node {
     private final String id;
+    private String flowId;
     private final Map<String, InputPort> inputPorts;
     private final Map<String, OutputPort> outputPorts;
+    private MetricsCollector collector;
+    private final ErrorPort errorPort;
 
     protected AbstractNode(String id) {
         this. id = id;
         this.inputPorts = new HashMap<>();
         this.outputPorts = new HashMap<>();
+        this.errorPort = new ErrorPort("error");
     }
 
-    protected void addInputPort(String name) {
+    public void setContext(String flowId, MetricsCollector collector) {
+        this.flowId = flowId;
+        this.collector = collector;
+
+    }
+
+    public void addInputPort(String name) {
         inputPorts.put(name, new DefaultInputPort(name, this));
     }
 
-    protected void addOutputPort(String name) {
+    public void addOutputPort(String name) {
         outputPorts.put(name, new DefaultOutputPort(name));
+    }
+
+    public ErrorPort getErrorPort() {
+        return errorPort;
     }
 
     public InputPort getInputPort(String name) {
@@ -54,9 +70,37 @@ public abstract class AbstractNode implements Node {
 
     @Override
     public void process(Message message) {
-        System.out.println("[" + id + "] processing message...");
-        onProcess(message);
-        System.out.println("[" + id + "] done.");
+        long startTime = System.nanoTime();
+        boolean success = false;
+
+        try {
+            onProcess(message); // 조건 4: 예외 없으면 에러 포트 동작 안 함
+            success = true;
+        } catch (Exception e) {
+            success = false;
+            // 조건 1: 에러 발생 시 분기 처리
+            handleNodeError(message, e);
+        } finally {
+            // 메트릭 기록 로직 (기존 유지)
+            if(collector != null && flowId != null) {
+                long duration = System.nanoTime() - startTime;
+                collector.recordProcessing(flowId, id, success, duration);
+            }
+        }
+    }
+
+    private void handleNodeError(Message originalMessage, Exception e) {
+        Message errorMessage = originalMessage
+                .withEntry("error_origin_node", this.id)
+                .withEntry("error_message", e.getMessage())
+                .withEntry("error_type", e.getClass().getSimpleName())
+                .withEntry("error_timestamp", java.time.LocalDateTime.now().toString());
+
+        if (errorPort.hasConnection()) {
+            errorPort.send(errorMessage);
+        } else {
+            System.err.println("[" + id + "] Critical Error (No ErrorPort connected): " + e.getMessage());
+        }
     }
 
     @Override

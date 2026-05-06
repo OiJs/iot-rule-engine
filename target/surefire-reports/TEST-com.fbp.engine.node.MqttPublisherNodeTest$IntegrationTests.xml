@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests" time="11.558" tests="6" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testPortConfig" classname="com.fbp.engine.node.MqttPublisherNodeTest" time="0.001"/>
+  <testcase name="testInitialState" classname="com.fbp.engine.node.MqttPublisherNodeTest" time="0.0"/>
+  <testcase name="testPublish" classname="com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests" time="1.863">
+    <system-out><![CDATA[[p1] processing message...
+[print-p1] {id='9de1c155-8f48-4790-ad93-a5debded8178', payload={timestamp=1776754063495, inputPort=in, tick=647}, timestamp=2026-04-21T15:47:43.496118}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='0463ef4d-9baf-4f2d-a72c-f1c9ae288ff1', payload={timestamp=1776754063505, inputPort=in, tick=647}, timestamp=2026-04-21T15:47:43.505760}
+[p1] done.
+[pub-node] 외부 시스템 연결 성공
+[p1] processing message...
+[print-p1] {id='7ae8e4ed-29ef-4ea7-8649-b2ce3c773569', payload={timestamp=1776754063996, inputPort=in, tick=648}, timestamp=2026-04-21T15:47:43.996372}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='ba6f5d75-add0-4c16-82c3-b2d696ae048f', payload={timestamp=1776754063999, inputPort=in, tick=324}, timestamp=2026-04-21T15:47:43.999942}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='b6f80644-de3b-48fb-928d-4d30d53382d2', payload={timestamp=1776754064005, inputPort=in, tick=648}, timestamp=2026-04-21T15:47:44.005804}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='bbe6b0a0-3b41-4d45-aa82-42336dd8056a', payload={timestamp=1776754064492, inputPort=in, tick=649}, timestamp=2026-04-21T15:47:44.494140}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='d189e2a4-c8be-4363-bbba-b1387d80de07', payload={timestamp=1776754064505, inputPort=in, tick=649}, timestamp=2026-04-21T15:47:44.505683}
+[p1] done.
+[pub-node] 발행 완료 -> test/pub : {"data":"hello-world"}
+[pub-node] 노드 종료 및 자원 해제 중...
+[p1] processing message...
+[print-p1] {id='4c072c8d-f25f-435a-bff0-bf0e2336cea0', payload={timestamp=1776754064994, inputPort=in, tick=650}, timestamp=2026-04-21T15:47:44.995089}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='773b71e9-14fd-4623-a4f6-346de99ecc3e', payload={timestamp=1776754064998, inputPort=in, tick=325}, timestamp=2026-04-21T15:47:44.999009}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='d2d8e9a1-6d7a-4441-9e51-064b3385b4f3', payload={timestamp=1776754065005, inputPort=in, tick=650}, timestamp=2026-04-21T15:47:45.005249}
+[p1] done.
+[pub-node] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testShutdown" classname="com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests" time="1.424">
+    <system-out><![CDATA[[pub-node] 외부 시스템 연결 성공
+[p1] processing message...
+[print-p1] {id='4421c5c7-7c4f-4db7-b5fd-0f5a3e8bfcd7', payload={timestamp=1776754065493, inputPort=in, tick=651}, timestamp=2026-04-21T15:47:45.494121}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='aadf11e3-3a00-4da1-8356-ddd5a7563a1b', payload={timestamp=1776754065505, inputPort=in, tick=651}, timestamp=2026-04-21T15:47:45.505738}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='3a7b7549-1581-456b-9c6c-b6e0e56ec67f', payload={timestamp=1776754065994, inputPort=in, tick=652}, timestamp=2026-04-21T15:47:45.995001}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='0f36feb8-2237-453d-a15d-0d278c373b7c', payload={timestamp=1776754065998, inputPort=in, tick=326}, timestamp=2026-04-21T15:47:45.998431}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='02c0421e-c9b9-498c-949f-0aa12b714448', payload={timestamp=1776754066001, inputPort=in, tick=652}, timestamp=2026-04-21T15:47:46.001413}
+[p1] done.
+[pub-node] 노드 종료 및 자원 해제 중...
+[p1] processing message...
+[print-p1] {id='1fb969df-a9a0-4025-951f-90f6734a451f', payload={timestamp=1776754066494, inputPort=in, tick=653}, timestamp=2026-04-21T15:47:46.494905}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='b9678805-ae04-40d1-a6d5-d18600df0503', payload={timestamp=1776754066502, inputPort=in, tick=653}, timestamp=2026-04-21T15:47:46.502619}
+[p1] done.
+[pub-node] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testConnect" classname="com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests" time="1.426">
+    <system-out><![CDATA[[pub-node] 외부 시스템 연결 성공
+[p1] processing message...
+[print-p1] {id='d7673752-1834-4554-8ff0-5c50db1145b2', payload={timestamp=1776754066995, inputPort=in, tick=654}, timestamp=2026-04-21T15:47:46.996006}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='32e6ccfd-05a0-48e7-b426-56ebc5241390', payload={timestamp=1776754066999, inputPort=in, tick=327}, timestamp=2026-04-21T15:47:46.999767}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='2d3d2e9c-e5fa-49c3-974d-a2ce519bbf87', payload={timestamp=1776754067005, inputPort=in, tick=654}, timestamp=2026-04-21T15:47:47.005659}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='370af49e-7aff-4b20-9581-572951a1608d', payload={timestamp=1776754067494, inputPort=in, tick=655}, timestamp=2026-04-21T15:47:47.494323}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='d22d1e6f-fd6b-4a96-97c7-3ee3c91df0de', payload={timestamp=1776754067505, inputPort=in, tick=655}, timestamp=2026-04-21T15:47:47.505682}
+[p1] done.
+[pub-node] 노드 종료 및 자원 해제 중...
+[pub-node] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testDynamicTopic" classname="com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests" time="6.842">
+    <failure message="expected: &lt;test/dynamic/target&gt; but was: &lt;null&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <test/dynamic/target> but was: <null>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.fbp.engine.node.MqttPublisherNodeTest$IntegrationTests.testDynamicTopic(MqttPublisherNodeTest.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[[p1] processing message...
+[print-p1] {id='dfa44a1b-5032-4196-87e3-0268c9db651b', payload={timestamp=1776754067995, inputPort=in, tick=656}, timestamp=2026-04-21T15:47:47.996058}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='ce3cbe6c-0410-4aef-9d5c-a881d639241d', payload={timestamp=1776754067999, inputPort=in, tick=328}, timestamp=2026-04-21T15:47:47.999748}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='b037fbd5-3f58-41f5-85de-1c6bc1e9177b', payload={timestamp=1776754068002, inputPort=in, tick=656}, timestamp=2026-04-21T15:47:48.002537}
+[p1] done.
+[pub-node] 외부 시스템 연결 성공
+[p1] processing message...
+[print-p1] {id='7f62b9de-f2df-4c1c-9cee-db7ffcaaa6d8', payload={timestamp=1776754068493, inputPort=in, tick=657}, timestamp=2026-04-21T15:47:48.493579}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='3db87cc9-c23b-4052-aeec-433616de9edd', payload={timestamp=1776754068501, inputPort=in, tick=657}, timestamp=2026-04-21T15:47:48.501816}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='7cd15536-162e-4ae2-80de-7b361685c729', payload={timestamp=1776754068994, inputPort=in, tick=658}, timestamp=2026-04-21T15:47:48.994391}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='d67ece3e-7bfb-4480-ba95-d0e41d203b7a', payload={timestamp=1776754068998, inputPort=in, tick=329}, timestamp=2026-04-21T15:47:48.998063}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='7f6e266f-03ac-4935-b210-7efcba111688', payload={timestamp=1776754069002, inputPort=in, tick=658}, timestamp=2026-04-21T15:47:49.002269}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='c6b6819f-cc05-4363-b91f-524eda2c2049', payload={timestamp=1776754069494, inputPort=in, tick=659}, timestamp=2026-04-21T15:47:49.494302}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='b440f4d4-b764-4186-8d0d-2bacc0a37096', payload={timestamp=1776754069505, inputPort=in, tick=659}, timestamp=2026-04-21T15:47:49.505673}
+[p1] done.
+[pub-node] 발행 완료 -> test/pub : {"topic":"test/dynamic/target","msg":"ok"}
+[p1] processing message...
+[print-p1] {id='d662db9d-2c89-486d-8975-454bd342d515', payload={timestamp=1776754069995, inputPort=in, tick=660}, timestamp=2026-04-21T15:47:49.995675}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='5232f7cd-45e7-4572-a8c8-8f323cfdc1a9', payload={timestamp=1776754069998, inputPort=in, tick=330}, timestamp=2026-04-21T15:47:49.998859}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='cb710fda-77ba-46b5-bff4-4dc3c4734058', payload={timestamp=1776754070005, inputPort=in, tick=660}, timestamp=2026-04-21T15:47:50.005677}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='08ea4a83-7487-4bdf-89f8-f0fc16b73392', payload={timestamp=1776754070494, inputPort=in, tick=661}, timestamp=2026-04-21T15:47:50.494398}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='47dd3088-6d7a-4586-9f0d-f0b0fef33ac2', payload={timestamp=1776754070505, inputPort=in, tick=661}, timestamp=2026-04-21T15:47:50.505666}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='54a82416-35c7-4d43-b839-7e2337f2bf22', payload={timestamp=1776754070995, inputPort=in, tick=662}, timestamp=2026-04-21T15:47:50.996097}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='e71ee3d2-183e-414f-9382-0ab46f1f60c1', payload={timestamp=1776754070996, inputPort=in, tick=331}, timestamp=2026-04-21T15:47:50.996674}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='85a93868-56c0-4127-9d99-ec42bd00a71f', payload={timestamp=1776754071005, inputPort=in, tick=662}, timestamp=2026-04-21T15:47:51.005659}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='8bea390e-ebc0-4a03-baf7-8cd1fec3a2f0', payload={timestamp=1776754071495, inputPort=in, tick=663}, timestamp=2026-04-21T15:47:51.496101}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='af7713ee-116f-4e88-9b9b-e16f6bae1211', payload={timestamp=1776754071505, inputPort=in, tick=663}, timestamp=2026-04-21T15:47:51.505679}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='0deb707c-9f68-4bfa-8d0d-e9bb3daaa343', payload={timestamp=1776754071995, inputPort=in, tick=664}, timestamp=2026-04-21T15:47:51.996051}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='7bacbc92-f145-4ef4-94d1-71d3ec00e626', payload={timestamp=1776754071997, inputPort=in, tick=332}, timestamp=2026-04-21T15:47:51.997876}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='db0f7c82-57db-4dfb-ad65-6b57613ad086', payload={timestamp=1776754072002, inputPort=in, tick=664}, timestamp=2026-04-21T15:47:52.002740}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='41bef10c-1647-4b1d-814c-e6f3913453c0', payload={timestamp=1776754072495, inputPort=in, tick=665}, timestamp=2026-04-21T15:47:52.496063}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='a049a965-512b-44e2-abf8-ccd249ceb62a', payload={timestamp=1776754072503, inputPort=in, tick=665}, timestamp=2026-04-21T15:47:52.503567}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='0ac718b3-a815-4771-a5ed-c3d51c9f9580', payload={timestamp=1776754072995, inputPort=in, tick=666}, timestamp=2026-04-21T15:47:52.996078}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='dcd3bd17-ea34-4815-bd18-33935112a53a', payload={timestamp=1776754072998, inputPort=in, tick=333}, timestamp=2026-04-21T15:47:52.998809}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='9eea74d8-d723-407b-9b0d-e1cd0ffd0365', payload={timestamp=1776754073001, inputPort=in, tick=666}, timestamp=2026-04-21T15:47:53.001688}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='ebe1285e-efe6-468c-a764-4cd1f9706c15', payload={timestamp=1776754073495, inputPort=in, tick=667}, timestamp=2026-04-21T15:47:53.496118}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='26564f7d-6246-4613-b840-5b8aa6bff951', payload={timestamp=1776754073501, inputPort=in, tick=667}, timestamp=2026-04-21T15:47:53.501624}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='b72773d4-959a-4e64-a40f-cd0f8e9c9ec2', payload={timestamp=1776754073993, inputPort=in, tick=668}, timestamp=2026-04-21T15:47:53.993483}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='49423f55-4451-4b4a-8cee-0265e86f9a29', payload={timestamp=1776754073995, inputPort=in, tick=334}, timestamp=2026-04-21T15:47:53.995703}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='7543726e-2b15-432d-9c2a-5c966a6d6dac', payload={timestamp=1776754074001, inputPort=in, tick=668}, timestamp=2026-04-21T15:47:54.001808}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='4bbd7a28-89cc-43c5-b9c4-573875b7be70', payload={timestamp=1776754074496, inputPort=in, tick=669}, timestamp=2026-04-21T15:47:54.496259}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='90bf05c7-62ac-451b-8fde-305c0231c276', payload={timestamp=1776754074502, inputPort=in, tick=669}, timestamp=2026-04-21T15:47:54.502735}
+[p1] done.
+]]></system-out>
+  </testcase>
+</testsuite>

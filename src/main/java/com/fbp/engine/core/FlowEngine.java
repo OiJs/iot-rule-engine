@@ -2,6 +2,7 @@ package com.fbp.engine.core;
 
 import com.fbp.engine.core.Flow.FlowState;
 import com.fbp.engine.message.Message;
+import com.fbp.engine.metrics.MetricsCollector;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,7 @@ public class FlowEngine {
     private final Map<String, Flow> flows;
     private State state;
     private final ExecutorService executorService;
+    private final MetricsCollector collector = new MetricsCollector();
 
     public FlowEngine() {
         this.flows = new HashMap<>();
@@ -28,11 +30,17 @@ public class FlowEngine {
     }
 
     public void register(Flow flow) {
+        flow.setCollector(this.collector);
         flows.put(flow.getId(), flow);
         System.out.println("[Engine] 플로우 '" + flow.getId() + "' 등록됨");
     }
 
-    public void startFlow(String flowId){
+    public void unRegister(Flow flow) {
+        flows.remove(flow.getId());
+    }
+
+
+    public void startFlow(String flowId) {
         Flow flow = flows.get(flowId);
         if (flow == null) {
             throw new IllegalArgumentException("존재하지 않는 플로우 ID: " + flowId);
@@ -42,26 +50,37 @@ public class FlowEngine {
         if (!errors.isEmpty()) {
             throw new IllegalStateException("플로우 검증 실패: " + errors);
         }
+
         flow.initialize();
 
-        for(Connection conn : flow.getConnections()) {
+        // [수정] 재귀적으로 모든 커넥션(서브플로우 포함)을 찾아 스레드 풀에 등록
+        registerConnectionWorkers(flow);
+
+        flow.setFlowState(FlowState.RUNNING);
+        this.state = State.RUNNING;
+        System.out.println("[Engine] 플로우 '" + flowId + "' 시작됨");
+    }
+
+    private void registerConnectionWorkers(Flow flow) {
+        for (Connection conn : flow.getConnections()) {
             executorService.submit(() -> {
                 while (!Thread.currentThread().isInterrupted()) {
-
                     Message msg = conn.poll();
-                    if(msg != null && conn.getTarget() != null) {
+                    if (msg != null && conn.getTarget() != null) {
                         conn.getTarget().receive(msg);
+                    } else {
+                        Thread.yield();
                     }
                 }
             });
         }
 
-        flow.setFlowState(FlowState.RUNNING);
-        this.state = State.RUNNING;
-
-        System.out.println("[Engine] 플로우 '" + flowId + "' 시작됨");
+        flow.getNodes().values().forEach(node -> {
+            if (node instanceof com.fbp.engine.flow.SubFlowNode subflow) {
+                registerConnectionWorkers(subflow.getInternalFlow());
+            }
+        });
     }
-
     public void stopFlow(String flowId) {
         Flow flow = flows.get(flowId);
         if (flow != null) {

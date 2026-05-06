@@ -1,0 +1,21 @@
+FC 03 읽기 요청
+byte[] readRequest = {
+    0x00, 0x01,             // Transaction ID
+    0x00, 0x00,             // Protocol ID
+    0x00, 0x06,             // Length
+    0x01,                   // Unit ID
+    0x03,                   // Function Code (Read)
+    0x00, 0x0A,             // Start Address (10)
+    0x00, 0x05              // Quantity (5)
+};
+
+FC 06 쓰기 요청
+byte[] writeRequest = {
+    0x00, 0x02,             // Transaction ID
+    0x00, 0x00,             // Protocol ID
+    0x00, 0x06,             // Length
+    0x01,                   // Unit ID
+    0x06,                   // Function Code (Write)
+    0x00, 0x05,             // Address (5)
+    0x04, (byte)0xD2        // Value (1234)
+};

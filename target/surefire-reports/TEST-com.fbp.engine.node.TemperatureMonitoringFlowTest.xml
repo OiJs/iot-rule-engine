@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="3.037" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="3.027" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260408151122844_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-08T15-11-22_027-jvmRun1 surefire-20260408151122844_1tmp surefire_0-20260408151122844_2tmp"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/junseo"/>
     <property name="user.language" value="ko"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260408151122844_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -59,7 +59,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test3_TotalMessageCount" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.01">
+  <testcase name="test3_TotalMessageCount" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.009">
     <system-out><![CDATA[[Engine] 플로우 'temp-monitoring' 등록됨
 [filter] initialized.
 [normal-collector] initialized.
@@ -74,32 +74,32 @@
 [filter] done.
 [filter] processing message...
 [filter] done.
+[normal-collector] processing message...
 [filter] processing message...
 [filter] done.
-[alert-collector] processing message...
-[alert-collector] done.
-[alert-collector] processing message...
-[normal-collector] processing message...
-[alert-collector] done.
 [normal-collector] done.
-[alert-collector] processing message...
 [normal-collector] processing message...
 [normal-collector] done.
+[normal-collector] processing message...
+[normal-collector] done.
+[alert-collector] processing message...
 [alert-collector] done.
+[normal-collector] processing message...
+[normal-collector] done.
 [p1] processing message...
-[print-p1] {id='8223e218-c2bc-49f1-88ca-bfa766fd8ba8', payload={inputPort=in, timestamp=1775628687671, tick=9}, timestamp=2026-04-08T15:11:27.672148}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='d44dec30-0d9f-4d05-a1cf-e97b1fbb610d', payload={inputPort=in, timestamp=1775628687683, tick=9}, timestamp=2026-04-08T15:11:27.683710}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='9b77006b-6c66-4990-8796-a7e70c379f6a', payload={inputPort=in, timestamp=1775628688176, tick=10}, timestamp=2026-04-08T15:11:28.177246}
+[print-p1] {id='380746ca-5f5b-4f77-a838-f173fb276690', payload={timestamp=1776754076994, inputPort=in, tick=674}, timestamp=2026-04-21T15:47:56.995137}
 [p1] done.
 [p2] processing message...
-[print-p2] {id='63d6545c-8d67-444f-986c-21ca9eab0f76', payload={inputPort=in, timestamp=1775628688180, tick=5}, timestamp=2026-04-08T15:11:28.180714}
+[print-p2] {id='c48979e8-7ae4-4867-993f-884f6aa25660', payload={timestamp=1776754077000, inputPort=in, tick=337}, timestamp=2026-04-21T15:47:57.000451}
 [p2] done.
 [p1] processing message...
-[print-p1] {id='067cb33b-f16c-4b84-8561-8d85b7b8acad', payload={inputPort=in, timestamp=1775628688180, tick=10}, timestamp=2026-04-08T15:11:28.181062}
+[print-p1] {id='0f101bda-a129-44df-a480-5a4f18c6ff34', payload={timestamp=1776754077005, inputPort=in, tick=674}, timestamp=2026-04-21T15:47:57.005688}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='9d7c5008-819c-4bd4-9977-b3ed987ec707', payload={timestamp=1776754077492, inputPort=in, tick=675}, timestamp=2026-04-21T15:47:57.492678}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='dbbae3ee-c8fe-4377-8a62-c22dad629e43', payload={timestamp=1776754077502, inputPort=in, tick=675}, timestamp=2026-04-21T15:47:57.503063}
 [p1] done.
 [filter] shutdown.
 [normal-collector] shutdown.
@@ -107,7 +107,7 @@
 [sensor] shutdown.
 ]]></system-out>
   </testcase>
-  <testcase name="test2_NormalPathValidation" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.012">
+  <testcase name="test2_NormalPathValidation" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.005">
     <system-out><![CDATA[[Engine] 플로우 'temp-monitoring' 등록됨
 [filter] initialized.
 [normal-collector] initialized.
@@ -118,36 +118,36 @@
 [filter] done.
 [filter] processing message...
 [filter] done.
-[alert-collector] processing message...
-[alert-collector] done.
 [filter] processing message...
 [filter] done.
 [filter] processing message...
+[filter] done.
+[filter] processing message...
+[filter] done.
 [normal-collector] processing message...
-[filter] done.
 [normal-collector] done.
 [normal-collector] processing message...
-[filter] processing message...
 [normal-collector] done.
-[filter] done.
 [alert-collector] processing message...
+[normal-collector] processing message...
+[normal-collector] done.
 [alert-collector] done.
-[alert-collector] processing message...
-[alert-collector] done.
+[normal-collector] processing message...
+[normal-collector] done.
 [p1] processing message...
-[print-p1] {id='510fe5fe-2557-4913-93c5-d315deb3f9ea', payload={inputPort=in, timestamp=1775628688675, tick=11}, timestamp=2026-04-08T15:11:28.676335}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='5f94c8e2-5741-4c33-bb98-09129a4b8b13', payload={inputPort=in, timestamp=1775628688679, tick=11}, timestamp=2026-04-08T15:11:28.680013}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='12ce2af1-773d-49bb-b4cc-c506a966082a', payload={inputPort=in, timestamp=1775628689177, tick=12}, timestamp=2026-04-08T15:11:29.178087}
+[print-p1] {id='e4212157-3ce1-49f2-9086-551248f5e6f7', payload={timestamp=1776754077991, inputPort=in, tick=676}, timestamp=2026-04-21T15:47:57.991279}
 [p1] done.
 [p2] processing message...
-[print-p2] {id='f6d420d6-8ef4-4c79-a308-cdb461d4c8f2', payload={inputPort=in, timestamp=1775628689179, tick=6}, timestamp=2026-04-08T15:11:29.179652}
+[print-p2] {id='b2af57b4-a7c7-4d6b-9ff7-27c501e732b5', payload={timestamp=1776754077999, inputPort=in, tick=338}, timestamp=2026-04-21T15:47:57.999128}
 [p2] done.
 [p1] processing message...
-[print-p1] {id='9e303c6f-1cb1-4f5b-9dde-f52b36a8a6d6', payload={inputPort=in, timestamp=1775628689183, tick=12}, timestamp=2026-04-08T15:11:29.183980}
+[print-p1] {id='0dffe9fd-8329-417a-8cc9-b13927b79adb', payload={timestamp=1776754078005, inputPort=in, tick=676}, timestamp=2026-04-21T15:47:58.005714}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='90d71362-3413-43f4-9f35-c1928daa1967', payload={timestamp=1776754078496, inputPort=in, tick=677}, timestamp=2026-04-21T15:47:58.496523}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='d227ed5b-0389-4c11-b188-d8cb2e0a3d08', payload={timestamp=1776754078504, inputPort=in, tick=677}, timestamp=2026-04-21T15:47:58.504603}
 [p1] done.
 [filter] shutdown.
 [normal-collector] shutdown.
@@ -155,7 +155,7 @@
 [sensor] shutdown.
 ]]></system-out>
   </testcase>
-  <testcase name="test1_AlertPathValidation" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.011">
+  <testcase name="test1_AlertPathValidation" classname="com.fbp.engine.node.TemperatureMonitoringFlowTest" time="1.009">
     <system-out><![CDATA[[Engine] 플로우 'temp-monitoring' 등록됨
 [filter] initialized.
 [normal-collector] initialized.
@@ -166,36 +166,36 @@
 [filter] done.
 [filter] processing message...
 [filter] done.
+[filter] processing message...
+[filter] done.
 [alert-collector] processing message...
 [filter] processing message...
 [alert-collector] done.
 [filter] done.
+[normal-collector] processing message...
+[normal-collector] done.
 [filter] processing message...
+[filter] done.
 [alert-collector] processing message...
-[filter] done.
 [alert-collector] done.
-[filter] processing message...
-[normal-collector] processing message...
-[filter] done.
-[normal-collector] done.
-[normal-collector] processing message...
-[normal-collector] done.
-[normal-collector] processing message...
-[normal-collector] done.
+[alert-collector] processing message...
+[alert-collector] done.
+[alert-collector] processing message...
+[alert-collector] done.
 [p1] processing message...
-[print-p1] {id='7c0cd529-6703-4921-a840-9a7b76671090', payload={inputPort=in, timestamp=1775628689674, tick=13}, timestamp=2026-04-08T15:11:29.674513}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='354b16e1-da39-44c3-b661-fe5bfdcae813', payload={inputPort=in, timestamp=1775628689682, tick=13}, timestamp=2026-04-08T15:11:29.682493}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='51a70e5c-4602-4b2c-a04d-acaa03f3c44b', payload={inputPort=in, timestamp=1775628690175, tick=14}, timestamp=2026-04-08T15:11:30.176225}
+[print-p1] {id='7a26f7a6-d2a1-4257-9c80-fb6a48f9c840', payload={timestamp=1776754078993, inputPort=in, tick=678}, timestamp=2026-04-21T15:47:58.994128}
 [p1] done.
 [p2] processing message...
-[print-p2] {id='7102749c-72f6-45ec-aac6-88932a9f2317', payload={inputPort=in, timestamp=1775628690180, tick=7}, timestamp=2026-04-08T15:11:30.180875}
+[print-p2] {id='e1ba7c78-d56d-4b9c-8ea8-a613dea9e55d', payload={timestamp=1776754078999, inputPort=in, tick=339}, timestamp=2026-04-21T15:47:58.999549}
 [p2] done.
 [p1] processing message...
-[print-p1] {id='826ce00c-6b8c-42e1-98e7-40d18fa6aa7f', payload={inputPort=in, timestamp=1775628690183, tick=14}, timestamp=2026-04-08T15:11:30.184539}
+[print-p1] {id='0376acc9-6051-4b58-84a1-73d6df34a81d', payload={timestamp=1776754079001, inputPort=in, tick=678}, timestamp=2026-04-21T15:47:59.001569}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='6e46e6f1-9f42-455b-a6d9-6946a55e2d66', payload={timestamp=1776754079496, inputPort=in, tick=679}, timestamp=2026-04-21T15:47:59.496287}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='66b09aa3-18b4-4a31-9504-32077bc20d3f', payload={timestamp=1776754079500, inputPort=in, tick=679}, timestamp=2026-04-21T15:47:59.500977}
 [p1] done.
 [filter] shutdown.
 [normal-collector] shutdown.

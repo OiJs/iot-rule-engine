@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.ModbusWriterNodeTest" time="0.939" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="test2_InitialState" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.103">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[p1] processing message...
+[print-p1] {id='cb5afb71-34fc-4e41-80cd-0b9185b57655', payload={timestamp=1776754084495, inputPort=in, tick=689}, timestamp=2026-04-21T15:48:04.495096}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='175c74c3-5df2-4ebc-a8dd-94d88711248b', payload={timestamp=1776754084505, inputPort=in, tick=689}, timestamp=2026-04-21T15:48:04.505638}
+[p1] done.
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test3_ConfigVerification" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.102">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test1_PortConfiguration" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.106">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test7_ShutdownDisconnection" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.103">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[writer] 외부 시스템 연결 성공
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test4_ConnectionSuccess" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.107">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[writer] 외부 시스템 연결 성공
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test5_RegisterWrite" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.209">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[p1] processing message...
+[print-p1] {id='0ef463a0-cad7-4808-ae16-9550f67e4e00', payload={timestamp=1776754084994, inputPort=in, tick=690}, timestamp=2026-04-21T15:48:04.994570}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='fd9e30fa-46b2-4cc6-b06f-9efa9af4ff82', payload={timestamp=1776754084998, inputPort=in, tick=345}, timestamp=2026-04-21T15:48:04.998100}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='33609eb1-a068-4fbb-a3ca-04dea9fb49dc', payload={timestamp=1776754085004, inputPort=in, tick=690}, timestamp=2026-04-21T15:48:05.004199}
+[p1] done.
+[writer] 외부 시스템 연결 성공
+[ModbusWriter] Node: writer, Addr: 5, Val: 777 Write Success
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+클라이언트 연결 종료
+]]></system-out>
+  </testcase>
+  <testcase name="test6_ScaleTransformation" classname="com.fbp.engine.node.ModbusWriterNodeTest" time="0.209">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5027)
+[writer] 외부 시스템 연결 성공
+[ModbusWriter] Node: writer, Addr: 2, Val: 255 Write Success
+[writer] 노드 종료 및 자원 해제 중...
+[writer] 연결이 안전하게 종료되었습니다.
+클라이언트 연결 종료
+]]></system-out>
+  </testcase>
+</testsuite>

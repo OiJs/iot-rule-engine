@@ -4,7 +4,7 @@ import com.fbp.engine.core.Flow;
 import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.node.LogNode;
 
-import com.fbp.engine.node.io.MqttSubscriberNode;
+import com.fbp.engine.node.mqtt.MqttSubscriberNode;
 import java.util.Map;
 
 public class MqttSubscriberNodeFlow {

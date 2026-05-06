@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.fbp.engine.Integration.CrossProtocolTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 300.1 s <<< FAILURE! -- in com.fbp.engine.Integration.CrossProtocolTest
+com.fbp.engine.Integration.CrossProtocolTest.testMqttToModbus -- Time elapsed: 0.019 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.fbp.engine.core.FlowEngine.register(com.fbp.engine.core.Flow)" because "this.engine" is null
+	at com.fbp.engine.Integration.CrossProtocolTest.testMqttToModbus(CrossProtocolTest.java:31)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

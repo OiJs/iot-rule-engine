@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.MqttSubscriberNodeTest$IntegrationTests" time="3.794" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testPortConfig" classname="com.fbp.engine.node.MqttSubscriberNodeTest" time="0.0"/>
+  <testcase name="testInitialState" classname="com.fbp.engine.node.MqttSubscriberNodeTest" time="0.0"/>
+  <testcase name="testConfig" classname="com.fbp.engine.node.MqttSubscriberNodeTest" time="0.001"/>
+  <testcase name="testConnect" classname="com.fbp.engine.node.MqttSubscriberNodeTest$IntegrationTests" time="1.429">
+    <system-out><![CDATA[[sub-node] 브로커 연결 성공: tcp://localhost:1883
+[sub-node] 'test/sub' 구독 시작 (QoS: 1)
+[sub-node] 외부 시스템 연결 성공
+[p1] processing message...
+[print-p1] {id='13e0f635-99a3-4fb2-8f26-01c5e1d66906', payload={timestamp=1776754080994, inputPort=in, tick=682}, timestamp=2026-04-21T15:48:00.995096}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='5c713bdb-b972-4aa5-abbe-4a230626a06a', payload={timestamp=1776754080999, inputPort=in, tick=341}, timestamp=2026-04-21T15:48:00.999894}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='46882dde-7271-4536-9e46-4b74754ed6a4', payload={timestamp=1776754081004, inputPort=in, tick=682}, timestamp=2026-04-21T15:48:01.004335}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='ee97b557-bcaa-4f55-b8ed-17402f3bd2d9', payload={timestamp=1776754081496, inputPort=in, tick=683}, timestamp=2026-04-21T15:48:01.496297}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='8d493157-712c-466e-97f5-65d378f15a23', payload={timestamp=1776754081505, inputPort=in, tick=683}, timestamp=2026-04-21T15:48:01.505910}
+[p1] done.
+[sub-node] 노드 종료 및 자원 해제 중...
+[p1] processing message...
+[print-p1] {id='3c7d0bf2-af3a-4f2f-b0c2-c46763ca54b7', payload={timestamp=1776754081994, inputPort=in, tick=684}, timestamp=2026-04-21T15:48:01.994883}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='b3419c14-3ceb-4178-bcd2-3e746a0cffb4', payload={timestamp=1776754081999, inputPort=in, tick=342}, timestamp=2026-04-21T15:48:01.999870}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='6bba2283-969f-4344-b2ac-f91db8fc8a6c', payload={timestamp=1776754082002, inputPort=in, tick=684}, timestamp=2026-04-21T15:48:02.002693}
+[p1] done.
+[sub-node] MQTT 클라이언트 종료.
+[sub-node] 연결이 안전하게 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testMessageReceive" classname="com.fbp.engine.node.MqttSubscriberNodeTest$IntegrationTests" time="2.363">
+    <system-out><![CDATA[[Engine] 플로우 'test-flow' 등록됨
+[sub-node] 브로커 연결 성공: tcp://localhost:1883
+[sub-node] 'test/sub' 구독 시작 (QoS: 1)
+[sub-node] 외부 시스템 연결 성공
+[collector] initialized.
+[Engine] 플로우 'test-flow' 시작됨
+[p1] processing message...
+[print-p1] {id='26597d23-a43d-4073-ad9f-15f5ec9f586a', payload={timestamp=1776754082494, inputPort=in, tick=685}, timestamp=2026-04-21T15:48:02.495213}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='c2b04c19-2b5c-43be-8d97-474820d252d1', payload={timestamp=1776754082504, inputPort=in, tick=685}, timestamp=2026-04-21T15:48:02.504358}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='90813f45-aea2-4b6c-b0b5-81945595fd0f', payload={timestamp=1776754082995, inputPort=in, tick=343}, timestamp=2026-04-21T15:48:02.996627}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='fba49c71-6417-45d0-a7bb-690870f71f13', payload={timestamp=1776754082996, inputPort=in, tick=686}, timestamp=2026-04-21T15:48:02.996850}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='326186d0-86c9-4e4c-9157-2bf5d92fc4e7', payload={timestamp=1776754083005, inputPort=in, tick=686}, timestamp=2026-04-21T15:48:03.005973}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='dcd2e70b-9b6e-4953-ab55-3c7ffb2acfff', payload={timestamp=1776754083495, inputPort=in, tick=687}, timestamp=2026-04-21T15:48:03.495518}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='82cdab55-a997-41f0-be0e-ec302d61d059', payload={timestamp=1776754083505, inputPort=in, tick=687}, timestamp=2026-04-21T15:48:03.505760}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='f2518c2d-55a4-4c62-b2ce-32ef206738c3', payload={timestamp=1776754083996, inputPort=in, tick=688}, timestamp=2026-04-21T15:48:03.996411}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='a29ab8a2-6839-4e3a-a94d-ad2f74477d8c', payload={timestamp=1776754083998, inputPort=in, tick=344}, timestamp=2026-04-21T15:48:03.998681}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='a8e3ce5f-d562-4e89-a638-148fbb38aaa0', payload={timestamp=1776754084002, inputPort=in, tick=688}, timestamp=2026-04-21T15:48:04.003129}
+[p1] done.
+[Test] 메시지 발행 완료
+[sub-node] 메시지 수신 및 전달 완료 (Topic: test/sub)
+[collector] processing message...
+[MessageCollector] 메시지 수집 완료!
+[collector] done.
+[sub-node] 노드 종료 및 자원 해제 중...
+[sub-node] MQTT 클라이언트 종료.
+[sub-node] 연결이 안전하게 종료되었습니다.
+[collector] shutdown.
+[Engine] 플로우 'test-flow' 정지됨
+]]></system-out>
+  </testcase>
+</testsuite>

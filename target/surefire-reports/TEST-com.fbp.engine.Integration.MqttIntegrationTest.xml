@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.Integration.MqttIntegrationTest" time="5.187" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testMqttToModbus" classname="com.fbp.engine.Integration.MqttIntegrationTest" time="2.386">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5026)
+[Engine] 플로우 'cross' 등록됨
+[p1] processing message...
+[print-p1] {id='376c50c6-46b2-4314-aeaa-67ea4673418d', payload={timestamp=1776753741495, inputPort=in, tick=3}, timestamp=2026-04-21T15:42:21.495501}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='d992c1c2-099e-4115-8448-8ff39147c529', payload={timestamp=1776753741504, inputPort=in, tick=3}, timestamp=2026-04-21T15:42:21.504939}
+[p1] done.
+[sub] 브로커 연결 성공: tcp://localhost:1883
+[sub] 'cmd' 구독 시작 (QoS: 1)
+[sub] 외부 시스템 연결 성공
+[rule] initialized.
+[writer] 외부 시스템 연결 성공
+[Engine] 플로우 'cross' 시작됨
+[rule] processing message...
+[sub] 메시지 수신 및 전달 완료 (Topic: cmd)
+[rule] done.
+[writer] processing message...
+[ModbusWriter] Node: writer, Addr: 15, Val: 1 Write Success
+[writer] done.
+[p1] processing message...
+[print-p1] {id='b18bdf20-5fd4-4147-ab19-d95a8e5542a9', payload={timestamp=1776753741992, inputPort=in, tick=4}, timestamp=2026-04-21T15:42:21.992386}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='14ee388e-649e-4fcf-bac7-4c05ff8c745a', payload={timestamp=1776753741998, inputPort=in, tick=2}, timestamp=2026-04-21T15:42:21.998591}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='edce19fc-ad63-4e61-9050-1dcb1ec64a2a', payload={timestamp=1776753742003, inputPort=in, tick=4}, timestamp=2026-04-21T15:42:22.003308}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='10079baa-a774-4657-979b-0cef02a47889', payload={timestamp=1776753742495, inputPort=in, tick=5}, timestamp=2026-04-21T15:42:22.496106}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='cf5be7a2-1c37-4e01-b621-b1a5b7b5a229', payload={timestamp=1776753742503, inputPort=in, tick=5}, timestamp=2026-04-21T15:42:22.504226}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='f3a22b13-b0c4-42b1-a54c-aeab831612f1', payload={timestamp=1776753742992, inputPort=in, tick=6}, timestamp=2026-04-21T15:42:22.993107}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='60e33bbf-5b00-47b5-8587-fd8d8453b229', payload={timestamp=1776753742998, inputPort=in, tick=3}, timestamp=2026-04-21T15:42:22.999345}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='09c77a29-a2b8-478b-b9bf-1cdae7bc30ef', payload={timestamp=1776753743003, inputPort=in, tick=6}, timestamp=2026-04-21T15:42:23.003796}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='06b5687d-8254-4a48-b52c-91ccfdb23bc6', payload={timestamp=1776753743495, inputPort=in, tick=7}, timestamp=2026-04-21T15:42:23.495385}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='e9393e0e-4697-41b1-9b08-993e0ddba82b', payload={timestamp=1776753743501, inputPort=in, tick=7}, timestamp=2026-04-21T15:42:23.501869}
+[p1] done.
+]]></system-out>
+  </testcase>
+  <testcase name="testQos1" classname="com.fbp.engine.Integration.MqttIntegrationTest" time="0.323">
+    <system-out><![CDATA[[qos] 외부 시스템 연결 성공
+[qos] processing message...
+[qos] 발행 완료 -> qos/t : {"data":"qos1"}
+[qos] done.
+]]></system-out>
+    <system-err><![CDATA[java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.Net.bind(Net.java:554)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
+	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+]]></system-err>
+  </testcase>
+  <testcase name="testWildcard" classname="com.fbp.engine.Integration.MqttIntegrationTest" time="2.158">
+    <system-out><![CDATA[[Engine] 플로우 'f2' 등록됨
+[p1] processing message...
+[print-p1] {id='442b6a9b-6ada-4b2b-814e-627f02dc3d1d', payload={timestamp=1776753743994, inputPort=in, tick=8}, timestamp=2026-04-21T15:42:23.994626}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='5a067132-6daa-468d-b160-3b672c96bead', payload={timestamp=1776753743994, inputPort=in, tick=4}, timestamp=2026-04-21T15:42:23.994778}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='0c324f43-d40b-4ecd-9c81-d0304e9c614c', payload={timestamp=1776753744001, inputPort=in, tick=8}, timestamp=2026-04-21T15:42:24.001625}
+[p1] done.
+[wild] 브로커 연결 성공: tcp://localhost:1883
+[wild] 'sensor/+' 구독 시작 (QoS: 1)
+[wild] 외부 시스템 연결 성공
+[collector] initialized.
+[Engine] 플로우 'f2' 시작됨
+[p1] processing message...
+[print-p1] {id='c1e450dd-b3e3-446a-8087-a92a0bf7fa66', payload={timestamp=1776753744492, inputPort=in, tick=9}, timestamp=2026-04-21T15:42:24.492497}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='4b126a94-9d2c-4b3c-9bbc-88fc6d73e131', payload={timestamp=1776753744499, inputPort=in, tick=9}, timestamp=2026-04-21T15:42:24.499911}
+[p1] done.
+[wild] 메시지 수신 및 전달 완료 (Topic: sensor/temp)
+[collector] processing message...
+[collector] done.
+[wild] 메시지 수신 및 전달 완료 (Topic: sensor/humi)
+[collector] processing message...
+[collector] done.
+[p1] processing message...
+[print-p1] {id='c723f4d2-24f6-4466-8327-f0cd3de85b30', payload={timestamp=1776753744995, inputPort=in, tick=10}, timestamp=2026-04-21T15:42:24.995415}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='f0dd8224-b156-49d2-b0f8-343741465c98', payload={timestamp=1776753744998, inputPort=in, tick=5}, timestamp=2026-04-21T15:42:24.998971}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='411655d1-543c-40fa-a8c6-7aeda3c4105a', payload={timestamp=1776753745004, inputPort=in, tick=10}, timestamp=2026-04-21T15:42:25.004941}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='03fedca6-59c4-4444-934b-3f8aec39e582', payload={timestamp=1776753745492, inputPort=in, tick=11}, timestamp=2026-04-21T15:42:25.493021}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='92f337f7-cd3f-4346-848e-bec9205a1454', payload={timestamp=1776753745501, inputPort=in, tick=11}, timestamp=2026-04-21T15:42:25.501347}
+[p1] done.
+[p2] processing message...
+[print-p2] {id='34b0dd67-f23b-478d-aa24-6b69603b22c3', payload={timestamp=1776753745994, inputPort=in, tick=6}, timestamp=2026-04-21T15:42:25.996069}
+[p2] done.
+[p1] processing message...
+[print-p1] {id='4937afa5-ac7a-4cb0-9400-049d7f59bfdd', payload={timestamp=1776753745995, inputPort=in, tick=12}, timestamp=2026-04-21T15:42:25.996581}
+[p1] done.
+[p1] processing message...
+[print-p1] {id='9551f541-52eb-46d8-9eca-57ed67ba1840', payload={timestamp=1776753746005, inputPort=in, tick=12}, timestamp=2026-04-21T15:42:26.005794}
+[p1] done.
+]]></system-out>
+    <system-err><![CDATA[java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.Net.bind(Net.java:554)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
+	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+]]></system-err>
+  </testcase>
+  <testcase name="testReconnection" classname="com.fbp.engine.Integration.MqttIntegrationTest" time="0.315">
+    <system-out><![CDATA[[recon] 브로커 연결 성공: tcp://localhost:1883
+[recon] 't' 구독 시작 (QoS: 1)
+[recon] 외부 시스템 연결 성공
+]]></system-out>
+    <system-err><![CDATA[java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.Net.bind(Net.java:554)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
+	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+]]></system-err>
+  </testcase>
+</testsuite>

@@ -8,6 +8,7 @@ import lombok.Getter;
 public class DefaultOutputPort implements OutputPort{
     @Getter
     private final String name;
+    @Getter
     private final List<Connection> connectionList;
 
     public DefaultOutputPort(String name) {

@@ -5,7 +5,7 @@ import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.node.TemperatureSensorNode;
 import com.fbp.engine.node.TimerNode;
 
-import com.fbp.engine.node.io.MqttPublisherNode;
+import com.fbp.engine.node.mqtt.MqttPublisherNode;
 import java.util.Map;
 
 public class MqttPublisherNodeFlow {
