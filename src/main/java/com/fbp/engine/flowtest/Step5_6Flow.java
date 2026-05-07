@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.FilterNode;
 import com.fbp.engine.node.PrintNode;
@@ -14,8 +14,8 @@ public class Step5_6Flow {
         FilterNode filter = new FilterNode("filter", "tick", 3.0);
         PrintNode printer = new PrintNode("printer");
 
-        Connection conn1 = new Connection("timer-to-filter");
-        Connection conn2 = new Connection("filter-to-print");
+        LocalConnection conn1 = new LocalConnection("timer-to-filter");
+        LocalConnection conn2 = new LocalConnection("filter-to-print");
 
         timer.getOutputPort("out").connect(conn1);
         filter.getOutputPort("out").connect(conn2);

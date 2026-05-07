@@ -40,7 +40,7 @@ class SubFlowNodeTest {
     }
 
     private void driveInternalFlow() {
-        for (Connection conn : internalFlow.getConnections()) {
+        for (LocalConnection conn : internalFlow.getConnections()) {
             executor.submit(() -> {
                 while (!Thread.currentThread().isInterrupted()) {
                     Message msg = conn.poll();
@@ -67,7 +67,7 @@ class SubFlowNodeTest {
 
         SubFlowNode subflow = new SubFlowNode("sub", internalFlow, inputMapping, outputMapping);
 
-        subflow.getOutputPort("ext-out").connect(new Connection("test-conn") {
+        subflow.getOutputPort("ext-out").connect(new LocalConnection("test-conn") {
             @Override public void deliver(Message m) { latch.countDown(); }
         });
 
@@ -145,7 +145,7 @@ class SubFlowNodeTest {
         inputMapping.put("in", "faulty:in");
 
         SubFlowNode subflow = new SubFlowNode("sub", internalFlow, inputMapping, outputMapping);
-        Connection errorConn = mock(Connection.class);
+        LocalConnection errorConn = mock(LocalConnection.class);
         subflow.getErrorPort().connect(errorConn);
         subflow.initialize();
 

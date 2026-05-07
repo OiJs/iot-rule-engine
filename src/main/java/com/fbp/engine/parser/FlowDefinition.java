@@ -8,20 +8,27 @@ public record FlowDefinition(
         String id,
         String name,
         String description,
+        TransportDefinition transport,
         List<NodeDefinition> nodes,
         List<ConnectionDefinition> connections
 ) {
     public FlowDefinition {
+        transport = (transport != null) ? transport : new TransportDefinition("local", null, 1);
         nodes = (nodes != null) ? List.copyOf(nodes) : List.of();
         connections = (connections != null) ? List.copyOf(connections) : List.of();
-     }
+    }
 
-     public NodeDefinition getNode(String nodeId) {
+    public FlowDefinition(String id, String name, String description,
+                          List<NodeDefinition> nodes, List<ConnectionDefinition> connections) {
+        this(id, name, description, null, nodes, connections);
+    }
+
+    public NodeDefinition getNode(String nodeId) {
         return nodes.stream()
                 .filter(n -> n.id().equals(nodeId))
                 .findFirst()
                 .orElse(null);
-     }
+    }
 
     public void validate() {
         Set<String> nodeIds = nodes.stream()

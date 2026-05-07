@@ -25,6 +25,7 @@ class NodeFactoryTest {
 
         Map<String, Object> config = Map.of(
             "brokerUrl", "tcp://localhost:1883",
+            "clientId", "clientId",
             "topic", "test/topic"
         );
 

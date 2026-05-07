@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.GeneratorNode;
 import com.fbp.engine.node.PrintNode;
@@ -17,8 +17,8 @@ public class Step6_2Flow {
 
         PrintNode printer = new PrintNode("A");
 
-        Connection conn1 = new Connection("conn1");
-        Connection conn2 = new Connection("conn2");
+        LocalConnection conn1 = new LocalConnection("conn1");
+        LocalConnection conn2 = new LocalConnection("conn2");
 
         generator.getOutputPort("out").connect(conn1);
         f2c.getOutputPort("out").connect(conn2);

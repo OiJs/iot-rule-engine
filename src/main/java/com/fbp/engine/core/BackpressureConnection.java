@@ -10,7 +10,7 @@ import lombok.Setter;
  * FlowManager에서 중앙 제어하는 구조에 최적화된 커넥션.
  * 스스로 스레드를 생성하지 않고, 메시지 큐 관리와 백프레셔 전략 실행만 담당합니다.
  */
-public class BackpressureConnection extends Connection {
+public class BackpressureConnection extends LocalConnection {
 
     private final LinkedBlockingQueue<Message> queue;
 

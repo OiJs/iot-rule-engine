@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.GeneratorNode;
 import com.fbp.engine.node.PrintNode;
@@ -11,7 +11,7 @@ public class Step4_4Flow {
 
         GeneratorNode generatorNode = new GeneratorNode("gen");
         PrintNode printNode = new PrintNode("1");
-        Connection connection = new Connection("conn1");
+        LocalConnection connection = new LocalConnection("conn1");
 
         Thread producerThread = new Thread(() -> {
             System.out.println("[생산자 스레드] 시작");

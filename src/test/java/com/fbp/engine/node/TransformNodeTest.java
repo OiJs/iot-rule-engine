@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TransformNodeTest {
 
-    private Connection outputConn;
+    private LocalConnection outputConn;
 
     @BeforeEach
     void setUp() {
-        outputConn = new Connection("out-conn");
+        outputConn = new LocalConnection("out-conn");
     }
 
     @Test
@@ -52,7 +52,7 @@ class TransformNodeTest {
         node.process(new Message(Map.of("value", 5)));
 
         Thread.sleep(300);
-        assertEquals(0, outputConn.getBufferSize());
+        assertEquals(0, outputConn.getQueueSize());
     }
 
     @Test

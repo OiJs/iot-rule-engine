@@ -62,7 +62,7 @@ public class FlowEngine {
     }
 
     private void registerConnectionWorkers(Flow flow) {
-        for (Connection conn : flow.getConnections()) {
+        for (LocalConnection conn : flow.getConnections()) {
             executorService.submit(() -> {
                 while (!Thread.currentThread().isInterrupted()) {
                     Message msg = conn.poll();

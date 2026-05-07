@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TimeWindowRuleNodeTest {
     private TimeWindowRuleNode node;
-    private Connection alertConn;
-    private Connection passConn;
+    private LocalConnection alertConn;
+    private LocalConnection passConn;
     private final long WINDOW_MS = 1000;
     private final int THRESHOLD = 3;
 
@@ -24,8 +24,8 @@ class TimeWindowRuleNodeTest {
             }, 
             WINDOW_MS, THRESHOLD);
 
-        alertConn = new Connection("alert-link", 10);
-        passConn = new Connection("pass-link", 10);
+        alertConn = new LocalConnection("alert-link", 10);
+        passConn = new LocalConnection("pass-link", 10);
 
         node.getOutputPort("alert").connect(alertConn);
         node.getOutputPort("pass").connect(passConn);
@@ -37,8 +37,8 @@ class TimeWindowRuleNodeTest {
         node.process(new Message(Map.of("temperature", 35.0)));
         node.process(new Message(Map.of("temperature", 35.0)));
 
-        assertEquals(2, passConn.getBufferSize(), "횟수가 부족하면 pass 포트로 가야 합니다.");
-        assertEquals(0, alertConn.getBufferSize());
+        assertEquals(2, passConn.getQueueSize(), "횟수가 부족하면 pass 포트로 가야 합니다.");
+        assertEquals(0, alertConn.getQueueSize());
     }
 
     @Test
@@ -48,8 +48,8 @@ class TimeWindowRuleNodeTest {
         node.process(new Message(Map.of("temperature", 35.0)));
         node.process(new Message(Map.of("temperature", 35.0)));
 
-        assertEquals(2, passConn.getBufferSize());
-        assertEquals(1, alertConn.getBufferSize(), "3번째 메시지는 alert 포트로 가야 합니다.");
+        assertEquals(2, passConn.getQueueSize());
+        assertEquals(1, alertConn.getQueueSize(), "3번째 메시지는 alert 포트로 가야 합니다.");
     }
 
     @Test
@@ -62,8 +62,8 @@ class TimeWindowRuleNodeTest {
 
         node.process(new Message(Map.of("temperature", 35.0)));
 
-        assertEquals(0, alertConn.getBufferSize(), "이전 이벤트가 만료되어 alert가 발생하면 안 됩니다.");
-        assertEquals(3, passConn.getBufferSize());
+        assertEquals(0, alertConn.getQueueSize(), "이전 이벤트가 만료되어 alert가 발생하면 안 됩니다.");
+        assertEquals(3, passConn.getQueueSize());
     }
 
     @Test
@@ -74,7 +74,7 @@ class TimeWindowRuleNodeTest {
 
         node.process(new Message(Map.of("temperature", 20.0)));
 
-        assertEquals(3, passConn.getBufferSize());
-        assertEquals(0, alertConn.getBufferSize(), "조건 불만족 메시지는 횟수에 포함되지 않아야 합니다.");
+        assertEquals(3, passConn.getQueueSize());
+        assertEquals(0, alertConn.getQueueSize(), "조건 불만족 메시지는 횟수에 포함되지 않아야 합니다.");
     }
 }

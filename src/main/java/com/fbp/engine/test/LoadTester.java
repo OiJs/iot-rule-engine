@@ -1,6 +1,6 @@
 package com.fbp.engine.test;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.core.InputPort;
 import com.fbp.engine.message.Message;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class LoadTester {
-    public static PerformanceResult run(InputPort entryPort, Connection sinkConn, int messageCount) throws InterruptedException {
+    public static PerformanceResult run(InputPort entryPort, LocalConnection sinkConn, int messageCount) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(messageCount);
         List<Long> latencies = Collections.synchronizedList(new ArrayList<>());
         AtomicLong errors = new AtomicLong(0);

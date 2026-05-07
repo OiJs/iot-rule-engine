@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.GeneratorNode;
 import com.fbp.engine.node.PrintNode;
@@ -24,7 +24,7 @@ public class Step4_6Flow {
     private static void runTest(long produceDelay, long consumeDelay) throws InterruptedException {
         GeneratorNode generator = new GeneratorNode("generator");
         PrintNode printer = new PrintNode("printer");
-        Connection connection = new Connection("conn", 100);
+        LocalConnection connection = new LocalConnection("conn", 100);
 
         generator.getOutputPort("out").connect(connection);
 
@@ -33,7 +33,7 @@ public class Step4_6Flow {
             for (int i = 0; i < 10; i++) {
                 generator.generate("temperature", 20.0 + i);
                 System.out.println("[생산자] 생성: " + (20.0 + i)
-                        + " | 버퍼: " + connection.getBufferSize());
+                        + " | 버퍼: " + connection.getQueueSize());
                 try { Thread.sleep(produceDelay); }
                 catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -47,7 +47,7 @@ public class Step4_6Flow {
         // 소비자
         Thread consumerThread = new Thread(() -> {
             while (true) {
-                System.out.println("[소비자] 대기 중... | 버퍼: " + connection.getBufferSize());
+                System.out.println("[소비자] 대기 중... | 버퍼: " + connection.getQueueSize());
                 Message msg = connection.poll();
                 if (msg == POISON_PILL) break;
                 printer.process(msg);

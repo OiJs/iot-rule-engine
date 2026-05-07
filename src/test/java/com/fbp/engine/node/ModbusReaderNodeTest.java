@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.modbus.ModbusReaderNode;
 import com.fbp.engine.protocol.ModbusTcpSimulator;
@@ -77,7 +77,7 @@ class ModbusReaderNodeTest {
         reader = new ModbusReaderNode("reader", Map.of("host", "localhost", "port", PORT, "startAddress", 0, "count", 1));
         reader.initialize();
 
-        Connection conn = new Connection("out-conn", 10);
+        LocalConnection conn = new LocalConnection("out-conn", 10);
         reader.getOutputPort("out").connect(conn);
 
         reader.process(new Message(Map.of()));
@@ -104,7 +104,7 @@ class ModbusReaderNodeTest {
         reader = new ModbusReaderNode("reader", config);
         reader.initialize();
 
-        Connection conn = new Connection("mapping-conn", 10);
+        LocalConnection conn = new LocalConnection("mapping-conn", 10);
         reader.getOutputPort("out").connect(conn);
 
         reader.process(new Message(Map.of()));
@@ -127,7 +127,7 @@ class ModbusReaderNodeTest {
         reader = new ModbusReaderNode("reader", Map.of("host", "localhost", "port", PORT, "startAddress", 50, "count", 1));
         reader.initialize();
 
-        Connection errConn = new Connection("err-conn", 10);
+        LocalConnection errConn = new LocalConnection("err-conn", 10);
         reader.getOutputPort("error").connect(errConn);
 
         reader.process(new Message(Map.of()));

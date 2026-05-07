@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,13 +9,13 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompositeRuleNodeTest {
-    private Connection matchConn;
-    private Connection mismatchConn;
+    private LocalConnection matchConn;
+    private LocalConnection mismatchConn;
 
     @BeforeEach
     void setUp() {
-        matchConn = new Connection("match-conn", 10);
-        mismatchConn = new Connection("mismatch-conn", 10);
+        matchConn = new LocalConnection("match-conn", 10);
+        mismatchConn = new LocalConnection("mismatch-conn", 10);
     }
 
     @Test

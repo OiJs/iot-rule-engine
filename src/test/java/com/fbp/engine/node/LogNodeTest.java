@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class LogNodeTest {
 
     private LogNode logNode;
-    private Connection outputConn;
+    private LocalConnection outputConn;
 
     @BeforeEach
     void setUp() {
         logNode = new LogNode("logger");
-        outputConn = new Connection("out-conn");
+        outputConn = new LocalConnection("out-conn");
         logNode.getOutputPort("out").connect(outputConn);
     }
 
@@ -44,7 +44,7 @@ class LogNodeTest {
 
     @Test
     void test2_LogNodeCanBeInsertedInChain() throws InterruptedException {
-        Connection nextConn = new Connection("next-conn");
+        LocalConnection nextConn = new LocalConnection("next-conn");
         logNode.getOutputPort("out").connect(nextConn);
 
         AtomicReference<Message> received = new AtomicReference<>();

@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class TimerNodeTest {
 
     private TimerNode timer;
-    private Connection connection;
+    private LocalConnection connection;
     private Thread consumerThread;
 
     @BeforeEach
     void setUp() {
         timer = new TimerNode("timer", 500);
-        connection = new Connection("conn");
+        connection = new LocalConnection("conn");
         timer.getOutputPort("out").connect(connection);
     }
 

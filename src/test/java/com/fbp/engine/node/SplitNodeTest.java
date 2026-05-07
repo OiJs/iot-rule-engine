@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class SplitNodeTest {
 
     private SplitNode split;
-    private Connection matchConn;
-    private Connection mismatchConn;
+    private LocalConnection matchConn;
+    private LocalConnection mismatchConn;
 
     @BeforeEach
     void setUp() {
         split = new SplitNode("split", "value", 10.0);
-        matchConn = new Connection("match-conn");
-        mismatchConn = new Connection("mismatch-conn");
+        matchConn = new LocalConnection("match-conn");
+        mismatchConn = new LocalConnection("mismatch-conn");
         split.getOutputPort("match").connect(matchConn);
         split.getOutputPort("mismatch").connect(mismatchConn);
     }
@@ -42,7 +42,7 @@ class SplitNodeTest {
 
         assertTrue(latch.await(2, TimeUnit.SECONDS));
         assertNotNull(received.get());
-        assertEquals(0, mismatchConn.getBufferSize());
+        assertEquals(0, mismatchConn.getQueueSize());
     }
 
     @Test
@@ -60,7 +60,7 @@ class SplitNodeTest {
 
         assertTrue(latch.await(2, TimeUnit.SECONDS));
         assertNotNull(received.get());
-        assertEquals(0, matchConn.getBufferSize());
+        assertEquals(0, matchConn.getQueueSize());
     }
 
     // 3. 양쪽 동시 확인
@@ -94,7 +94,7 @@ class SplitNodeTest {
     void test4_BoundaryValueGoesToMatch() {
         split.process(new Message(Map.of("value", 10.0)));
 
-        assertEquals(1, matchConn.getBufferSize());
-        assertEquals(0, mismatchConn.getBufferSize());
+        assertEquals(1, matchConn.getQueueSize());
+        assertEquals(0, mismatchConn.getQueueSize());
     }
 }

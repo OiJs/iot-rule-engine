@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.CounterNode;
 import com.fbp.engine.node.GeneratorNode;
@@ -18,8 +18,8 @@ public class Step6_6Flow {
         CounterNode counter = new CounterNode("counter");
         PrintNode printer = new PrintNode("printer");
 
-        Connection conn1 = new Connection("gen-to-counter");
-        Connection conn2 = new Connection("counter-to-print");
+        LocalConnection conn1 = new LocalConnection("gen-to-counter");
+        LocalConnection conn2 = new LocalConnection("counter-to-print");
 
         generator.getOutputPort("out").connect(conn1);
         counter.getOutputPort("out").connect(conn2);

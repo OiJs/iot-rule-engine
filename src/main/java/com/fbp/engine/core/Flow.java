@@ -13,7 +13,7 @@ public class Flow {
 
     private final String id;
     private final Map<String, AbstractNode> nodes;
-    private final List<Connection> connections;
+    private final List<LocalConnection> connections;
     private volatile FlowState state;
     private MetricsCollector collector;
 
@@ -59,12 +59,33 @@ public class Flow {
         }
 
         String connId = sourceNodeId + ":" + sourcePort + "->" + targetNodeId + ":" + targetPort;
-        Connection conn = new Connection(connId);
+        LocalConnection conn = new LocalConnection(connId);
 
         sourceNode.getOutputPort(sourcePort).connect(conn);
         conn.setTarget(targetNode.getInputPort(targetPort));
 
         connections.add(conn);
+        return this;
+    }
+
+    public Flow connect(String sourceNodeId, String sourcePort,
+                        String targetNodeId, String targetPort,
+                        Connection connection) {
+
+        AbstractNode sourceNode = getNode(sourceNodeId);
+        AbstractNode targetNode = getNode(targetNodeId);
+
+        if (sourceNode == null || targetNode == null) {
+            throw new RuntimeException("노드를 찾을 수 없습니다: " + sourceNodeId + " 또는 " + targetNodeId);
+        }
+
+        // [핵심] 밖에서 주입받은 커넥션을 양쪽 포트에 연결
+        sourceNode.getOutputPort(sourcePort).connect(connection);
+        targetNode.getInputPort(targetPort).setConnection(connection);
+
+        // 추후 관리를 위해 커넥션에 타겟 정보 저장 (메타데이터)
+        connection.setTarget(targetNode.getInputPort(targetPort));
+
         return this;
     }
 
@@ -87,7 +108,7 @@ public class Flow {
             graph.put(nodeId, new ArrayList<>());
         }
 
-        for(Connection conn : connections) {
+        for(LocalConnection conn : connections) {
             String connId = conn.getId();
             String[] parts = connId.split("->");
             if(parts.length == 2) {
@@ -139,7 +160,7 @@ public class Flow {
 
     public Map<String, AbstractNode> getNodes() { return nodes; }
 
-    public List<Connection> getConnections() { return connections; }
+    public List<LocalConnection> getConnections() { return connections; }
 
     public AbstractNode getNode(String id) {
         return nodes.get(id);

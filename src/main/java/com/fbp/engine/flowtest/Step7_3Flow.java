@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.core.Flow;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.PrintNode;
@@ -31,9 +31,9 @@ public class Step7_3Flow {
 
         List<Thread> pipelineThreads = new ArrayList<>();
 
-        Connection conn1 = flow.getConnections().get(0);
-        Connection connMatch = flow.getConnections().get(1);
-        Connection connMismatch = flow.getConnections().get(2);
+        LocalConnection conn1 = flow.getConnections().get(0);
+        LocalConnection connMatch = flow.getConnections().get(1);
+        LocalConnection connMismatch = flow.getConnections().get(2);
 
         pipelineThreads.add(new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {

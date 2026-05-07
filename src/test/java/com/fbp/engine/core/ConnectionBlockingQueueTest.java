@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 //TODO 4-7
 class ConnectionBlockingQueueTest {
 
-    private Connection connection;
+    private LocalConnection connection;
     private Message messageA;
     private Message messageB;
     private Message messageC;
 
     @BeforeEach
     void setUp() {
-        connection = new Connection("test-conn");
+        connection = new LocalConnection("test-conn");
         messageA = new Message(new HashMap<>() {{ put("order", "A"); }});
         messageB = new Message(new HashMap<>() {{ put("order", "B"); }});
         messageC = new Message(new HashMap<>() {{ put("order", "C"); }});
@@ -127,7 +127,7 @@ class ConnectionBlockingQueueTest {
     // 5. 버퍼 크기 제한 — 3번째 deliver가 블로킹됨
     @Test
     void 버퍼크기_2인_Connection에_3번째_deliver는_블로킹된다() throws InterruptedException {
-        Connection limitedConn = new Connection("limited", 2);
+        LocalConnection limitedConn = new LocalConnection("limited", 2);
         CountDownLatch started = new CountDownLatch(1);
         AtomicReference<Boolean> wasBlocked = new AtomicReference<>(false);
 
@@ -157,19 +157,19 @@ class ConnectionBlockingQueueTest {
     // 6. 버퍼 크기 조회
     @Test
     void deliver후_getBufferSize가_예상값과_일치한다() throws InterruptedException {
-        assertEquals(0, connection.getBufferSize());
+        assertEquals(0, connection.getQueueSize());
 
         connection.deliver(messageA);
-        assertEquals(1, connection.getBufferSize());
+        assertEquals(1, connection.getQueueSize());
 
         connection.deliver(messageB);
-        assertEquals(2, connection.getBufferSize());
+        assertEquals(2, connection.getQueueSize());
 
         // poll은 블로킹이므로 별도 스레드에서
         Thread consumer = new Thread(connection::poll);
         consumer.start();
         consumer.join(1000);
 
-        assertEquals(1, connection.getBufferSize());
+        assertEquals(1, connection.getQueueSize());
     }
 }

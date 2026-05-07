@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class DelayNodeTest {
 
     private DelayNode delayNode;
-    private Connection outputConn;
+    private LocalConnection outputConn;
 
     @BeforeEach
     void setUp() {
         delayNode = new DelayNode("delay", 500);
-        outputConn = new Connection("out-conn");
+        outputConn = new LocalConnection("out-conn");
         delayNode.getOutputPort("out").connect(outputConn);
     }
 

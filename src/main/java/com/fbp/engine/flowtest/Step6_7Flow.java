@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.DelayNode;
 import com.fbp.engine.node.GeneratorNode;
@@ -18,8 +18,8 @@ public class Step6_7Flow {
         DelayNode delay = new DelayNode("delay", 1000);
         PrintNode printer = new PrintNode("printer");
 
-        Connection conn1 = new Connection("gen-to-delay");
-        Connection conn2 = new Connection("delay-to-print");
+        LocalConnection conn1 = new LocalConnection("gen-to-delay");
+        LocalConnection conn2 = new LocalConnection("delay-to-print");
 
         generator.getOutputPort("out").connect(conn1);
         delay.getOutputPort("out").connect(conn2);

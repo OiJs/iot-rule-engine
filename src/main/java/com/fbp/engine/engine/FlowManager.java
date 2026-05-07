@@ -1,10 +1,19 @@
 package com.fbp.engine.engine;
 
+import static org.slf4j.MDC.remove;
+
+import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.ConnectionFactory;
 import com.fbp.engine.core.Flow;
 import com.fbp.engine.core.Flow.FlowState;
 import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.core.FlowNotFoundException;
+import com.fbp.engine.node.AbstractNode;
+import com.fbp.engine.parser.ConnectionDefinition;
+import com.fbp.engine.parser.FlowDefinition;
 import com.fbp.engine.parser.FlowParser;
+import com.fbp.engine.parser.NodeDefinition;
+import com.fbp.engine.registry.NodeRegistry;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -17,9 +26,11 @@ public class FlowManager {
     private final FlowEngine engine;
     private final Map<String, FlowParser> parsers = new HashMap<>();
     private final Map<String, Flow> managedFlows = new ConcurrentHashMap<>();
+    private final NodeRegistry nodeRegistry;
 
-    public FlowManager(FlowEngine engine) {
+    public FlowManager(FlowEngine engine, NodeRegistry nodeRegistry) {
         this.engine = engine;
+        this.nodeRegistry = nodeRegistry;
     }
 
     public void addParser(FlowParser parser) {
@@ -30,22 +41,51 @@ public class FlowManager {
     //TODO FlowID 반환 고려
     public String deploy(String format, InputStream inputStream) {
         FlowParser parser = parsers.get(format.toLowerCase());
-
-        if(parser == null) {
-            throw new RuntimeException("지원하지 않는 포맷");
+        if (parser == null) {
+            throw new RuntimeException("지원하지 않는 포맷: " + format);
         }
 
-        Flow flow = parser.parse(inputStream);
+        FlowDefinition def = parser.parseToDefinition(inputStream);
+        def.validate();
 
-        if (managedFlows.containsKey(flow.getId())) {
-            remove(flow.getId());
+        if (managedFlows.containsKey(def.id())) {
+            remove(def.id());
         }
+
+        Flow flow = assembleFlow(def);
 
         engine.register(flow);
         engine.startFlow(flow.getId());
         managedFlows.put(flow.getId(), flow);
 
         return flow.getId();
+    }
+
+    private Flow assembleFlow(FlowDefinition def) {
+        Flow flow = new Flow(def.id());
+
+        for (NodeDefinition nodeDef : def.nodes()) {
+
+            AbstractNode node = (AbstractNode) nodeRegistry.create(nodeDef.type(), nodeDef.id(), nodeDef.config());
+            flow.addNode(node);
+        }
+
+        for (ConnectionDefinition connDef : def.connections()) {
+            String topic = String.format("fbp/%s/%s-%s",
+                    def.id(),
+                    connDef.from().replace(":", "."),
+                    connDef.to().replace(":", "."));
+
+            Connection conn = ConnectionFactory.create(
+                    connDef.id(),
+                    def.transport(),
+                    topic
+            );
+
+            flow.connect(connDef.from(), connDef.to(), conn);
+        }
+
+        return flow;
     }
 
     public FlowState getStatus(String flowId) {

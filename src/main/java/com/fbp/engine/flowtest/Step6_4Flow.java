@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.PrintNode;
 import com.fbp.engine.node.SplitNode;
@@ -15,9 +15,9 @@ public class Step6_4Flow {
         PrintNode matchPrinter = new PrintNode("경고");
         PrintNode mismatchPrinter = new PrintNode("정상");
 
-        Connection conn1 = new Connection("timer-to-split");
-        Connection matchConn = new Connection("match-conn");
-        Connection mismatchConn = new Connection("mismatch-conn");
+        LocalConnection conn1 = new LocalConnection("timer-to-split");
+        LocalConnection matchConn = new LocalConnection("match-conn");
+        LocalConnection mismatchConn = new LocalConnection("mismatch-conn");
 
         timer.getOutputPort("out").connect(conn1);
         split.getOutputPort("match").connect(matchConn);

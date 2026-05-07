@@ -3,6 +3,7 @@ package com.fbp.engine.api;
 import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.engine.FlowManager;
 import com.fbp.engine.metrics.MetricsCollector;
+import com.fbp.engine.node.TimerNode;
 import com.fbp.engine.parser.FlowParser;
 import com.fbp.engine.parser.JsonFlowParser;
 import com.fbp.engine.registry.NodeRegistry;
@@ -34,8 +35,14 @@ class HttpApiServerTest {
 
         NodeRegistry registry = new NodeRegistry();
         FlowParser parser = new JsonFlowParser(registry);
-
-
+        registry.register("timer", (id, config) -> {
+            long interval = 1000; // 기본값
+            if (config != null && config.containsKey("interval")) {
+                interval = ((Number) config.get("interval")).longValue();
+            }
+            return new TimerNode(id, interval);
+        });
+        manager.addParser(parser);
         server = new HttpApiServer(PORT, manager, collector);
         server.start();
         client = HttpClient.newHttpClient();
@@ -91,7 +98,7 @@ class HttpApiServerTest {
                 }
                 """;
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/flows"))
+                .uri(URI.create(BASE_URL + "/flows?format=json"))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(validJson))
                 .build();
@@ -113,12 +120,27 @@ class HttpApiServerTest {
 
     @Test
     void testDeleteFlowSuccess() throws IOException, InterruptedException {
-        // 실제 존재하는 ID를 지우는 시나리오 (필요시 미리 POST 수행)
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/flows/existing-id"))
+        String validJson = """
+            {
+              "id": "delete-me",
+              "nodes": [ { "id": "n1", "type": "timer", "config": {"interval": 1000} } ],
+              "connections": []
+            }
+            """;
+        HttpRequest postRequest = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/flows?format=json"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(validJson))
+                .build();
+        client.send(postRequest, HttpResponse.BodyHandlers.ofString());
+
+        HttpRequest deleteRequest = HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/flows/delete-me"))
                 .DELETE()
                 .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        HttpResponse<String> response = client.send(deleteRequest, HttpResponse.BodyHandlers.ofString());
+
         Assertions.assertEquals(200, response.statusCode());
     }
 

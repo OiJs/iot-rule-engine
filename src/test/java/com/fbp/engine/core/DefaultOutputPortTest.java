@@ -13,29 +13,29 @@ class DefaultOutputPortTest {
     @DisplayName("과제 3-11 #1: 단일 Connection에 메시지가 전달되어야 한다")
     void test1_SingleConnection() {
         DefaultOutputPort port = new DefaultOutputPort("out");
-        Connection conn = new Connection("c1");
+        LocalConnection conn = new LocalConnection("c1");
         Message msg = new Message(Map.of("data", "hello"));
 
         port.connect(conn);
         port.send(msg);
 
-        assertEquals(1, conn.getBufferSize());
+        assertEquals(1, conn.getQueueSize());
     }
 
     @Test
     @DisplayName("과제 3-11 #2: 1:N 연결 시 모든 Connection에 메시지가 전달되어야 한다")
     void test2_MultipleConnections() {
         DefaultOutputPort port = new DefaultOutputPort("out");
-        Connection conn1 = new Connection("c1");
-        Connection conn2 = new Connection("c2");
+        LocalConnection conn1 = new LocalConnection("c1");
+        LocalConnection conn2 = new LocalConnection("c2");
         Message msg = new Message(Map.of("data", "broadcast"));
 
         port.connect(conn1);
         port.connect(conn2);
         port.send(msg);
 
-        assertEquals(1, conn1.getBufferSize());
-        assertEquals(1, conn2.getBufferSize());
+        assertEquals(1, conn1.getQueueSize());
+        assertEquals(1, conn2.getQueueSize());
     }
 
     @Test

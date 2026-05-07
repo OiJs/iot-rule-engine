@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,12 +17,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CounterNodeTest {
 
     private CounterNode counter;
-    private Connection outputConn;
+    private LocalConnection outputConn;
 
     @BeforeEach
     void setUp() {
         counter = new CounterNode("counter");
-        outputConn = new Connection("out-conn");
+        outputConn = new LocalConnection("out-conn");
         counter.getOutputPort("out").connect(outputConn);
     }
 

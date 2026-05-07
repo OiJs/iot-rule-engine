@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.Test;
 
@@ -70,7 +70,7 @@ class AbstractNodeTest {
     @Test
     void test6_SendDeliversMessageToConnection() throws InterruptedException {
         TestNode sender = new TestNode("sender");
-        Connection connection = new Connection("conn");
+        LocalConnection connection = new LocalConnection("conn");
         sender.getOutputPort("out").connect(connection);
 
         Message msg = new Message(Map.of("data", "hello"));
@@ -87,7 +87,7 @@ class AbstractNodeTest {
             }
         };
 
-        Connection conn2 = new Connection("conn2");
+        LocalConnection conn2 = new LocalConnection("conn2");
         senderWithSend.getOutputPort("out").connect(conn2);
 
         AtomicBoolean received = new AtomicBoolean(false);

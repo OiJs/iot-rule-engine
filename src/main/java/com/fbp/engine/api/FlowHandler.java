@@ -3,6 +3,7 @@ package com.fbp.engine.api;
 import com.fbp.engine.core.FlowNotFoundException;
 import com.fbp.engine.engine.FlowManager;
 import com.fbp.engine.metrics.MetricsCollector;
+import com.fbp.engine.parser.FlowParserException;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
@@ -50,33 +51,59 @@ public class FlowHandler implements HttpHandler {
         }
     }
 
-    // [GET /flows] 또는 [POST /flows]
     private void handleRootFlows(HttpExchange exchange, String method) throws IOException {
         if ("GET".equals(method)) {
             ApiResponse.send(exchange, 200, manager.getRunningFlows());
         } else if ("POST".equals(method)) {
-            try(InputStream in = exchange.getRequestBody()) {
-                //TODO Parser format QueryParam도 고려
-                String contentType = exchange.getResponseHeaders().getFirst("Content-Type");
-                String format = extractFormat(contentType);
+            try (InputStream in = exchange.getRequestBody()) {
+                // 1. 포맷 결정 (QueryParam 우선 -> 그 다음 Content-Type)
+                String format = getFormat(exchange);
 
+                // 2. 배포 시도
                 String flowId = manager.deploy(format, in);
 
                 ApiResponse.send(exchange, 201, Map.of(
                         "message", "Flow deployed successfully",
                         "flowId", flowId
                 ));
-            } catch (RuntimeException e) {
-                if(e.getMessage().contains("지원하지 않는 포맷")) {
-                    ApiResponse.error(exchange, 400, e.getMessage());
-                    System.err.println("Parser Error: " + e.getMessage());
+            } catch (Exception e) {
+                // 3. 에러 핸들링 세분화
+                // FlowParserException이거나 Jackson 관련 예외인 경우 400 반환
+                if (isBadRequest(e)) {
+                    ApiResponse.error(exchange, 400, "Invalid Request: " + e.getMessage());
+                    System.err.println("Client Error (400): " + e.getMessage());
                 } else {
-                    throw e;
+                    // 그 외 예상치 못한 에러는 500
+                    ApiResponse.error(exchange, 500, "Internal Server Error");
+                    e.printStackTrace();
                 }
             }
         } else {
             ApiResponse.error(exchange, 405, "Method Not Allowed");
         }
+    }
+
+    private String getFormat(HttpExchange exchange) {
+        // 1. Query String 확인 (?format=json)
+        String query = exchange.getRequestURI().getQuery();
+        if (query != null && query.contains("format=")) {
+            return query.split("format=")[1].split("&")[0];
+        }
+
+        // 2. Content-Type 확인 (application/json -> json)
+        String contentType = exchange.getRequestHeaders().getFirst("Content-Type");
+        if (contentType != null && contentType.contains("application/json")) {
+            return "json";
+        }
+
+        return "json"; // 기본값
+    }
+
+    // 400 에러로 처리할 예외인지 판단
+    private boolean isBadRequest(Exception e) {
+        String msg = e.getMessage();
+        return e instanceof FlowParserException ||
+                (msg != null && (msg.contains("지원하지 않는 포맷") || msg.contains("Unrecognized field")));
     }
 
     // [DELETE /flows/{id}]

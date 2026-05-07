@@ -1,6 +1,6 @@
 package com.fbp.engine.Integration;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.core.Flow;
 import com.fbp.engine.core.FlowEngine;
 
@@ -78,7 +78,7 @@ class IntegratedFlowTest {
         Thread.sleep(500);
         assertEquals(0, simulator.getRegister(2), "30도 이하일 때는 Modbus에 기록되지 않아야 함");
 
-        Connection alertCapture = new Connection("capture", 10);
+        LocalConnection alertCapture = new LocalConnection("capture", 10);
 
         publishMqtt("sensors/temp", "{\"temperature\": 35.5, \"controlValue\": 1}");
         Thread.sleep(1000);

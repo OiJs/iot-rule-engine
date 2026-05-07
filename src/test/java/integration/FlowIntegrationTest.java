@@ -8,7 +8,6 @@ import com.fbp.engine.message.Message;
 import com.fbp.engine.node.AbstractNode;
 import com.fbp.engine.parser.FlowParser;
 import org.junit.jupiter.api.*;
-import org.mockito.Mockito;
 
 import java.io.ByteArrayInputStream;
 import java.util.*;
@@ -114,7 +113,7 @@ class FlowIntegrationTest {
         faulty.addInputPort("in");
         
         flow.addNode(faulty);
-        faulty.getErrorPort().connect(new Connection("err-sink") {
+        faulty.getErrorPort().connect(new LocalConnection("err-sink") {
             @Override public void deliver(Message m) { latch.countDown(); }
         });
 
@@ -138,7 +137,7 @@ class FlowIntegrationTest {
         SubFlowNode subflow = new SubFlowNode("parent-sub", internal,
                 Map.of("in", "inner-node:in"), Map.of("inner-node:out", "out"));
 
-        subflow.getOutputPort("out").connect(new Connection("sink") {
+        subflow.getOutputPort("out").connect(new LocalConnection("sink") {
             @Override public void deliver(Message m) { latch.countDown(); }
         });
 
@@ -180,7 +179,7 @@ class FlowIntegrationTest {
         modbusNode.initialize();
 
         final Message[] captured = new Message[1];
-        modbusNode.getOutputPort("out").connect(new Connection("test-sink") {
+        modbusNode.getOutputPort("out").connect(new LocalConnection("test-sink") {
             @Override
             public void deliver(Message m) {
                 captured[0] = m;

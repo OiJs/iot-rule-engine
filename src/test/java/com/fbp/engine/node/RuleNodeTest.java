@@ -1,6 +1,6 @@
 package com.fbp.engine.node;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,15 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RuleNodeTest {
     private RuleNode node;
-    private Connection matchConn;
-    private Connection mismatchConn;
+    private LocalConnection matchConn;
+    private LocalConnection mismatchConn;
 
     @BeforeEach
     void setUp() {
         // "temperature > 30.0" 조건을 가진 RuleNode 생성
         node = new RuleNode("test-rule", "temperature > 30.0");
-        matchConn = new Connection("match-link", 10);
-        mismatchConn = new Connection("mismatch-link", 10);
+        matchConn = new LocalConnection("match-link", 10);
+        mismatchConn = new LocalConnection("mismatch-link", 10);
 
         // 출력 포트에 테스트용 커넥션 연결
         node.getOutputPort("match").connect(matchConn);
@@ -32,7 +32,7 @@ class RuleNodeTest {
         node.process(msg);
 
         assertNotNull(matchConn.poll(), "조건 만족 시 match 포트로 메시지가 가야 합니다.");
-        assertEquals(0, mismatchConn.getBufferSize());
+        assertEquals(0, mismatchConn.getQueueSize());
     }
 
     @Test
@@ -42,7 +42,7 @@ class RuleNodeTest {
         node.process(msg);
 
         assertNotNull(mismatchConn.poll(), "조건 불만족 시 mismatch 포트로 메시지가 가야 합니다.");
-        assertEquals(0, matchConn.getBufferSize());
+        assertEquals(0, matchConn.getQueueSize());
     }
 
     @Test
@@ -69,7 +69,7 @@ class RuleNodeTest {
         node.process(new Message(Map.of("temperature", 10.0))); // mismatch
         node.process(new Message(Map.of("temperature", 31.0))); // match
 
-        assertEquals(2, matchConn.getBufferSize());
-        assertEquals(1, mismatchConn.getBufferSize());
+        assertEquals(2, matchConn.getQueueSize());
+        assertEquals(1, mismatchConn.getQueueSize());
     }
 }

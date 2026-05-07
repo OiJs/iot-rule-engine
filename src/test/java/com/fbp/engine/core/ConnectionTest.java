@@ -15,7 +15,7 @@ class ConnectionTest {
     @Test
     @DisplayName("deliver한 메시지를 poll로 꺼낼 수 있어야 한다")
     void test1_DeliverThenPoll() throws InterruptedException {
-        Connection conn = new Connection("c1");
+        LocalConnection conn = new LocalConnection("c1");
         Message msg = new Message(Map.of("key", "test"));
 
         AtomicReference<Message> received = new AtomicReference<>();
@@ -36,7 +36,7 @@ class ConnectionTest {
     @Test
     @DisplayName("target 없이 deliver해도 예외가 발생하지 않아야 한다")
     void test2_DeliverWithoutTargetDoesNotThrow() {
-        Connection conn = new Connection("c2");
+        LocalConnection conn = new LocalConnection("c2");
         Message msg = new Message(Map.of("a", "b"));
 
         assertDoesNotThrow(() -> conn.deliver(msg));
@@ -45,19 +45,19 @@ class ConnectionTest {
     @Test
     @DisplayName("deliver 후 버퍼 크기가 올바르게 반영되어야 한다")
     void test3_BufferCount() {
-        Connection conn = new Connection("c3");
+        LocalConnection conn = new LocalConnection("c3");
 
         conn.deliver(new Message(Map.of("id", 1)));
         conn.deliver(new Message(Map.of("id", 2)));
         conn.deliver(new Message(Map.of("id", 3)));
 
-        assertEquals(3, conn.getBufferSize());
+        assertEquals(3, conn.getQueueSize());
     }
 
     @Test
     @DisplayName("메시지 전달 순서(FIFO)가 보장되어야 한다")
     void test4_MessageOrderIsFIFO() throws InterruptedException {
-        Connection conn = new Connection("c4");
+        LocalConnection conn = new LocalConnection("c4");
         Message msg1 = new Message(Map.of("seq", 1));
         Message msg2 = new Message(Map.of("seq", 2));
 

@@ -1,6 +1,6 @@
 package com.fbp.engine.flowtest;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.node.GeneratorNode;
 import com.fbp.engine.node.PrintNode;
 
@@ -12,10 +12,10 @@ public class Step3_8Test {
         PrintNode printNodeA = new PrintNode("A");
         PrintNode printNodeB = new PrintNode("B");
 
-        Connection conn1 = new Connection("conn-1");
+        LocalConnection conn1 = new LocalConnection("conn-1");
         conn1.setTarget(printNodeA.getInputPort("in"));
 
-        Connection conn2 = new Connection("conn-2");
+        LocalConnection conn2 = new LocalConnection("conn-2");
         conn2.setTarget(printNodeB.getInputPort("in"));
 
         generator.getOutputPort("out").connect(conn1);

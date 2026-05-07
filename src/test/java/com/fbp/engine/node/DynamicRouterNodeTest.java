@@ -2,7 +2,6 @@ package com.fbp.engine.node;
 
 import com.fbp.engine.core.*;
 import com.fbp.engine.message.Message;
-import com.fbp.engine.node.*;
 import org.junit.jupiter.api.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -12,19 +11,19 @@ import static org.mockito.Mockito.*;
 class DynamicRouterNodeTest {
 
     private DynamicRouterNode router;
-    private Connection mockDefault;
+    private LocalConnection mockDefault;
 
     @BeforeEach
     void setUp() {
         router = new DynamicRouterNode("router");
-        mockDefault = mock(Connection.class);
+        mockDefault = mock(LocalConnection.class);
         router.getOutputPort("default").connect(mockDefault);
     }
 
     @Test
     void testConditionMatching() {
         router.addRule(new RoutingRule("status", "==", "OK", "success"));
-        Connection mockSuccess = mock(Connection.class);
+        LocalConnection mockSuccess = mock(LocalConnection.class);
         router.getOutputPort("success").connect(mockSuccess);
 
         Message msg = new Message(Map.of("status", "OK"));
@@ -39,8 +38,8 @@ class DynamicRouterNodeTest {
         router.addRule(new RoutingRule("score", ">", 80, "A"));
         router.addRule(new RoutingRule("score", ">", 60, "B"));
         
-        Connection mockA = mock(Connection.class);
-        Connection mockB = mock(Connection.class);
+        LocalConnection mockA = mock(LocalConnection.class);
+        LocalConnection mockB = mock(LocalConnection.class);
         router.getOutputPort("A").connect(mockA);
         router.getOutputPort("B").connect(mockB);
 
@@ -86,7 +85,7 @@ class DynamicRouterNodeTest {
         verify(mockDefault, times(1)).deliver(any(Message.class));
 
         router.addRule(new RoutingRule("cmd", "==", "run", "execPort"));
-        Connection mockExec = mock(Connection.class);
+        LocalConnection mockExec = mock(LocalConnection.class);
         router.getOutputPort("execPort").connect(mockExec);
 
         router.process(msg);

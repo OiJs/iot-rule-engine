@@ -43,7 +43,7 @@ class EnginePerformanceTest {
 
         flow.addNode(n1).addNode(n2).connect("n1", "out", "n2", "in");
 
-        Connection sinkConn = new Connection("sink");
+        LocalConnection sinkConn = new LocalConnection("sink");
         n2.getOutputPort("out").connect(sinkConn);
 
         engine.register(flow);

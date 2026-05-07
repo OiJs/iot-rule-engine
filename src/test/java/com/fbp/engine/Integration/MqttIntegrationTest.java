@@ -33,7 +33,7 @@ class MqttIntegrationTest {
     @Test
     @DisplayName("1. MQTT → Rule → MODBUS 연동")
     void testMqttToModbus() throws Exception {
-        MqttSubscriberNode sub = new MqttSubscriberNode("sub", Map.of("brokerUrl", "tcp://localhost:1883", "topic", "cmd"));
+        MqttSubscriberNode sub = new MqttSubscriberNode("sub", Map.of("brokerUrl", "tcp://localhost:1883", "topic", "cmd", "clientId", "id"));
         RuleNode rule = new RuleNode("rule", "value == 1");
         ModbusWriterNode writer = new ModbusWriterNode("writer", Map.of("port", PORT, "registerAddress", 15, "valueField", "value"));
 

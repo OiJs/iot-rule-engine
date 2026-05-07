@@ -1,71 +1,37 @@
 package com.fbp.engine.parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fbp.engine.core.Flow;
-import com.fbp.engine.core.Node;
-import com.fbp.engine.node.AbstractNode;
-import com.fbp.engine.registry.NodeRegistry;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class JsonFlowParser implements FlowParser{
-    private final NodeRegistry registry;
+public class JsonFlowParser implements FlowParser {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public JsonFlowParser(NodeRegistry registry) {
-        this.registry = registry;
-    }
-
     @Override
-    public Flow parse(InputStream inputStream) {
-
+    public FlowDefinition parse(InputStream inputStream) {
         try {
+            // 1. JSON을 FlowDefinition record(설계도)로 바로 변환
             FlowDefinition def = objectMapper.readValue(inputStream, FlowDefinition.class);
 
+            // 2. 기초적인 데이터 검증 (필수 값 확인)
             if (def.id() == null || def.id().isBlank()) {
-                throw new FlowParserException("Flow ID is missing");
+                throw new FlowParserException("Flow ID가 누락되었습니다.");
             }
 
             if (def.nodes() == null || def.nodes().isEmpty()) {
-                throw new FlowParserException("Nodes list is missing or empty");
+                throw new FlowParserException("노드 정의가 비어있습니다.");
             }
 
-            Flow flow = new Flow(def.id());
+            // 3. 설계도만 반환 (조립은 FlowManager가 수행)
+            return def;
 
-            for(NodeDefinition nd : def.nodes()) {
-                if(flow.getNode(nd.id()) != null) {
-                    throw new FlowParserException("Duplicate node ID: " + nd.id());                }
-                Node node = registry.create(nd.type(), nd.id(), nd.config());
-                flow.addNode((AbstractNode) node);
-            }
-
-            if(def.connections() != null) {
-                for (ConnectionDefinition cd : def.connections()) {
-                    try {
-                        wire(flow, cd);
-                    } catch (Exception e) {
-                        throw new FlowParserException("Failed to wire connections: " + e.getMessage());
-                    }
-                }
-            }
-            return flow;
         } catch (IOException e) {
-            throw new FlowParserException("플로우 파일 읽기 실패" + e);
+            throw new FlowParserException("플로우 파일(JSON) 읽기 실패: " + e.getMessage());
         }
     }
 
     @Override
     public String getSupportedFormat() {
         return "json";
-    }
-
-    private void wire(Flow flow, ConnectionDefinition cd) {
-        String[] fromParts = cd.from().trim().split(":");
-        String[] toParts = cd.to().trim().split(":");
-
-        if(fromParts.length < 2 || toParts.length < 2) {
-            throw new FlowParserException("잘못된 연결 형식: " + cd.from() + " -> " + cd.to());
-        }
-        flow.connect(fromParts[0], fromParts[1], toParts[0], toParts[1]);
     }
 }

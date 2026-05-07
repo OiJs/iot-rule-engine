@@ -1,7 +1,7 @@
 package com.fbp.engine.node;
 
 import static org.junit.jupiter.api.Assertions.*;
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.message.Message;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ class GeneratorNodeTest {
     @Test
     void test1_GenerateDeliversMessageToOutputPort() throws InterruptedException {
         GeneratorNode gen = new GeneratorNode("g1");
-        Connection conn = new Connection("c1");
+        LocalConnection conn = new LocalConnection("c1");
         gen.getOutputPort("out").connect(conn);
 
         assertNotNull(gen.getOutputPort("out"));
@@ -29,7 +29,7 @@ class GeneratorNodeTest {
     @Test
     void test2_GeneratedMessageContainsKeyValue() throws InterruptedException {
         GeneratorNode gen = new GeneratorNode("g1");
-        Connection conn = new Connection("c1");
+        LocalConnection conn = new LocalConnection("c1");
         gen.getOutputPort("out").connect(conn);
 
         gen.generate("temperature", 25.5);
@@ -48,7 +48,7 @@ class GeneratorNodeTest {
     @Test
     void test4_MultipleGeneratesPreserveOrder() throws InterruptedException {
         GeneratorNode gen = new GeneratorNode("g1");
-        Connection conn = new Connection("c1");
+        LocalConnection conn = new LocalConnection("c1");
         gen.getOutputPort("out").connect(conn);
 
         gen.generate("key", "val1");
@@ -72,7 +72,7 @@ class GeneratorNodeTest {
         assertEquals("val3", received.get(2).get("key"));
     }
 
-    private Message pollInThread(Connection conn) throws InterruptedException {
+    private Message pollInThread(LocalConnection conn) throws InterruptedException {
         List<Message> result = new ArrayList<>();
         CountDownLatch latch = new CountDownLatch(1);
 

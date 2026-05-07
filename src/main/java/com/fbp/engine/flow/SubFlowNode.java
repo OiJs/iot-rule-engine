@@ -1,6 +1,6 @@
 package com.fbp.engine.flow;
 
-import com.fbp.engine.core.Connection;
+import com.fbp.engine.core.LocalConnection;
 import com.fbp.engine.core.ErrorPort;
 import com.fbp.engine.core.Flow;
 import com.fbp.engine.core.InputPort;
@@ -60,7 +60,7 @@ public class SubFlowNode extends AbstractNode {
 
             if (node instanceof AbstractNode absNode) {
 
-                absNode.getErrorPort().connect(new Connection("err-link-" + absNode.getId()) {
+                absNode.getErrorPort().connect(new LocalConnection("err-link-" + absNode.getId()) {
 
                     @Override
                     public void deliver(Message message) {

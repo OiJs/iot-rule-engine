@@ -2,7 +2,6 @@ package com.fbp.engine.node;
 
 import com.fbp.engine.core.*;
 import com.fbp.engine.message.Message;
-import com.fbp.engine.node.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,7 +33,7 @@ class ErrorHandlingTest {
             }
         };
 
-        Connection mockConn = mock(Connection.class);
+        LocalConnection mockConn = mock(LocalConnection.class);
         errorNode.getErrorPort().connect(mockConn);
 
         errorNode.process(testMessage);
@@ -52,7 +51,7 @@ class ErrorHandlingTest {
             }
         };
 
-        Connection mockConn = mock(Connection.class);
+        LocalConnection mockConn = mock(LocalConnection.class);
         errorNode.getErrorPort().connect(mockConn);
 
         errorNode.process(testMessage);
@@ -89,7 +88,7 @@ class ErrorHandlingTest {
             }
         };
 
-        Connection mockConn = mock(Connection.class);
+        LocalConnection mockConn = mock(LocalConnection.class);
         normalNode.getErrorPort().connect(mockConn);
 
         normalNode.process(testMessage);
@@ -130,7 +129,7 @@ class ErrorHandlingTest {
     void testDeadLetterLogic() {
         ErrorHandlerNode handler = new ErrorHandlerNode("handler", 3, mockFlow);
 
-        Connection dlqConn = mock(Connection.class);
+        LocalConnection dlqConn = mock(LocalConnection.class);
         handler.getOutputPort("dlq").connect(dlqConn);
 
         Message exhaustedMsg = testMessage
