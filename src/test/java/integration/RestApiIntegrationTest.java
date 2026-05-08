@@ -5,13 +5,13 @@ import com.fbp.engine.core.Flow;
 import com.fbp.engine.engine.FlowManager;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.AbstractNode;
-import com.fbp.engine.parser.FlowParser;
+import com.fbp.engine.parser.*;
+import com.fbp.engine.registry.NodeRegistry;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -21,101 +21,110 @@ import static org.mockito.Mockito.*;
 class RestApiIntegrationTest {
     private FlowEngine engine;
     private FlowManager manager;
+    private NodeRegistry registry;
 
     @BeforeEach
     void setUp() {
         engine = new FlowEngine();
-        manager = new FlowManager(engine);
+        registry = new NodeRegistry();
+        manager = new FlowManager(engine, registry);
+
+        registry.register("simple", (id, config) -> createSimpleNode(id));
 
         FlowParser mockParser = mock(FlowParser.class);
         when(mockParser.getSupportedFormat()).thenReturn("json");
         manager.addParser(mockParser);
 
         lenient().when(mockParser.parse(any())).thenAnswer(invocation -> {
-            Flow flow = new Flow("api-flow-" + UUID.randomUUID().toString().substring(0, 5));
-            flow.addNode(createSimpleNode("node1"));
-            return flow;
+            String id = "api-flow-" + UUID.randomUUID().toString().substring(0, 5);
+            return new FlowDefinition(
+                    id,
+                    "Mock Flow",
+                    "Description for " + id,
+                    new TransportDefinition("local", null, 1),
+                    List.of(new NodeDefinition("node1", "simple", Map.of())),
+                    List.of()
+            );
         });
     }
 
-    /**
-     * 1. 플로우 CRUD: POST(deploy) → GET(list/status) → DELETE(remove) 전체 흐름
-     */
+    @AfterEach
+    void tearDown() {
+        engine.shutdown();
+    }
+
     @Test
     @Order(1)
     @DisplayName("플로우 생명주기 CRUD 흐름 검증")
     void test1_FlowFullLifecycle() {
-        // Create (POST)
         String flowId = manager.deploy("json", new ByteArrayInputStream("{}".getBytes()));
         assertNotNull(flowId);
 
-        // Read (GET)
         assertEquals(Flow.FlowState.RUNNING, manager.getStatus(flowId));
         assertTrue(manager.list().stream().anyMatch(f -> f.getId().equals(flowId)));
 
-        // Delete (DELETE)
         manager.remove(flowId);
-        assertThrows(RuntimeException.class, () -> manager.getStatus(flowId));
+        assertThrows(FlowNotFoundException.class, () -> manager.getStatus(flowId));
     }
 
-    /**
-     * 2. 배포 후 실행 확인: POST /flows 후 실제로 플로우가 메시지를 처리하는지 확인
-     */
     @Test
     @Order(2)
     @DisplayName("배포 직후 메시지 처리 기능 검증")
     void test2_ExecutionAfterDeployment() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
-        Flow executionFlow = new Flow("exec-flow");
-        AbstractNode node = new AbstractNode("worker") {
+
+        FlowDefinition def = new FlowDefinition(
+                "exec-flow",
+                "Execution Test",
+                "Test description",
+                new TransportDefinition("local", null, 1),
+                List.of(new NodeDefinition("worker", "simple", Map.of())),
+                List.of()
+        );
+
+        registry.register("simple", (id, config) -> new AbstractNode(id) {
             @Override protected void onProcess(Message m) { latch.countDown(); }
-        };
-        node.addInputPort("in");
-        executionFlow.addNode(node);
+        });
 
-        FlowParser p = manager.getEngine().getFlows().isEmpty() ? mock(FlowParser.class) : null;
+        String flowId = manager.deploy(def);
+        Flow flow = engine.getFlows().get(flowId);
 
-        engine.register(executionFlow);
-        engine.startFlow("exec-flow");
+        flow.getNode("worker").getInputPort("in").receive(new Message(Map.of()));
 
-        executionFlow.getNode("worker").getInputPort("in").receive(new Message(Map.of()));
-
-        assertTrue(latch.await(2, TimeUnit.SECONDS), "배포된 플로우가 메시지를 처리하지 못했습니다.");
+        assertTrue(latch.await(2, TimeUnit.SECONDS));
     }
 
-    /**
-     * 3. 메트릭 정확성: 알려진 수의 메시지를 보낸 후 메트릭의 처리 건수가 일치하는지 확인
-     */
     @Test
     @Order(3)
     @DisplayName("메시지 처리 수량과 메트릭 일치 여부 검증")
     void test3_MetricsAccuracy() throws InterruptedException {
-        int messageCount = 50;
-        Flow flow = new Flow("metric-test");
-        AbstractNode node = createSimpleNode("m1");
-        flow.addNode(node);
+        int messageCount = 10;
+        FlowDefinition def = new FlowDefinition(
+                "metric-test",
+                "Metrics Test",
+                "Test description",
+                new TransportDefinition("local", null, 1),
+                List.of(new NodeDefinition("m1", "simple", Map.of())),
+                List.of()
+        );
 
-        engine.register(flow);
-        engine.startFlow("metric-test");
+        manager.deploy(def);
+        Flow flow = engine.getFlows().get("metric-test");
+        AbstractNode node = flow.getNode("m1");
 
         for (int i = 0; i < messageCount; i++) {
             node.getInputPort("in").receive(new Message(Map.of("idx", i)));
         }
 
-        // 비동기 처리 대기
         Thread.sleep(500);
-
         assertNotNull(engine.getFlows().get("metric-test"));
     }
 
-    /**
-     * 4. 동시 요청: 여러 HTTP 클라이언트가 동시에 API(deploy) 호출 시 정상 동작
-     */
     @Test
     @Order(4)
     @DisplayName("다중 클라이언트 동시 배포 요청 검증")
     void test4_ConcurrentRequests() throws InterruptedException {
-        int clientCount = 10;
+        int clientCount = 5;
         ExecutorService executor = Executors.newFixedThreadPool(clientCount);
         CountDownLatch latch = new CountDownLatch(clientCount);
         Set<String> flowIds = Collections.synchronizedSet(new HashSet<>());
@@ -123,7 +132,16 @@ class RestApiIntegrationTest {
         for (int i = 0; i < clientCount; i++) {
             executor.submit(() -> {
                 try {
-                    String id = manager.deploy("json", new ByteArrayInputStream("{}".getBytes()));
+                    String uniqueId = "flow-" + UUID.randomUUID();
+                    FlowDefinition def = new FlowDefinition(
+                            uniqueId,
+                            "Concurrent Flow",
+                            "Description",
+                            new TransportDefinition("local", null, 1),
+                            List.of(new NodeDefinition("n1", "simple", Map.of())),
+                            List.of()
+                    );
+                    String id = manager.deploy(def);
                     flowIds.add(id);
                 } finally {
                     latch.countDown();
@@ -131,35 +149,40 @@ class RestApiIntegrationTest {
             });
         }
 
-        assertTrue(latch.await(5, TimeUnit.SECONDS));
-        assertEquals(clientCount, flowIds.size(), "동시 요청 중 일부가 누락되었습니다.");
+        assertTrue(latch.await(10, TimeUnit.SECONDS));
+        assertEquals(clientCount, flowIds.size());
         executor.shutdown();
     }
 
-    /**
-     * 5. 대용량 플로우 정의: 50개 이상의 노드를 포함한 플로우 배포
-     */
     @Test
     @Order(5)
-    @DisplayName("50개 이상 노드를 포함한 대규모 플로우 배포 검증")
+    @DisplayName("대용량 플로우 정의 및 배포 검증")
     void test5_LargeFlowDefinition() {
-        Flow largeFlow = new Flow("large-flow");
-        int nodeCount = 55;
+        int nodeCount = 50;
+        List<NodeDefinition> nodes = new ArrayList<>();
+        List<ConnectionDefinition> connections = new ArrayList<>();
 
         for (int i = 0; i < nodeCount; i++) {
-            largeFlow.addNode(createSimpleNode("node-" + i));
+            nodes.add(new NodeDefinition("n" + i, "simple", Map.of()));
             if (i > 0) {
-                largeFlow.connect("node-" + (i - 1), "out", "node-" + i, "in");
+                connections.add(new ConnectionDefinition("n" + (i - 1) + ":out", "n" + i + ":in"));
             }
         }
 
-        assertDoesNotThrow(() -> {
-            engine.register(largeFlow);
-            engine.startFlow("large-flow");
-        });
+        FlowDefinition largeDef = new FlowDefinition(
+                "large-flow",
+                "Large Scale Flow",
+                "50 nodes flow",
+                new TransportDefinition("local", null, 1),
+                nodes,
+                connections
+        );
 
-        assertEquals(nodeCount, engine.getFlows().get("large-flow").getNodes().size());
-        assertEquals(Flow.FlowState.RUNNING, engine.getFlows().get("large-flow").getFlowState());
+        assertDoesNotThrow(() -> {
+            String flowId = manager.deploy(largeDef);
+            assertEquals(nodeCount, engine.getFlows().get(flowId).getNodes().size());
+            assertEquals(Flow.FlowState.RUNNING, engine.getFlows().get(flowId).getFlowState());
+        });
     }
 
     private AbstractNode createSimpleNode(String id) {

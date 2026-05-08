@@ -5,8 +5,9 @@ import com.fbp.engine.message.Message;
 public interface Connection {
     String getId();
     void deliver(Message message);
-    Message poll() throws InterruptedException;
+    InputPort getTarget();
     void setTarget(InputPort target);
-    int getQueueSize();
-    default void close() {};
+    default Message poll() throws InterruptedException{return null;}
+    default int getQueueSize() {return 0;}
+    default void close() {}
 }

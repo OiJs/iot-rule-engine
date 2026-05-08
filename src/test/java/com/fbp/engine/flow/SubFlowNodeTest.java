@@ -40,10 +40,15 @@ class SubFlowNodeTest {
     }
 
     private void driveInternalFlow() {
-        for (LocalConnection conn : internalFlow.getConnections()) {
+        for (Connection conn : internalFlow.getConnections()) {
             executor.submit(() -> {
                 while (!Thread.currentThread().isInterrupted()) {
-                    Message msg = conn.poll();
+                    Message msg = null;
+                    try {
+                        msg = conn.poll();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     if (msg != null && conn.getTarget() != null) {
                         conn.getTarget().receive(msg);
                     }

@@ -4,7 +4,6 @@ import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.engine.FlowManager;
 import com.fbp.engine.metrics.MetricsCollector;
 import com.fbp.engine.node.TimerNode;
-import com.fbp.engine.parser.FlowParser;
 import com.fbp.engine.parser.JsonFlowParser;
 import com.fbp.engine.registry.NodeRegistry;
 import org.junit.jupiter.api.AfterEach;
@@ -24,6 +23,7 @@ class HttpApiServerTest {
     private MetricsCollector collector;
     private FlowManager manager;
     private FlowEngine engine;
+    private NodeRegistry nodeRegistry;
     private final int PORT = 8888;
     private final String BASE_URL = "http://localhost:" + PORT;
 
@@ -31,18 +31,18 @@ class HttpApiServerTest {
     void setUp() throws Exception {
         collector = new MetricsCollector();
         engine = new FlowEngine();
-        manager = new FlowManager(engine);
+        nodeRegistry = new NodeRegistry();
+        manager = new FlowManager(engine, nodeRegistry);
 
-        NodeRegistry registry = new NodeRegistry();
-        FlowParser parser = new JsonFlowParser(registry);
-        registry.register("timer", (id, config) -> {
-            long interval = 1000; // 기본값
+        nodeRegistry.register("timer", (id, config) -> {
+            long interval = 1000;
             if (config != null && config.containsKey("interval")) {
                 interval = ((Number) config.get("interval")).longValue();
             }
             return new TimerNode(id, interval);
         });
-        manager.addParser(parser);
+
+        manager.addParser(new JsonFlowParser());
         server = new HttpApiServer(PORT, manager, collector);
         server.start();
         client = HttpClient.newHttpClient();
@@ -51,6 +51,7 @@ class HttpApiServerTest {
     @AfterEach
     void tearDown() {
         server.stop();
+        engine.shutdown();
     }
 
     @Test
@@ -87,10 +88,10 @@ class HttpApiServerTest {
 
     @Test
     void testPostFlowsSuccess() throws IOException, InterruptedException {
-        // 3. 실제 Parser가 수용 가능한 유효한 FBP JSON 구조
         String validJson = """
                 {
                   "id": "flow-1",
+                  "transport": { "type": "local" },
                   "nodes": [
                     { "id": "n1", "type": "timer", "config": { "interval": 1000 } }
                   ],
@@ -108,7 +109,7 @@ class HttpApiServerTest {
 
     @Test
     void testPostFlowsBadRequest() throws IOException, InterruptedException {
-        String invalidJson = "{ \"wrong\": \"format\" }"; // ID가 없는 등 부적절한 구조
+        String invalidJson = "{ \"wrong\": \"format\" }";
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/flows"))
                 .header("Content-Type", "application/json")
@@ -123,6 +124,7 @@ class HttpApiServerTest {
         String validJson = """
             {
               "id": "delete-me",
+              "transport": { "type": "local" },
               "nodes": [ { "id": "n1", "type": "timer", "config": {"interval": 1000} } ],
               "connections": []
             }
@@ -140,13 +142,11 @@ class HttpApiServerTest {
                 .build();
 
         HttpResponse<String> response = client.send(deleteRequest, HttpResponse.BodyHandlers.ofString());
-
         Assertions.assertEquals(200, response.statusCode());
     }
 
     @Test
     void testDeleteFlowNotFound() throws IOException, InterruptedException {
-        // 존재하지 않는 ID 삭제 시 404를 기대하도록 Manager 로직 확인 필요
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/flows/non-existent-id"))
                 .DELETE()
@@ -177,7 +177,6 @@ class HttpApiServerTest {
 
     @Test
     void testMethodNotAllowed() throws IOException, InterruptedException {
-        // GET만 허용되는 /health에 POST 요청
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/health"))
                 .POST(HttpRequest.BodyPublishers.noBody())
@@ -201,7 +200,6 @@ class HttpApiServerTest {
                 .GET()
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        // 5. ApiResponse.send에서 설정한 헤더 값 검증
         Assertions.assertTrue(response.headers().firstValue("Content-Type").get().contains("application/json"));
     }
 }

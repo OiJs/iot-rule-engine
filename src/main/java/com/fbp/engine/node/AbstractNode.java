@@ -10,17 +10,25 @@ import com.fbp.engine.message.Message;
 import com.fbp.engine.metrics.MetricsCollector;
 import java.util.HashMap;
 import java.util.Map;
+import lombok.Getter;
 
+@Getter
 public abstract class AbstractNode implements Node {
     private final String id;
     private String flowId;
+    protected Map<String, Object> config;
     private final Map<String, InputPort> inputPorts;
     private final Map<String, OutputPort> outputPorts;
     private MetricsCollector collector;
     private final ErrorPort errorPort;
 
     protected AbstractNode(String id) {
+        this(id, new HashMap<>());
+    }
+
+    protected AbstractNode(String id, Map<String, Object> config) {
         this. id = id;
+        this.config = config != null ? new HashMap<>(config) : new HashMap<>();
         this.inputPorts = new HashMap<>();
         this.outputPorts = new HashMap<>();
         this.errorPort = new ErrorPort("error");
@@ -63,6 +71,20 @@ public abstract class AbstractNode implements Node {
 
     protected abstract void onProcess(Message message);
 
+    public void reconfigure(Map<String, Object> newConfig) {
+        Map<String, Object> oldConfig = this.config;
+        try {
+            this.config = new HashMap<>(newConfig);
+            onConfigUpdate(this.config);
+            System.out.println("[" + id + "] Config updated successfully.");
+        } catch (Exception e) {
+            this.config = oldConfig;
+            throw new RuntimeException("[" + id + "] Config update failed: " + e.getMessage());
+        }
+    }
+
+    protected void onConfigUpdate(Map<String, Object> newConfig) { }
+
     @Override
     public String getId() {
         return id;
@@ -74,14 +96,12 @@ public abstract class AbstractNode implements Node {
         boolean success = false;
 
         try {
-            onProcess(message); // 조건 4: 예외 없으면 에러 포트 동작 안 함
+            onProcess(message);
             success = true;
         } catch (Exception e) {
             success = false;
-            // 조건 1: 에러 발생 시 분기 처리
             handleNodeError(message, e);
         } finally {
-            // 메트릭 기록 로직 (기존 유지)
             if(collector != null && flowId != null) {
                 long duration = System.nanoTime() - startTime;
                 collector.recordProcessing(flowId, id, success, duration);

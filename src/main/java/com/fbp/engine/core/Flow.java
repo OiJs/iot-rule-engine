@@ -13,7 +13,7 @@ public class Flow {
 
     private final String id;
     private final Map<String, AbstractNode> nodes;
-    private final List<LocalConnection> connections;
+    private final List<Connection> connections;
     private volatile FlowState state;
     private MetricsCollector collector;
 
@@ -32,6 +32,64 @@ public class Flow {
         return this;
     }
 
+    public void removeNodeWithConnections(String nodeId) {
+        // 해당 노드가 출발지이거나 목적지인 모든 연결 제거
+        connections.removeIf(conn -> {
+            // Connection ID(예: "timer:out->logger:in")에 노드 ID가 포함되어 있는지 확인
+            boolean isRelated = conn.getId().contains(nodeId + ":");
+            if (isRelated) {
+                conn.close(); // 연결 종료 처리
+            }
+            return isRelated;
+        });
+
+        nodes.remove(nodeId);
+    }
+
+
+    public void removeConnection(String connectionId) {
+        Connection targetConn = connections.stream()
+                .filter(c -> c.getId().equals(connectionId))
+                .findFirst()
+                .orElse(null);
+
+        if(targetConn == null) return;
+
+        try {
+            String sourcePart = connectionId.split("->")[0];
+            String sourceNodeId = sourcePart.split(":")[0];
+            String sourcePortName = sourcePart.split(":")[1];
+
+            //출발지 노드의 출력 포트에서 해당 연결 분리 (새 메시지 유입 차단)
+            AbstractNode sourceNode = nodes.get(sourceNodeId);
+            if(sourceNode != null) {
+                sourceNode.getOutputPort(sourcePortName).disconnect(targetConn);
+            }
+        } catch (Exception e) {
+            System.err.println("커넥션 파싱 중 오류: " + e.getMessage());
+        }
+
+        waitForConnectionDrain(targetConn);
+
+        //리소스 해제 및 리스트에서 최종 삭제
+        targetConn.close();
+        connections.remove(targetConn);
+        System.out.println("[Connection 제거 완료] " + connectionId);
+    }
+
+    private void waitForConnectionDrain(Connection conn) {
+        int retry = 0;
+        while (conn.getQueueSize() > 0 && retry < 30) {
+            try {
+                Thread.sleep(100);
+                retry++;
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+    }
+
     public void setCollector(MetricsCollector collector) {
         this.collector = collector;
         nodes.values().forEach(node -> node.setContext(this.id, collector));
@@ -41,25 +99,17 @@ public class Flow {
                         String targetNodeId, String targetPort) {
 
         AbstractNode sourceNode = nodes.get(sourceNodeId);
-        if(sourceNode == null) {
-            throw new IllegalArgumentException("sour node not found: " + sourceNodeId);
-        }
-
         AbstractNode targetNode = nodes.get(targetNodeId);
-        if(targetNode == null) {
-            throw new IllegalArgumentException("target node not found: " + targetNodeId);
+
+        if (sourceNode == null || targetNode == null) {
+            throw new IllegalArgumentException("노드를 찾을 수 없습니다: " + sourceNodeId + ", " + targetNodeId);
         }
 
-        if(sourceNode.getOutputPort(sourcePort) == null) {
-            throw new IllegalArgumentException("source port not found: " + sourcePort);
-        }
+        String from = sourceNodeId + ":" + sourcePort;
+        String to = targetNodeId + ":" + targetPort;
+        String autoId = from + "->" + to;
 
-        if(targetNode.getInputPort(targetPort) == null) {
-            throw new IllegalArgumentException("target port not found: " + targetPort);
-        }
-
-        String connId = sourceNodeId + ":" + sourcePort + "->" + targetNodeId + ":" + targetPort;
-        LocalConnection conn = new LocalConnection(connId);
+        Connection conn = new LocalConnection(autoId);
 
         sourceNode.getOutputPort(sourcePort).connect(conn);
         conn.setTarget(targetNode.getInputPort(targetPort));
@@ -72,19 +122,19 @@ public class Flow {
                         String targetNodeId, String targetPort,
                         Connection connection) {
 
-        AbstractNode sourceNode = getNode(sourceNodeId);
-        AbstractNode targetNode = getNode(targetNodeId);
+        AbstractNode sourceNode = nodes.get(sourceNodeId);
+        AbstractNode targetNode = nodes.get(targetNodeId);
 
         if (sourceNode == null || targetNode == null) {
-            throw new RuntimeException("노드를 찾을 수 없습니다: " + sourceNodeId + " 또는 " + targetNodeId);
+            throw new IllegalArgumentException("노드를 찾을 수 없습니다: " + sourceNodeId + ", " + targetNodeId);
         }
 
-        // [핵심] 밖에서 주입받은 커넥션을 양쪽 포트에 연결
         sourceNode.getOutputPort(sourcePort).connect(connection);
-        targetNode.getInputPort(targetPort).setConnection(connection);
-
-        // 추후 관리를 위해 커넥션에 타겟 정보 저장 (메타데이터)
         connection.setTarget(targetNode.getInputPort(targetPort));
+
+        if (!connections.contains(connection)) {
+            connections.add(connection);
+        }
 
         return this;
     }
@@ -104,49 +154,51 @@ public class Flow {
     private void detectCycle(List<String> errors) {
         Map<String, List<String>> graph = new HashMap<>();
 
-        for(String nodeId : nodes.keySet()) {
+        for (String nodeId : nodes.keySet()) {
             graph.put(nodeId, new ArrayList<>());
         }
 
-        for(LocalConnection conn : connections) {
+        for (Connection conn : connections) {
             String connId = conn.getId();
             String[] parts = connId.split("->");
-            if(parts.length == 2) {
-                String sourceId = parts[0].split(":")[0];
-                String targetId = parts[1].split(":")[0];
-                graph.get(sourceId).add(targetId);
+            if (parts.length == 2) {
+                String sourceNode = parts[0].split(":")[0];
+                String targetNode = parts[1].split(":")[0];
+                if (graph.containsKey(sourceNode) && graph.containsKey(targetNode)) {
+                    graph.get(sourceNode).add(targetNode);
+                }
             }
         }
 
-        Map<String, Integer> state = new HashMap<>();
-        for(String nodeId : nodes.keySet()) {
-            state.put(nodeId, 0);
+        Map<String, Integer> stateMap = new HashMap<>();
+        for (String nodeId : nodes.keySet()) {
+            stateMap.put(nodeId, 0);
         }
 
-        for(String nodeId : nodes.keySet()) {
-            if(state.get(nodeId) == 0) {
-                if (dfs(nodeId, graph, state)) {
+        for (String nodeId : nodes.keySet()) {
+            if (stateMap.get(nodeId) == 0) {
+                if (dfs(nodeId, graph, stateMap)) {
                     errors.add("순환 참조 감지");
                     break;
                 }
             }
         }
     }
+
     private boolean dfs(String nodeId, Map<String, List<String>> graph,
-                        Map<String, Integer> state) {
-        state.put(nodeId, 1);
+                        Map<String, Integer> stateMap) {
+        stateMap.put(nodeId, 1);
 
         for (String next : graph.get(nodeId)) {
-            if (state.get(next) == 1) return true;
-            if (state.get(next) == 0) {
-                if (dfs(next, graph, state)) return true;
+            if (stateMap.get(next) == 1) return true;
+            if (stateMap.get(next) == 0) {
+                if (dfs(next, graph, stateMap)) return true;
             }
         }
 
-        state.put(nodeId, 2);
+        stateMap.put(nodeId, 2);
         return false;
     }
-
 
     public void initialize() {
         nodes.values().forEach(AbstractNode::initialize);
@@ -154,13 +206,14 @@ public class Flow {
 
     public void shutdown() {
         nodes.values().forEach(AbstractNode::shutdown);
+        connections.forEach(Connection::close);
     }
 
     public String getId() { return id; }
 
     public Map<String, AbstractNode> getNodes() { return nodes; }
 
-    public List<LocalConnection> getConnections() { return connections; }
+    public List<Connection> getConnections() { return connections; }
 
     public AbstractNode getNode(String id) {
         return nodes.get(id);

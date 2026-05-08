@@ -1,18 +1,27 @@
 package com.fbp.engine.node;
 
 import com.fbp.engine.message.Message;
+import java.util.Map;
 
 public class FilterNode extends AbstractNode {
+    private String key;
+    private double threshold;
 
-    private final String key;
-    private final double threshold;
-
-    public FilterNode(String id, String key, double threshold) {
-        super(id);
-        this.key = key;
-        this.threshold = threshold;
+    public FilterNode(String id, Map<String, Object> config) {
+        super(id, config);
+        syncConfig(config);
         addInputPort("in");
         addOutputPort("out");
+    }
+
+    private void syncConfig(Map<String, Object> cfg) {
+        this.key = (String) cfg.getOrDefault("key", "value");
+        this.threshold = ((Number) cfg.getOrDefault("threshold", 0.0)).doubleValue();
+    }
+
+    @Override
+    protected void onConfigUpdate(Map<String, Object> newConfig) {
+        syncConfig(newConfig);
     }
 
     @Override

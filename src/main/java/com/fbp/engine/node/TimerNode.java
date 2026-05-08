@@ -10,15 +10,27 @@ import java.util.concurrent.TimeUnit;
 
 public class TimerNode extends AbstractNode {
 
-    private final long intervalMs;
+    private long intervalMs;
     private int tickCount;
     private ScheduledExecutorService scheduler;
 
-    public TimerNode(String id, long intervalMs) {
+    public TimerNode(String id, Map<String, Object> config) {
         super(id);
-        this.intervalMs = intervalMs;
-        this.tickCount = 0;
+        syncConfig(config);
         addOutputPort("out");
+    }
+
+    private void syncConfig(Map<String, Object> cfg) {
+        this.intervalMs = ((Number) cfg.getOrDefault("intervalMs", 1000L)).longValue();
+    }
+
+    @Override
+    protected void onConfigUpdate(Map<String, Object> newConfig) {
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.scheduleAtFixedRate(() -> {
+            Message msg = new Message(Map.of("tick", tickCount++, "ts", System.currentTimeMillis()));
+            send("out", msg);
+        }, 0, intervalMs, TimeUnit.MILLISECONDS);
     }
 
     @Override

@@ -7,42 +7,61 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-//TODO 재연결 시 데이터 유실 고민, 연결 실패 에러포트 or Event Bus / Callback 고려, config 정보 properties고려
 public abstract class ProtocolNode extends AbstractNode {
-    public enum ConnectionState{
+    public enum ConnectionState {
         DISCONNECTED,
         CONNECTING,
         CONNECTED,
         ERROR
     }
 
-
-    private final Map<String, Object> config;
     protected volatile ConnectionState connectionState = ConnectionState.DISCONNECTED;
     protected long reconnectIntervalMs = 5000;
+    protected int maxReconnectAttempts = 10;
 
     private ScheduledExecutorService reconnectScheduler;
-    private int maxReconnectAttempts = 10;
     private int currentReconnectCount = 0;
 
     public ProtocolNode(String id, Map<String, Object> config) {
-        super(id);
-        this.config = config;
-        if(config.containsKey("reconnectIntervalMs")) {
-            this.reconnectIntervalMs = ((Number) config.get("reconnectIntervalMs")).longValue();
-        }
-        if (config.containsKey("maxReconnectAttempts")) {
-            this.maxReconnectAttempts = ((Number) config.get("maxReconnectAttempts")).intValue();
+        // 부모 생성자(AbstractNode)에게 설정을 넘겨주어 공통 관리하게 함
+        super(id, config);
+        // 초기 필드 동기화
+        syncConnectionConfig(config);
+    }
+
+    /**
+     * [Hot-Reload] 설정이 변경되었을 때 호출되는 브릿지 메서드
+     */
+    @Override
+    protected void onConfigUpdate(Map<String, Object> newConfig) {
+        syncConnectionConfig(newConfig);
+
+        // 만약 실행 중에 연결 대상(URL, Host 등)이 바뀌었다면 재연결 필요
+        if (newConfig.containsKey("url")) {
+            shutdown(); initialize();
         }
 
+        System.out.println("[" + getId() + "] 연결 파라미터 업데이트 완료");
+    }
+
+    private void syncConnectionConfig(Map<String, Object> cfg) {
+        if (cfg.containsKey("reconnectIntervalMs")) {
+            this.reconnectIntervalMs = ((Number) cfg.get("reconnectIntervalMs")).longValue();
+        }
+        if (cfg.containsKey("maxReconnectAttempts")) {
+            this.maxReconnectAttempts = ((Number) cfg.get("maxReconnectAttempts")).intValue();
+        }
     }
 
     @Override
     public void initialize() {
+        currentReconnectCount = 0;
         attemptConnection();
     }
 
     private synchronized void attemptConnection() {
+        if (connectionState == ConnectionState.CONNECTED) return;
+
         connectionState = ConnectionState.CONNECTING;
         try {
             connect();
@@ -57,22 +76,27 @@ public abstract class ProtocolNode extends AbstractNode {
     }
 
     protected synchronized void reconnect() {
-        if(currentReconnectCount >= maxReconnectAttempts) {
-            System.err.println("[" + getId() + "] 최대 재연결 시도 횟수(" + maxReconnectAttempts + ") 초과. 연결 실패");
+        if (currentReconnectCount >= maxReconnectAttempts) {
+            System.err.println("[" + getId() + "] 최대 재연결 시도 횟수 초과 (" + maxReconnectAttempts + ")");
             return;
         }
 
-        if(reconnectScheduler == null || reconnectScheduler.isShutdown()) {
-            reconnectScheduler = Executors.newSingleThreadScheduledExecutor();
+        if (reconnectScheduler == null || reconnectScheduler.isShutdown()) {
+            reconnectScheduler = Executors.newSingleThreadScheduledExecutor(r -> {
+                Thread t = new Thread(r, "reconnector-" + getId());
+                t.setDaemon(true);
+                return t;
+            });
         }
+
         currentReconnectCount++;
-        System.out.println("[" + getId() + "] " + reconnectIntervalMs + "ms 후 재연결을 시도합니다. (" + currentReconnectCount + "/" + maxReconnectAttempts + ")");
+        System.out.println("[" + getId() + "] " + reconnectIntervalMs + "ms 후 재연결 시도 (" + currentReconnectCount + "/" + maxReconnectAttempts + ")");
         reconnectScheduler.schedule(this::attemptConnection, reconnectIntervalMs, TimeUnit.MILLISECONDS);
     }
 
     @Override
     public void shutdown() {
-        System.out.println("[" + getId() + "] 노드 종료 및 자원 해제 중...");
+        System.out.println("[" + getId() + "] 자원 해제 중...");
 
         if (reconnectScheduler != null && !reconnectScheduler.isShutdown()) {
             reconnectScheduler.shutdownNow();
@@ -81,30 +105,19 @@ public abstract class ProtocolNode extends AbstractNode {
         try {
             disconnect();
         } catch (Exception e) {
-            System.err.println("[" + getId() + "] 연결 해제 중 오류 발생: " + e.getMessage());
+            System.err.println("[" + getId() + "] 해제 중 오류: " + e.getMessage());
         } finally {
             connectionState = ConnectionState.DISCONNECTED;
-            System.out.println("[" + getId() + "] 연결이 안전하게 종료되었습니다.");
+            System.out.println("[" + getId() + "] 연결 종료.");
         }
     }
 
     @Override
-    protected void onProcess(Message message) {
-
-    }
+    protected void onProcess(Message message) {}
 
     protected abstract void connect() throws Exception;
     protected abstract void disconnect() throws Exception;
 
-    public ConnectionState getConnectionState() {
-        return connectionState;
-    }
-
-    public Object getConfig(String key) {
-        return config.get(key);
-    }
-
-    public boolean isConnected() {
-        return connectionState == ConnectionState.CONNECTED;
-    }
+    public ConnectionState getConnectionState() { return connectionState; }
+    public boolean isConnected() { return connectionState == ConnectionState.CONNECTED; }
 }

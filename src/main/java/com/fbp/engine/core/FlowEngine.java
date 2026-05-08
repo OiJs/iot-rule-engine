@@ -62,10 +62,15 @@ public class FlowEngine {
     }
 
     private void registerConnectionWorkers(Flow flow) {
-        for (LocalConnection conn : flow.getConnections()) {
+        for (Connection conn : flow.getConnections()) {
             executorService.submit(() -> {
                 while (!Thread.currentThread().isInterrupted()) {
-                    Message msg = conn.poll();
+                    Message msg = null;
+                    try {
+                        msg = conn.poll();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     if (msg != null && conn.getTarget() != null) {
                         conn.getTarget().receive(msg);
                     } else {

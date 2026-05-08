@@ -9,26 +9,45 @@ import java.util.Map;
 //TODO Stage2 3-6
 
 public class ModbusReaderNode extends ProtocolNode {
-    private final String host;
-    private final int port;
-    private final int slaveId;
-    private final int startAddress;
-    private final int count;
-    private final Map<String, Object> registerMapping;
+    private String host;
+    private int port;
+    private int slaveId;
+    private int startAddress;
+    private int count;
+    private Map<String, Object> registerMapping;
     private ModbusTcpClient client;
 
     public ModbusReaderNode(String id, Map<String, Object> config) {
         super(id, config);
-        this.host = (String) config.getOrDefault("host", "localhost");
-        this.port = (int) config.getOrDefault("port", 502);
-        this.slaveId = (int) config.getOrDefault("slaveId", 1);
-        this.startAddress = (int) config.getOrDefault("startAddress", 0);
-        this.count = (int) config.getOrDefault("count", 1);
-        this.registerMapping = (Map<String, Object>) config.get("registerMapping");
+        syncConfig(config);
 
         addInputPort("trigger");
         addOutputPort("out");
         addOutputPort("error");
+    }
+
+    private void syncConfig(Map<String, Object> cfg) {
+        this.host = (String) cfg.getOrDefault("host", "localhost");
+        this.port = ((Number) cfg.getOrDefault("port", 502)).intValue();
+        this.slaveId = ((Number) cfg.getOrDefault("slaveId", 1)).intValue();
+        this.startAddress = ((Number) cfg.getOrDefault("startAddress", 0)).intValue();
+        this.count = ((Number) cfg.getOrDefault("count", 1)).intValue();
+        this.registerMapping = (Map<String, Object>) cfg.get("registerMapping");
+    }
+
+    @Override
+    protected void onConfigUpdate(Map<String, Object> newConfig) {
+        //설정 변경 시 필드 동기화 및 재연결 판단
+        String oldHost = this.host;
+        int oldPort = this.port;
+
+        syncConfig(newConfig);
+
+        if (!host.equals(oldHost) || port != oldPort) {
+            System.out.println("[" + getId() + "] 호스트/포트 변경 감지 -> 재연결");
+            shutdown();  // 기존 연결 종료
+            initialize(); // 새 연결 시도
+        }
     }
 
 

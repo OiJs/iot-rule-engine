@@ -1,6 +1,7 @@
 package com.fbp.engine.parser;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,16 @@ public record FlowDefinition(
                 .filter(n -> n.id().equals(nodeId))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public Map<String, NodeDefinition> getNodeMap() {
+        return nodes.stream().collect(Collectors.toMap(NodeDefinition::id, n -> n));
+    }
+
+    public Set<String> getConnectionIds() {
+        return connections.stream()
+                .map(ConnectionDefinition::toAutoId)
+                .collect(Collectors.toSet());
     }
 
     public void validate() {

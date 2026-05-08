@@ -6,4 +6,5 @@ public interface OutputPort {
     String getName();
     void send(Message message);
     void connect(Connection connection);
+    void disconnect(Connection connection);
 }

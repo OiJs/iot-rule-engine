@@ -16,11 +16,20 @@ import org.eclipse.paho.mqttv5.common.MqttMessage;
 import org.eclipse.paho.mqttv5.common.packet.MqttProperties;
 
 public class MqttSubscriberNode extends ProtocolNode {
+    private static final String DEFAULT_BROKER = "tcp://localhost:1883";
+    private static final String DEFAULT_TOPIC = "fbp/default";
+    private static final int DEFAULT_QOS = 1;
+
+    private String brokerUrl;
+    private String clientId;
+    private String topic;
+    private int qos;
     private MqttClient client;
     private final ObjectMapper objectMapper;
 
     public MqttSubscriberNode(String id, Map<String, Object> config) {
         super(id, config);
+        syncConfig(config);
         addOutputPort("out");
         this.objectMapper = new ObjectMapper();
 
@@ -29,14 +38,51 @@ public class MqttSubscriberNode extends ProtocolNode {
         }
     }
 
+    private void syncConfig(Map<String, Object> cfg) {
+        this.brokerUrl = (String) cfg.getOrDefault("brokerUrl", DEFAULT_BROKER);
+        this.clientId = (String) cfg.getOrDefault("clientId", "fbp-sub-" + getId());
+        this.topic = (String) cfg.getOrDefault("topic", DEFAULT_TOPIC);
+        this.qos = ((Number) cfg.getOrDefault("qos", DEFAULT_QOS)).intValue();
+
+        this.config.put("brokerUrl", this.brokerUrl);
+        this.config.put("topic", this.topic);
+    }
+
+    @Override
+    protected void onConfigUpdate(Map<String, Object> newConfig) {
+        // 이전 값들 백업
+        String oldBroker = this.brokerUrl;
+        String oldTopic = this.topic;
+        int oldQos = this.qos; // [추가] 이전 QoS 저장
+
+        // 새로운 설정으로 필드 동기화
+        syncConfig(newConfig);
+
+        // 브로커 주소가 바뀌면 소켓 레벨의 재연결 필요
+        if (!brokerUrl.equals(oldBroker)) {
+            System.out.println("[" + getId() + "] 브로커 주소 변경 -> 전체 재연결");
+            shutdown();
+            initialize();
+        }
+        // 토픽 혹은 QoS가 바뀌면 재구독 처리
+        else if ((!topic.equals(oldTopic) || qos != oldQos) && isConnected()) {
+            try {
+                if (!topic.equals(oldTopic)) {
+                    client.unsubscribe(oldTopic);
+                }
+
+                client.subscribe(topic, qos);
+                System.out.println("[" + getId() + "] 구독 설정 변경 성공 (Topic: " + topic + ", QoS: " + qos + ")");
+            } catch (Exception e) {
+                System.err.println("[" + getId() + "] 재구독 중 오류 발생: " + e.getMessage());
+                reconnect();
+            }
+        }
+    }
+
+
     @Override
     protected void connect() throws Exception {
-        String brokerUrl = (String) getConfig("brokerUrl");
-        String clientId = (String) getConfig("clientId");
-        String topic = (String) getConfig("topic");
-        Object qosObj = getConfig("qos");
-        int qos = (qosObj != null) ? ((Number) qosObj).intValue() : 1;
-
         client = new MqttClient(brokerUrl, clientId, null);
 
         MqttConnectionOptions options = new MqttConnectionOptions();

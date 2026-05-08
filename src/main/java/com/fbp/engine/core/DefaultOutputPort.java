@@ -29,4 +29,11 @@ public class DefaultOutputPort implements OutputPort{
             connectionList.add(connection);
         }
     }
+
+    @Override
+    public void disconnect(Connection connection) {
+        if (connection != null) {
+            connectionList.remove(connection);
+        }
+    }
 }
