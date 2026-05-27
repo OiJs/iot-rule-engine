@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class InfluxConfig {
     private String url = "http://localhost:8086";
-    private String token;
-    private String org = "fbp";
+    private String token = "iot-lab-super-secret-auth-token";
+    private String org = "iot-lab";
     private String bucket = "fbp-metrics";
     
     private BatchConfig batch = new BatchConfig();

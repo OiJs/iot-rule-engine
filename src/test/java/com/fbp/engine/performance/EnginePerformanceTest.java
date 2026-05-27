@@ -98,6 +98,9 @@ class EnginePerformanceTest {
     @Order(5)
     @DisplayName("스레드 자원 사용 효율성 검증")
     void test5_ThreadEfficiency() {
+        ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
+        int initialThreads = threadBean.getThreadCount();
+
         Flow flow = new Flow("thread-test");
         for (int i = 0; i < 20; i++) {
             flow.addNode(createPassThroughNode("node-" + i));
@@ -109,11 +112,13 @@ class EnginePerformanceTest {
         engine.register(flow);
         engine.startFlow("thread-test");
 
-        ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
-        int activeThreads = threadBean.getThreadCount();
+        int finalThreads = threadBean.getThreadCount();
+        int activeThreads = finalThreads - initialThreads;
 
-        System.out.println("Active Threads for 20 nodes: " + activeThreads);
-        assertTrue(activeThreads <= 40, "활성 스레드가 너무 많음: " + activeThreads);
+        System.out.println("Threads created for 20 nodes: " + activeThreads + " (Total: " + finalThreads + ")");
+        // 20개 노드 체인에서 10개 고정 워커 풀 + 메트릭 관련 스레드들이 추가됨.
+        // 증가량이 40개 이하인지를 검증.
+        assertTrue(activeThreads <= 40, "엔진 가동으로 생성된 스레드가 너무 많음: " + activeThreads);
     }
 
     /**

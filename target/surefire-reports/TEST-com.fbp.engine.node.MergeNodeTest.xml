@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.MergeNodeTest" time="1.009" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fbp.engine.node.MergeNodeTest" time="1.32" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-05-27T09-16-36_876-jvmRun1 surefire-20260527091636931_1tmp surefire_0-20260527091636931_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/junseo"/>
     <property name="user.language" value="ko"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -59,61 +59,44 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test4_PortConfiguration" classname="com.fbp.engine.node.MergeNodeTest" time="0.001">
-    <system-out><![CDATA[[Engine] 플로우 'merge-test' 등록됨
+  <testcase name="test4_PortConfiguration" classname="com.fbp.engine.node.MergeNodeTest" time="0.102">
+    <system-out><![CDATA[[Engine] Flow 'merge-test' registered
 [sink] initialized.
 [merger] initialized.
-[Engine] 플로우 'merge-test' 시작됨
+[Engine] Flow 'merge-test' started
 [sink] shutdown.
 [merger] shutdown.
+[print-p1] {id='d58c6068-e742-4c83-bd24-8455f7b7c245', payload={inputPort=in, tick=27, timestamp=1779841011181}, timestamp=2026-05-27T09:16:51.181819}
+[print-p1] {id='465fbd92-961f-4d4c-b4c6-e33181c49c62', payload={inputPort=in, tick=27, timestamp=1779841011187}, timestamp=2026-05-27T09:16:51.187216}
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
 ]]></system-out>
   </testcase>
-  <testcase name="test1_2_MergeFunctionality" classname="com.fbp.engine.node.MergeNodeTest" time="0.002">
-    <system-out><![CDATA[[Engine] 플로우 'merge-test' 등록됨
+  <testcase name="test1_2_MergeFunctionality" classname="com.fbp.engine.node.MergeNodeTest" time="0.103">
+    <system-out><![CDATA[[Engine] Flow 'merge-test' registered
 [sink] initialized.
 [merger] initialized.
-[Engine] 플로우 'merge-test' 시작됨
-[merger] processing message...
-[merger] done.
-[merger] processing message...
-[sink] processing message...
-[sink] done.
+[Engine] Flow 'merge-test' started
 [merger] 병합 완료: [temperature, humidity, inputPort]
-[merger] done.
-병합 성공 데이터: {inputPort=in, temperature=25.5, humidity=60.0}
+병합 성공 데이터: {humidity=60.0, inputPort=in, temperature=25.5}
 [sink] shutdown.
 [merger] shutdown.
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
 ]]></system-out>
   </testcase>
-  <testcase name="test3_WaitUntilMatched" classname="com.fbp.engine.node.MergeNodeTest" time="1.003">
-    <system-out><![CDATA[[Engine] 플로우 'merge-test' 등록됨
+  <testcase name="test3_WaitUntilMatched" classname="com.fbp.engine.node.MergeNodeTest" time="1.114">
+    <system-out><![CDATA[[Engine] Flow 'merge-test' registered
 [sink] initialized.
 [merger] initialized.
-[Engine] 플로우 'merge-test' 시작됨
-[merger] processing message...
-[merger] done.
-[p1] processing message...
-[print-p1] {id='385ce7d3-7d5e-4115-8da4-90cd6f30541a', payload={timestamp=1776754061493, inputPort=in, tick=643}, timestamp=2026-04-21T15:47:41.494050}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='18eee5fa-9da6-49c6-a848-6b54d98ca78f', payload={timestamp=1776754061503, inputPort=in, tick=643}, timestamp=2026-04-21T15:47:41.504016}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='1983fafa-72cb-48ed-aa74-e528c4af3d52', payload={timestamp=1776754061993, inputPort=in, tick=644}, timestamp=2026-04-21T15:47:41.993982}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='927b52a4-7aca-4f3a-86b9-67ae9d489662', payload={timestamp=1776754061999, inputPort=in, tick=322}, timestamp=2026-04-21T15:47:41.999801}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='6930cb20-0f03-48c5-a920-d9f1365b2541', payload={timestamp=1776754062005, inputPort=in, tick=644}, timestamp=2026-04-21T15:47:42.005481}
-[p1] done.
-[merger] processing message...
+[Engine] Flow 'merge-test' started
+[print-p1] {id='baff256a-c5da-4967-bf3e-d57004979cb2', payload={inputPort=in, tick=28, timestamp=1779841011681}, timestamp=2026-05-27T09:16:51.681868}
+[print-p2] {id='9da34f7f-ef82-40c9-a564-8705d96a94d9', payload={inputPort=in, tick=14, timestamp=1779841011683}, timestamp=2026-05-27T09:16:51.683561}
+[print-p1] {id='7eb8a2ba-a34d-49ea-b404-a0bc5a551ff1', payload={inputPort=in, tick=28, timestamp=1779841011688}, timestamp=2026-05-27T09:16:51.688969}
+[print-p1] {id='9f0fc2f5-046d-4667-b72c-e35eb11e7962', payload={inputPort=in, tick=29, timestamp=1779841012181}, timestamp=2026-05-27T09:16:52.181821}
+[print-p1] {id='d439b43f-c222-44d2-98e6-d0c44aaee01a', payload={inputPort=in, tick=29, timestamp=1779841012186}, timestamp=2026-05-27T09:16:52.186162}
 [merger] 병합 완료: [data, inputPort, data2]
-[merger] done.
-[sink] processing message...
-[sink] done.
 [sink] shutdown.
 [merger] shutdown.
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
 ]]></system-out>
   </testcase>
 </testsuite>

@@ -6,6 +6,7 @@ import com.fbp.engine.node.FilterNode;
 import com.fbp.engine.node.PrintNode;
 import com.fbp.engine.node.TimerNode;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ class FlowTest {
     @BeforeEach
     void setUp() {
         flow = new Flow("test-flow");
-        timer = new TimerNode("timer", 500);
+        timer = new TimerNode("timer", Map.of("intervalMs", 500L));
         printer = new PrintNode("printer");
     }
 
@@ -106,8 +107,8 @@ class FlowTest {
     @Test
     @DisplayName("12. 순환 참조 탐지 (도전 과제)")
     void test12_DetectCycle() {
-        FilterNode nodeA = new FilterNode("nodeA", "temp", 30.0);
-        FilterNode nodeB = new FilterNode("nodeB", "temp", 30.0);
+        FilterNode nodeA = new FilterNode("nodeA", Map.of("key", "temp", "threshold", 30.0));
+        FilterNode nodeB = new FilterNode("nodeB", Map.of("key", "temp", "threshold", 30.0));
 
         flow.addNode(nodeA)
                 .addNode(nodeB)

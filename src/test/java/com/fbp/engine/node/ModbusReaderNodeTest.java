@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("ModbusReaderNode 상세 테스트")
 class ModbusReaderNodeTest {
-    private static final int PORT = 5026;
+    private static final int PORT = 5028;
     private ModbusTcpSimulator simulator;
     private ModbusReaderNode reader;
     private TestCollector collector;
@@ -22,7 +22,7 @@ class ModbusReaderNodeTest {
     void setUp() throws InterruptedException {
         simulator = new ModbusTcpSimulator(PORT, 10);
         simulator.start();
-        Thread.sleep(200);
+        Thread.sleep(500);
         collector = new TestCollector("collector");
     }
 
@@ -30,7 +30,7 @@ class ModbusReaderNodeTest {
     void tearDown() throws IOException, InterruptedException {
         if (reader != null) reader.shutdown();
         simulator.stop();
-        Thread.sleep(300);
+        Thread.sleep(500);
     }
 
     @Test
@@ -54,8 +54,8 @@ class ModbusReaderNodeTest {
     void test3_ConfigVerification() {
         Map<String, Object> config = Map.of("host", "127.0.0.1", "slaveId", 5, "port", PORT);
         reader = new ModbusReaderNode("reader", config);
-        assertEquals("127.0.0.1", reader.getConfig("host"));
-        assertEquals(5, reader.getConfig("slaveId"));
+        assertEquals("127.0.0.1", reader.getConfig().get("host"));
+        assertEquals(5, reader.getConfig().get("slaveId"));
     }
 
     @Test
@@ -69,10 +69,8 @@ class ModbusReaderNodeTest {
     @Test
     @DisplayName("5. 레지스터 읽기 확인")
     void test5_RegisterRead() throws Exception {
-        // 1. 값 설정
         simulator.setRegister(0, 111);
-        // 시뮬레이터 메모리에 반영될 시간 확보
-        Thread.sleep(100);
+        Thread.sleep(200);
 
         reader = new ModbusReaderNode("reader", Map.of("host", "localhost", "port", PORT, "startAddress", 0, "count", 1));
         reader.initialize();
@@ -84,18 +82,15 @@ class ModbusReaderNodeTest {
 
         Message received = conn.poll();
         assertNotNull(received);
-
-        // 데이터 형식 확인: [111] 문자열인지 숫자 111인지 노드 구현에 따라 맞춰야 함
         assertEquals("[111]", received.getPayload().get("data").toString());
     }
 
     @Test
     @DisplayName("6. registerMapping 적용 확인")
     void test6_RegisterMapping() throws Exception {
-        // 1. 값 설정
         simulator.setRegister(0, 255);
         simulator.setRegister(1, 600);
-        Thread.sleep(100);
+        Thread.sleep(200);
 
         Map<String, Object> config = Map.of(
                 "host", "localhost", "port", PORT, "startAddress", 0, "count", 2,
@@ -113,9 +108,6 @@ class ModbusReaderNodeTest {
         assertNotNull(received, "메시지를 수신하지 못했습니다.");
 
         Map<String, Object> payload = received.getPayload();
-
-        // ModbusReaderNode에서 Integer로 담는지 확인 필요
-        // 안전하게 숫자로 변환하여 비교
         assertEquals(255, ((Number) payload.get("temperature")).intValue());
         assertEquals(600, ((Number) payload.get("humidity")).intValue());
     }
@@ -123,7 +115,6 @@ class ModbusReaderNodeTest {
     @Test
     @DisplayName("7. 읽기 실패 시 에러 포트 전달 확인")
     void test7_ErrorPortOutput() throws Exception {
-        // 존재하지 않는 주소 (10개 중 50번지)
         reader = new ModbusReaderNode("reader", Map.of("host", "localhost", "port", PORT, "startAddress", 50, "count", 1));
         reader.initialize();
 
@@ -134,7 +125,7 @@ class ModbusReaderNodeTest {
 
         Message received = errConn.poll();
         assertNotNull(received);
-        assertEquals("error", received.getPayload().get("status")); // onProcess catch 블록 확인
+        assertEquals("error", received.getPayload().get("status"));
     }
 
     @Test

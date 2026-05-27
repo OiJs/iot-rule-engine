@@ -7,6 +7,7 @@ import com.fbp.engine.core.FlowEngine.State;
 import com.fbp.engine.node.PrintNode;
 import com.fbp.engine.node.TimerNode;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class FlowEngineTest {
         engine = new FlowEngine();
 
         validFlow = new Flow("flow1")
-                .addNode(new TimerNode("t1", 500))
+                .addNode(new TimerNode("t1", Map.of("intervalMs", 500L)))
                 .addNode(new PrintNode("p1"))
                 .connect("t1", "out", "p1", "in");
     }
@@ -76,7 +77,7 @@ class FlowEngineTest {
     @DisplayName("다중 플로우 동작 확인")
     void test8_MultipleFlowIndependence() {
         Flow flow2 = new Flow("flow2")
-                .addNode(new TimerNode("t2", 1000))
+                .addNode(new TimerNode("t2", Map.of("intervalMs", 1000L)))
                 .addNode(new PrintNode("p2"))
                 .connect("t2", "out", "p2", "in");
 

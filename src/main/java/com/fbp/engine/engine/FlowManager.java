@@ -2,6 +2,7 @@ package com.fbp.engine.engine;
 
 import com.fbp.engine.core.*;
 import com.fbp.engine.core.Flow.FlowState;
+import com.fbp.engine.metrics.event.FlowEvent;
 import com.fbp.engine.node.AbstractNode;
 import com.fbp.engine.parser.*;
 import com.fbp.engine.registry.NodeRegistry;
@@ -14,6 +15,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * FlowManager는 FBP 엔진에서 플로우(Flow)의 전체 생명주기를 관리하는 매니저 클래스입니다.
+ * JSON 등 외부 설정(FlowDefinition)을 파싱하여 실제 노드(Node)와 연결(Connection)을 조립(Assemble)하고,
+ * 엔진에 등록하여 실행/중지/삭제 및 런타임 동적 패치(Hot Patch)를 수행합니다.
+ */
 @Slf4j
 public class FlowManager {
     @Getter
@@ -32,7 +38,10 @@ public class FlowManager {
     }
 
     /**
-     * [기존 방식] InputStream을 통해 배포
+     * InputStream을 통해 특정 포맷의 플로우 정의를 읽어와 엔진에 배포합니다.
+     * @param format 파일 포맷 (예: "json")
+     * @param inputStream 플로우 설계도가 담긴 입력 스트림
+     * @return 배포된 플로우의 ID
      */
     public String deploy(String format, InputStream inputStream) {
         FlowParser parser = parsers.get(format.toLowerCase());
@@ -45,7 +54,10 @@ public class FlowManager {
     }
 
     /**
-     * [새로운 방식] FlowDefinition 설계도를 직접 받아 배포 수행
+     * FlowDefinition 객체를 직접 전달받아 플로우를 조립하고 엔진에 등록합니다.
+     * 동일한 ID의 플로우가 이미 존재할 경우, 기존 플로우를 안전하게 제거한 뒤 재배포합니다.
+     * @param def 플로우 정의 설계도
+     * @return 배포된 플로우의 ID
      */
     public String deploy(FlowDefinition def) {
         def.validate();
@@ -58,17 +70,26 @@ public class FlowManager {
         // 3. 설계도를 바탕으로 Flow 조립 (노드 생성 및 커넥션 주입)
         Flow flow = assembleFlow(def);
 
-        // 4. 엔진 등록 및 가동
-        engine.register(flow);
-        engine.startFlow(flow.getId());
+        // 4. 엔진 등록
+        engine.register(flow, def);
         managedFlows.put(flow.getId(), flow);
+
+        submitEvent(def.id(), "DEPLOY", "Flow deployed: " + def.name());
 
         log.info("[FlowManager] 플로우 배포 완료: {}", flow.getId());
         return flow.getId();
     }
 
+    private void submitEvent(String flowId, String type, String summary) {
+        if (engine.getCollector() != null) {
+            engine.getCollector().submit(new FlowEvent(System.currentTimeMillis(), flowId, type, summary));
+        }
+    }
+
     /**
-     * NodeRegistry와 ConnectionFactory를 사용하여 실제 Flow 객체를 조립합니다.
+     * 설계도(FlowDefinition)에 정의된 노드와 연결 정보를 바탕으로 실제 Flow 객체를 빌드합니다.
+     * @param def 플로우 정의 객체
+     * @return 조립이 완료된 Flow 인스턴스
      */
     private Flow assembleFlow(FlowDefinition def) {
         Flow flow = new Flow(def.id());
@@ -108,9 +129,15 @@ public class FlowManager {
         return flow;
     }
 
+    /**
+     * 등록된 플로우를 엔진에서 제거하고 관련 자원(MQTT 구독 등)을 모두 해제합니다.
+     * @param flowId 제거할 플로우 ID
+     */
     public void remove(String flowId) {
         Flow flow = managedFlows.get(flowId);
-        if (flow == null) return;
+        if (flow == null) {
+            throw new FlowNotFoundException("존재하지 않는 Flow: " + flowId);
+        }
 
         if (flow.getFlowState().equals(FlowState.RUNNING)) {
             engine.stopFlow(flowId);
@@ -119,8 +146,14 @@ public class FlowManager {
         }
         engine.unRegister(flow);
         managedFlows.remove(flowId);
+        submitEvent(flowId, "REMOVE", "Flow removed");
     }
 
+    /**
+     * 실행 중인 플로우를 중단하지 않고 동적으로 노드를 추가합니다.
+     * @param flowId 대상 플로우 ID
+     * @param def 추가할 노드의 설계 정보
+     */
     public void addNode(String flowId, NodeDefinition def) {
         Flow flow = managedFlows.get(flowId);
         if(flow == null) throw new FlowNotFoundException(flowId);
@@ -130,9 +163,15 @@ public class FlowManager {
         flow.addNode(newNode);
         newNode.initialize();
 
+        submitEvent(flowId, "ADD_NODE", "Node added: " + def.id());
         System.out.println("[" + def.id() + "] 노드가 성공적으로 추가되었습니다.");
     }
 
+    /**
+     * 실행 중인 플로우에서 특정 노드를 동적으로 제거합니다.
+     * @param flowId 대상 플로우 ID
+     * @param nodeId 제거할 노드 ID
+     */
     public void removeNode(String flowId, String nodeId) {
         Flow flow = managedFlows.get(flowId);
         if(flow == null) return;
@@ -141,15 +180,16 @@ public class FlowManager {
         if(node != null) {
             node.shutdown();
             flow.removeNodeWithConnections(nodeId);
+            submitEvent(flowId, "REMOVE_NODE", "Node removed: " + nodeId);
             System.out.println("[" + nodeId + "] 노드 제거");
         }
     }
 
     /**
-     * 커넥션 추가 명령어 처리
-     * @param flowId   플로우 ID
-     * @param fromStr  출발지 정보 (예: "timer:out")
-     * @param toStr    목적지 정보 (예: "logger:in")
+     * 실행 중인 플로우에 새로운 연결(Wire)을 동적으로 추가합니다.
+     * @param flowId 대상 플로우 ID
+     * @param fromStr 소스 정보 (예: "sensor:out")
+     * @param toStr 타겟 정보 (예: "rule:in")
      */
     public void addConnection(String flowId, String fromStr, String toStr) {
         Flow flow = managedFlows.get(flowId);
@@ -159,7 +199,6 @@ public class FlowManager {
         }
 
         try {
-            // 1. 문자열 파싱 (":" 기준으로 분리)
             String[] fromParts = fromStr.split(":");
             String[] toParts = toStr.split(":");
 
@@ -172,9 +211,9 @@ public class FlowManager {
             String targetNodeId = toParts[0];
             String targetPort = toParts[1];
 
-            // 2. Flow 클래스의 connect 호출 (실제 Connection 객체 생성 및 포트 등록)
             flow.connect(sourceNodeId, sourcePort, targetNodeId, targetPort);
 
+            submitEvent(flowId, "ADD_WIRE", "Wire added: " + fromStr + " -> " + toStr);
             System.out.println(String.format("[연결 성공] %s (%s) -> %s (%s)",
                     sourceNodeId, sourcePort, targetNodeId, targetPort));
 
@@ -185,21 +224,31 @@ public class FlowManager {
         }
     }
 
+    /**
+     * 실행 중인 플로우에서 특정 연결을 동적으로 끊습니다.
+     * @param flowId 대상 플로우 ID
+     * @param connectionId 제거할 연결의 자동 생성된 ID
+     */
     public void removeConnection(String flowId, String connectionId) {
         Flow flow = managedFlows.get(flowId);
         if (flow == null) return;
 
-        // 플로우에게 ID를 줄 테니 알아서 안전하게 끊으라고 시킵니다.
         flow.removeConnection(connectionId);
 
+        submitEvent(flowId, "REMOVE_WIRE", "Wire removed: " + connectionId);
         System.out.println("[Connection 제거 완료] ID: " + connectionId);
     }
 
+    /**
+     * 플로우 핫 패치: 새로운 설계도를 받아 현재 실행 중인 플로우와의 차이점을 계산하고,
+     * 변경된 노드/연결/설정만 선별적으로 업데이트합니다.
+     * @param flowId 대상 플로우 ID
+     * @param newDef 새로운 설계도 객체
+     */
     public void applyPatch(String flowId, FlowDefinition newDef) {
         Flow currentFlow = managedFlows.get(flowId);
         if (currentFlow == null) return;
 
-        // 0. 설계도 유효성 검사
         newDef.validate();
 
         Map<String, AbstractNode> oldNodes = currentFlow.getNodes();
@@ -211,7 +260,6 @@ public class FlowManager {
                 .filter(def -> !oldNodes.containsKey(def.id())).toList();
         List<NodeDefinition> nodesToUpdate = newNodes.values().stream()
                 .filter(def -> oldNodes.containsKey(def.id()))
-                // 설정(Map)이 바뀐 경우만 필터링
                 .filter(def -> !oldNodes.get(def.id()).getConfig().equals(def.config()))
                 .toList();
 
@@ -243,6 +291,7 @@ public class FlowManager {
             currentFlow.connect(from[0], from[1], to[0], to[1]);
         });
 
+        submitEvent(flowId, "PATCH", "Flow definition patched");
         System.out.println("[" + flowId + "] 패치 적용 성공.");
     }
 
@@ -265,6 +314,10 @@ public class FlowManager {
                 .toList();
     }
 
+    /**
+     * 플로우의 메시지 처리를 중단하고 노드들을 정지 상태로 전환합니다.
+     * @param flowId 중지할 플로우 ID
+     */
     public void stop(String flowId) {
         Flow flow = managedFlows.get(flowId);
 
@@ -274,9 +327,14 @@ public class FlowManager {
 
         if(flow.getFlowState().equals(FlowState.RUNNING)) {
             engine.stopFlow(flowId);
+            submitEvent(flowId, "STOP", "Flow stopped");
         }
     }
 
+    /**
+     * 정지된 플로우를 다시 가동하거나, 시작합니다.
+     * @param flowId 시작할 플로우 ID
+     */
     public void restart(String flowId) {
         Flow flow = managedFlows.get(flowId);
 
@@ -285,6 +343,8 @@ public class FlowManager {
         }
         if(flow.getFlowState().equals(FlowState.STOPPED)) {
             engine.startFlow(flowId);
+            submitEvent(flowId, "START", "Flow started/restarted");
         }
     }
 }
+

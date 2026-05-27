@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.fbp.engine.runner.MainTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.015 s -- in com.fbp.engine.runner.MainTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.071 s -- in com.fbp.engine.runner.MainTest

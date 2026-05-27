@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fbp.engine.api.HttpApiServerTest" time="1.233" tests="12" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-05-27T09-16-36_876-jvmRun1 surefire-20260527091636931_1tmp surefire_0-20260527091636931_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testGetFlows" classname="com.fbp.engine.api.HttpApiServerTest" time="0.105">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testServerStartStop" classname="com.fbp.engine.api.HttpApiServerTest" time="0.102">
+    <system-out><![CDATA[API Server started on port 8888
+[print-p1] {id='4c76f61d-7a9e-4144-b342-7c4b84b97c48', payload={inputPort=in, tick=18, timestamp=1779841006679}, timestamp=2026-05-27T09:16:46.679400}
+[print-p2] {id='17262401-b310-4d37-b1a5-fae590d49677', payload={inputPort=in, tick=9, timestamp=1779841006686}, timestamp=2026-05-27T09:16:46.686241}
+[print-p1] {id='b86ac818-cc96-4021-8d7a-0719226bb55d', payload={inputPort=in, tick=18, timestamp=1779841006687}, timestamp=2026-05-27T09:16:46.687446}
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testMethodNotAllowed" classname="com.fbp.engine.api.HttpApiServerTest" time="0.104">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testPortConflict" classname="com.fbp.engine.api.HttpApiServerTest" time="0.106">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetFlowMetrics" classname="com.fbp.engine.api.HttpApiServerTest" time="0.102">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetHealth" classname="com.fbp.engine.api.HttpApiServerTest" time="0.102">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testNotFoundPath" classname="com.fbp.engine.api.HttpApiServerTest" time="0.106">
+    <system-out><![CDATA[API Server started on port 8888
+[print-p1] {id='5227a836-d3d6-4dd4-a4f7-a3bec886cc42', payload={inputPort=in, tick=19, timestamp=1779841007181}, timestamp=2026-05-27T09:16:47.181827}
+[print-p1] {id='fe2426e1-f3c2-45db-9f47-669e96d772ce', payload={inputPort=in, tick=19, timestamp=1779841007187}, timestamp=2026-05-27T09:16:47.187400}
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testPostFlowsSuccess" classname="com.fbp.engine.api.HttpApiServerTest" time="0.067">
+    <system-out><![CDATA[API Server started on port 8888
+[Engine] Flow 'flow-1' registered
+[n1] shutdown.
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testContentTypeHeader" classname="com.fbp.engine.api.HttpApiServerTest" time="0.107">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testPostFlowsBadRequest" classname="com.fbp.engine.api.HttpApiServerTest" time="0.104">
+    <system-out><![CDATA[API Server started on port 8888
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+    <system-err><![CDATA[Client Error (400): 플로우 파일(JSON) 읽기 실패: Unrecognized field "wrong" (class com.fbp.engine.parser.FlowDefinition), not marked as ignorable (9 known properties: "nodes", "metrics", "connections", "transport", "nodeMap", "id", "description", "name", "connectionIds"])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 22] (through reference chain: com.fbp.engine.parser.FlowDefinition["wrong"])
+]]></system-err>
+  </testcase>
+  <testcase name="testDeleteFlowSuccess" classname="com.fbp.engine.api.HttpApiServerTest" time="0.116">
+    <system-out><![CDATA[API Server started on port 8888
+[Engine] Flow 'delete-me' registered
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteFlowNotFound" classname="com.fbp.engine.api.HttpApiServerTest" time="0.106">
+    <system-out><![CDATA[API Server started on port 8888
+[print-p1] {id='d3cb9b2d-baa1-4dc6-95b6-081ac7003f5c', payload={inputPort=in, tick=20, timestamp=1779841007681}, timestamp=2026-05-27T09:16:47.681265}
+[print-p2] {id='bc9564fc-3b87-4b20-95e8-7f7f53cccbf0', payload={inputPort=in, tick=10, timestamp=1779841007686}, timestamp=2026-05-27T09:16:47.686250}
+[print-p1] {id='376e1d58-c968-4e24-979f-de9d856bf597', payload={inputPort=in, tick=20, timestamp=1779841007689}, timestamp=2026-05-27T09:16:47.689828}
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+</testsuite>

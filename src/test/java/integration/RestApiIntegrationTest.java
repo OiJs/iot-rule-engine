@@ -42,6 +42,7 @@ class RestApiIntegrationTest {
                     "Mock Flow",
                     "Description for " + id,
                     new TransportDefinition("local", null, 1),
+                    new MetricsDefinition(null),
                     List.of(new NodeDefinition("node1", "simple", Map.of())),
                     List.of()
             );
@@ -78,6 +79,7 @@ class RestApiIntegrationTest {
                 "Execution Test",
                 "Test description",
                 new TransportDefinition("local", null, 1),
+                new MetricsDefinition(null),
                 List.of(new NodeDefinition("worker", "simple", Map.of())),
                 List.of()
         );
@@ -104,6 +106,7 @@ class RestApiIntegrationTest {
                 "Metrics Test",
                 "Test description",
                 new TransportDefinition("local", null, 1),
+                new MetricsDefinition(null),
                 List.of(new NodeDefinition("m1", "simple", Map.of())),
                 List.of()
         );
@@ -138,6 +141,7 @@ class RestApiIntegrationTest {
                             "Concurrent Flow",
                             "Description",
                             new TransportDefinition("local", null, 1),
+                            new MetricsDefinition(null),
                             List.of(new NodeDefinition("n1", "simple", Map.of())),
                             List.of()
                     );
@@ -174,6 +178,7 @@ class RestApiIntegrationTest {
                 "Large Scale Flow",
                 "50 nodes flow",
                 new TransportDefinition("local", null, 1),
+                new MetricsDefinition(null),
                 nodes,
                 connections
         );

@@ -38,8 +38,8 @@ class ProtocolNodeTest {
 
     @Test
     void test2_ConfigLookup() {
-        assertEquals(TEST_HOST, node.getConfig("host"));
-        assertEquals(100L, node.getConfig("reconnectIntervalMs"));
+        assertEquals(TEST_HOST, node.getConfig().get("host"));
+        assertEquals(100L, node.getConfig().get("reconnectIntervalMs"));
     }
 
     @Test

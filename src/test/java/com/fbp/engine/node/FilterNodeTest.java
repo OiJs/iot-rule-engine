@@ -14,7 +14,7 @@ class FilterNodeTest {
 
     @BeforeEach
     void setUp() {
-        filter = new FilterNode("f1", "temp", 30.0);
+        filter = new FilterNode("f1", Map.of("key", "temp", "threshold", 30.0));
         outConn = new LocalConnection("conn-out");
         filter.getOutputPort("out").connect(outConn);
     }

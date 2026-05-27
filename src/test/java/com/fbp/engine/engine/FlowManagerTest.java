@@ -42,6 +42,7 @@ class FlowManagerTest {
             }
             """;
         manager.deploy("json", new ByteArrayInputStream(json.getBytes()));
+        manager.restart("f1");
 
         assertEquals(FlowState.RUNNING, manager.getStatus("f1"));
     }
@@ -64,6 +65,7 @@ class FlowManagerTest {
     void test3_GetStatus() {
         String json = "{\"id\":\"f1\", \"nodes\":[{\"id\":\"n1\",\"type\":\"MockType\"}], \"connections\":[]}";
         manager.deploy("json", new ByteArrayInputStream(json.getBytes()));
+        manager.restart("f1");
 
         assertEquals(FlowState.RUNNING, manager.getStatus("f1"));
     }
@@ -73,6 +75,7 @@ class FlowManagerTest {
     void test4_Stop() {
         String json = "{\"id\":\"f1\", \"nodes\":[{\"id\":\"n1\",\"type\":\"MockType\"}], \"connections\":[]}";
         manager.deploy("json", new ByteArrayInputStream(json.getBytes()));
+        manager.restart("f1");
 
         manager.stop("f1");
         assertEquals(FlowState.STOPPED, manager.getStatus("f1"));
@@ -104,6 +107,7 @@ class FlowManagerTest {
     void test7_RemoveRunningFlow() {
         String json = "{\"id\":\"f1\", \"nodes\":[{\"id\":\"n1\",\"type\":\"MockType\"}], \"connections\":[]}";
         manager.deploy("json", new ByteArrayInputStream(json.getBytes()));
+        manager.restart("f1");
 
         assertDoesNotThrow(() -> manager.remove("f1"));
         assertEquals(0, manager.list().size());

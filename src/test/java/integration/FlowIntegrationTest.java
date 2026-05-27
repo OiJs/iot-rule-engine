@@ -6,8 +6,10 @@ import com.fbp.engine.engine.FlowManager;
 import com.fbp.engine.flow.SubFlowNode;
 import com.fbp.engine.message.Message;
 import com.fbp.engine.node.AbstractNode;
+import com.fbp.engine.metrics.MetricsCollector;
 import com.fbp.engine.parser.FlowDefinition;
 import com.fbp.engine.parser.FlowParser;
+import com.fbp.engine.parser.MetricsDefinition;
 import com.fbp.engine.parser.TransportDefinition;
 import com.fbp.engine.registry.NodeRegistry;
 import org.junit.jupiter.api.*;
@@ -45,6 +47,7 @@ class FlowIntegrationTest {
                 "name",
                 "description",
                 new TransportDefinition("local", null, 1),
+                new MetricsDefinition(null),
                 List.of(),
                 List.of()
         );
@@ -131,6 +134,7 @@ class FlowIntegrationTest {
                 super.deliver(m);
                 latch.countDown();
             }
+            @Override public void setContext(String flowId, MetricsCollector collector) {}
         };
         faulty.getErrorPort().connect(errConn);
 
@@ -163,6 +167,7 @@ class FlowIntegrationTest {
                 if (m != null) latch.countDown();
                 return m;
             }
+            @Override public void setContext(String flowId, MetricsCollector collector) {}
         });
 
         Flow root = new Flow("root");
@@ -204,6 +209,7 @@ class FlowIntegrationTest {
             @Override public void setTarget(InputPort t) {}
             @Override public InputPort getTarget() { return null; }
             @Override public String getId() { return "test"; }
+            @Override public void setContext(String flowId, MetricsCollector collector) {}
         });
 
         Message msg = new Message(Map.of("val", 100));
@@ -221,6 +227,7 @@ class FlowIntegrationTest {
                 "name",
                 "description",
                 new TransportDefinition("local", null, 1),
+                new MetricsDefinition(null),
                 List.of(),
                 List.of()
         );

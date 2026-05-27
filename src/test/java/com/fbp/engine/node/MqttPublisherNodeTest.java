@@ -111,7 +111,7 @@ class MqttPublisherNodeTest {
             node.initialize();
             Thread.sleep(1000);
 
-            String dynamicTopic = (String) node.getConfig("topic");
+            String dynamicTopic = (String) node.getConfig().get("topic");
             AtomicReference<String> caughtTopic = new AtomicReference<>();
             MqttClient subClient = new MqttClient(brokerUrl, "sub-dyn-checker");
 

@@ -1,0 +1,25 @@
+{
+  "id": "health-check",
+  "transport": {
+    "type": "local"
+  },
+  "nodes": [
+    {
+      "id": "timer",
+      "type": "TimerNode",
+      "config": {
+        "intervalMs": 2000
+      }
+    },
+    {
+      "id": "logger",
+      "type": "PrintNode",
+      "config": {
+        "silent": true
+      }
+    }
+  ],
+  "connections": [
+    { "from": "timer:out", "to": "logger:in" }
+  ]
+}

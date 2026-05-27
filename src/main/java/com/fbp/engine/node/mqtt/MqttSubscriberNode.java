@@ -8,13 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 import org.eclipse.paho.mqttv5.client.IMqttToken;
 import org.eclipse.paho.mqttv5.client.MqttCallback;
-import org.eclipse.paho.mqttv5.client.MqttClient;
+import org.eclipse.paho.mqttv5.client.MqttAsyncClient;
 import org.eclipse.paho.mqttv5.client.MqttConnectionOptions;
 import org.eclipse.paho.mqttv5.client.MqttDisconnectResponse;
 import org.eclipse.paho.mqttv5.common.MqttException;
 import org.eclipse.paho.mqttv5.common.MqttMessage;
 import org.eclipse.paho.mqttv5.common.packet.MqttProperties;
 
+/**
+ * MqttSubscriberNode는 외부 MQTT 브로커로부터 메시지를 수신하여 FBP 플로우 내부로 유입시키는 소스(Source) 노드입니다.
+ * 지정된 토픽을 구독(Subscribe)하고, 수신된 페이로드를 JSON으로 파싱하여 {@link Message} 객체로 변환한 뒤 
+ * 출력 포트로 전송합니다. 런타임 설정 변경을 통한 브로커 재연결 및 토픽 변경을 지원합니다.
+ */
 public class MqttSubscriberNode extends ProtocolNode {
     private static final String DEFAULT_BROKER = "tcp://localhost:1883";
     private static final String DEFAULT_TOPIC = "fbp/default";
@@ -24,7 +29,7 @@ public class MqttSubscriberNode extends ProtocolNode {
     private String clientId;
     private String topic;
     private int qos;
-    private MqttClient client;
+    private MqttAsyncClient client;
     private final ObjectMapper objectMapper;
 
     public MqttSubscriberNode(String id, Map<String, Object> config) {
@@ -48,6 +53,10 @@ public class MqttSubscriberNode extends ProtocolNode {
         this.config.put("topic", this.topic);
     }
 
+    /**
+     * 실행 중에 MQTT 브로커 주소나 구독 토픽 정보가 변경되었을 때 호출됩니다. 
+     * 브로커 주소가 바뀌면 전체 재연결을 수행하며, 토픽만 바뀔 경우 기존 구독을 해지하고 새로 구독합니다.
+     */
     @Override
     protected void onConfigUpdate(Map<String, Object> newConfig) {
         // 이전 값들 백업
@@ -68,22 +77,24 @@ public class MqttSubscriberNode extends ProtocolNode {
         else if ((!topic.equals(oldTopic) || qos != oldQos) && isConnected()) {
             try {
                 if (!topic.equals(oldTopic)) {
-                    client.unsubscribe(oldTopic);
+                    client.unsubscribe(oldTopic).waitForCompletion();
                 }
 
-                client.subscribe(topic, qos);
+                client.subscribe(new org.eclipse.paho.mqttv5.common.MqttSubscription[]{new org.eclipse.paho.mqttv5.common.MqttSubscription(topic, qos)}).waitForCompletion();
                 System.out.println("[" + getId() + "] 구독 설정 변경 성공 (Topic: " + topic + ", QoS: " + qos + ")");
             } catch (Exception e) {
                 System.err.println("[" + getId() + "] 재구독 중 오류 발생: " + e.getMessage());
-                reconnect();
             }
         }
     }
 
 
+    /**
+     * 설정된 브로커 URL로 연결을 시도하고 비동기 콜백을 등록합니다.
+     */
     @Override
     protected void connect() throws Exception {
-        client = new MqttClient(brokerUrl, clientId, null);
+        client = new MqttAsyncClient(brokerUrl, clientId, null);
 
         MqttConnectionOptions options = new MqttConnectionOptions();
         options.setCleanStart(true);
@@ -127,25 +138,35 @@ public class MqttSubscriberNode extends ProtocolNode {
             @Override
             public void deliveryComplete(IMqttToken token) {}
 
+            /**
+             * 연결 성공 시 자동으로 토픽 구독을 수행합니다.
+             */
             @Override
             public void connectComplete(boolean reconnect, String serverURI) {
                 System.out.println("[" + getId() + "] 브로커 연결 성공: " + serverURI);
+                try {
+                    client.subscribe(new org.eclipse.paho.mqttv5.common.MqttSubscription[]{new org.eclipse.paho.mqttv5.common.MqttSubscription(topic, qos)}).waitForCompletion();
+                    System.out.println("[" + getId() + "] '" + topic + "' 구독 시작 (QoS: " + qos + ")");
+                } catch (MqttException e) {
+                    System.err.println("[" + getId() + "] 자동 구독 실패: " + e.getMessage());
+                }
             }
 
             @Override
             public void authPacketArrived(int reasonCode, MqttProperties properties) {}
         });
 
-        client.connect(options);
-        client.subscribe(topic, qos);
-        System.out.println("[" + getId() + "] '" + topic + "' 구독 시작 (QoS: " + qos + ")");
+        client.connect(options).waitForCompletion();
     }
 
+    /**
+     * MQTT 클라이언트 연결을 해제하고 자원을 정리합니다.
+     */
     @Override
     protected void disconnect() throws Exception {
         if (client != null) {
             if (client.isConnected()) {
-                client.disconnect();
+                client.disconnect().waitForCompletion();
             }
             client.close();
             System.out.println("[" + getId() + "] MQTT 클라이언트 종료.");

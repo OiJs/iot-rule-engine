@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fbp.engine.performance.EnginePerformanceTest" time="32.522" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-05-27T09-16-36_876-jvmRun1 surefire-20260527091636931_1tmp surefire_0-20260527091636931_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/junseo"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="junseo"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.3.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="/Users/junseo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/z7/_fzkqgt109b29vnhb4b89w4w0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/junseo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="test1_2_3_StandardLoadMetrics" classname="com.fbp.engine.performance.EnginePerformanceTest" time="0.24">
+    <system-out><![CDATA[[Engine] Flow 'metric-test' registered
+[n1] initialized.
+[n2] initialized.
+[Engine] Flow 'metric-test' started
+Result: PerformanceResult(totalMessages=10000, throughput=74626.86567164179, avgLatency=0.0, p99Latency=0, errors=0, errorRate=0.0)
+[n1] shutdown.
+[n2] shutdown.
+[print-p1] {id='03f92620-ae7b-476d-a3d5-4d9abb8ca4ba', payload={inputPort=in, tick=72, timestamp=1779841033679}, timestamp=2026-05-27T09:17:13.679485}
+[print-p2] {id='f3ca5a4d-64ba-42b9-8e15-0a00bcf74f7d', payload={inputPort=in, tick=36, timestamp=1779841033685}, timestamp=2026-05-27T09:17:13.685835}
+[print-p1] {id='f9f4d1f7-cb65-4179-9e7b-a7085102495d', payload={inputPort=in, tick=72, timestamp=1779841033687}, timestamp=2026-05-27T09:17:13.687361}
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test4_MemoryStability" classname="com.fbp.engine.performance.EnginePerformanceTest" time="32.075">
+    <system-out><![CDATA[[Engine] Flow 'memory-test' registered
+[n1] initialized.
+[Engine] Flow 'memory-test' started
+[print-p1] {id='767520ed-96e0-4c1c-9378-1af1274c3af7', payload={inputPort=in, tick=73, timestamp=1779841034181}, timestamp=2026-05-27T09:17:14.181755}
+[print-p1] {id='a1fd5281-790c-4c4c-bb21-86fd04caf85c', payload={inputPort=in, tick=73, timestamp=1779841034186}, timestamp=2026-05-27T09:17:14.186363}
+[print-p1] {id='a0a5e6c1-594b-4a0c-aab3-5fccd56f2fba', payload={inputPort=in, tick=74, timestamp=1779841034680}, timestamp=2026-05-27T09:17:14.680371}
+[print-p2] {id='70d06ead-4c02-43a1-b1ac-66fde822514a', payload={inputPort=in, tick=37, timestamp=1779841034682}, timestamp=2026-05-27T09:17:14.682164}
+[print-p1] {id='8838d2dc-8794-431a-a5f8-8d590d2ddb6b', payload={inputPort=in, tick=74, timestamp=1779841034689}, timestamp=2026-05-27T09:17:14.689729}
+[print-p1] {id='d422e005-101d-4ddb-88b2-8e57a362febe', payload={inputPort=in, tick=75, timestamp=1779841035179}, timestamp=2026-05-27T09:17:15.179987}
+[print-p1] {id='f83479f3-a5f4-49d7-8f59-5bd477350147', payload={inputPort=in, tick=75, timestamp=1779841035185}, timestamp=2026-05-27T09:17:15.185305}
+[print-p1] {id='474c0d92-35ff-4582-abd8-63837a5b92ee', payload={inputPort=in, tick=76, timestamp=1779841035680}, timestamp=2026-05-27T09:17:15.680975}
+[print-p1] {id='c5157a70-d12b-48d2-aea8-a5d26a1375e8', payload={inputPort=in, tick=76, timestamp=1779841035686}, timestamp=2026-05-27T09:17:15.686112}
+[print-p2] {id='4abdda3a-891d-425c-b66d-8221d5f87d10', payload={inputPort=in, tick=38, timestamp=1779841035686}, timestamp=2026-05-27T09:17:15.686152}
+[print-p1] {id='efa2fed5-9505-4ee9-8c5f-87f0e65304f7', payload={inputPort=in, tick=77, timestamp=1779841036181}, timestamp=2026-05-27T09:17:16.181691}
+[print-p1] {id='32461dfc-d051-4d4a-a86d-23bab132c7eb', payload={inputPort=in, tick=77, timestamp=1779841036188}, timestamp=2026-05-27T09:17:16.188256}
+[print-p1] {id='de78f8f3-2d4e-4143-8e48-dd7d93783f6b', payload={inputPort=in, tick=78, timestamp=1779841036681}, timestamp=2026-05-27T09:17:16.681695}
+[print-p2] {id='3c221624-ce9e-452d-88e4-06b4ad2eed8e', payload={inputPort=in, tick=39, timestamp=1779841036685}, timestamp=2026-05-27T09:17:16.685349}
+[print-p1] {id='1fc32c29-9596-4f57-acfd-4c2abada2844', payload={inputPort=in, tick=78, timestamp=1779841036686}, timestamp=2026-05-27T09:17:16.686170}
+[print-p1] {id='5f0c927b-4242-44e7-9c01-1665e5e9f96e', payload={inputPort=in, tick=79, timestamp=1779841037181}, timestamp=2026-05-27T09:17:17.181577}
+[print-p1] {id='caad66ed-b4ce-4bb3-9d99-6681de166c28', payload={inputPort=in, tick=79, timestamp=1779841037187}, timestamp=2026-05-27T09:17:17.187541}
+[print-p1] {id='7e09ec7e-f96d-48eb-a2a1-455eae478593', payload={inputPort=in, tick=80, timestamp=1779841037678}, timestamp=2026-05-27T09:17:17.678420}
+[print-p2] {id='f81c8ab3-dc09-4a2d-9843-954114fbb0cc', payload={inputPort=in, tick=40, timestamp=1779841037683}, timestamp=2026-05-27T09:17:17.683918}
+[print-p1] {id='6cbffc58-7370-4c2c-98ce-f538bdcf8771', payload={inputPort=in, tick=80, timestamp=1779841037689}, timestamp=2026-05-27T09:17:17.689745}
+[print-p1] {id='4e1405ed-f151-4a8e-8b26-65b80179f612', payload={inputPort=in, tick=81, timestamp=1779841038177}, timestamp=2026-05-27T09:17:18.177172}
+[print-p1] {id='22199cc1-af69-4116-b705-f265c654c31e', payload={inputPort=in, tick=81, timestamp=1779841038184}, timestamp=2026-05-27T09:17:18.184864}
+[print-p1] {id='e6be9a36-17d4-4ce0-881c-2f9a759e9a6e', payload={inputPort=in, tick=82, timestamp=1779841038681}, timestamp=2026-05-27T09:17:18.681673}
+[print-p2] {id='76654c69-a3c2-454c-a690-4dab8d8215d8', payload={inputPort=in, tick=41, timestamp=1779841038685}, timestamp=2026-05-27T09:17:18.685505}
+[print-p1] {id='0edb8748-a3a3-4e3a-aad0-391acce4c501', payload={inputPort=in, tick=82, timestamp=1779841038685}, timestamp=2026-05-27T09:17:18.685529}
+[print-p1] {id='7a9abe52-c70b-4bbc-8701-e2c6b54aa53f', payload={inputPort=in, tick=83, timestamp=1779841039177}, timestamp=2026-05-27T09:17:19.177143}
+[print-p1] {id='a62505d0-2697-44ab-b534-76fa6ddd3281', payload={inputPort=in, tick=83, timestamp=1779841039187}, timestamp=2026-05-27T09:17:19.187530}
+[print-p1] {id='cb989a22-d3f7-4ac1-9daa-bdaeff76ce40', payload={inputPort=in, tick=84, timestamp=1779841039681}, timestamp=2026-05-27T09:17:19.681668}
+[print-p2] {id='bc1fc943-859b-4d94-aee4-24a17e771959', payload={inputPort=in, tick=42, timestamp=1779841039683}, timestamp=2026-05-27T09:17:19.683209}
+[print-p1] {id='7891249d-36a1-4690-b76d-dde33f2dc499', payload={inputPort=in, tick=84, timestamp=1779841039688}, timestamp=2026-05-27T09:17:19.688989}
+[print-p1] {id='754acc0a-9e20-4050-b3c4-91bf9e2601a5', payload={inputPort=in, tick=85, timestamp=1779841040181}, timestamp=2026-05-27T09:17:20.181678}
+[print-p1] {id='c5a6d709-d02d-4cc7-b6d1-f41857969992', payload={inputPort=in, tick=85, timestamp=1779841040187}, timestamp=2026-05-27T09:17:20.187994}
+[print-p1] {id='805d0d65-1ebe-401e-a1ab-e3d9db06c744', payload={inputPort=in, tick=86, timestamp=1779841040681}, timestamp=2026-05-27T09:17:20.681672}
+[print-p2] {id='a23ddbf7-bf89-4662-8290-1b5b01bbd22c', payload={inputPort=in, tick=43, timestamp=1779841040681}, timestamp=2026-05-27T09:17:20.681858}
+[print-p1] {id='843b0d83-14ed-44d1-a4ed-d5ac5402bca3', payload={inputPort=in, tick=86, timestamp=1779841040688}, timestamp=2026-05-27T09:17:20.688816}
+[print-p1] {id='ae03b38e-f1d0-4318-9bd9-90d76f46aca0', payload={inputPort=in, tick=87, timestamp=1779841041181}, timestamp=2026-05-27T09:17:21.181666}
+[print-p1] {id='54189a66-f55c-4ee7-8287-cec4e7cd0b7b', payload={inputPort=in, tick=87, timestamp=1779841041189}, timestamp=2026-05-27T09:17:21.189717}
+[print-p1] {id='3b3fcec4-9cb6-4846-95ac-3cdc9ad44e2f', payload={inputPort=in, tick=88, timestamp=1779841041680}, timestamp=2026-05-27T09:17:21.680821}
+[print-p2] {id='36b8aa9f-b65d-43fa-80a0-81480cf7976b', payload={inputPort=in, tick=44, timestamp=1779841041686}, timestamp=2026-05-27T09:17:21.686140}
+[print-p1] {id='866c165f-7089-46a3-ae6f-00b9f9e2c684', payload={inputPort=in, tick=88, timestamp=1779841041686}, timestamp=2026-05-27T09:17:21.686147}
+[print-p1] {id='b0c2d519-3030-40d7-8d84-3fdffe7ed2b8', payload={inputPort=in, tick=89, timestamp=1779841042176}, timestamp=2026-05-27T09:17:22.176858}
+[print-p1] {id='6b4d9c20-e7ff-478e-a49a-1711d933bc8e', payload={inputPort=in, tick=89, timestamp=1779841042189}, timestamp=2026-05-27T09:17:22.189739}
+[print-p1] {id='906f3430-252d-4a67-bf40-d88fcc305b20', payload={inputPort=in, tick=90, timestamp=1779841042679}, timestamp=2026-05-27T09:17:22.679987}
+[print-p2] {id='d952bc1e-3c28-4cba-bbd1-660cfcc2343e', payload={inputPort=in, tick=45, timestamp=1779841042686}, timestamp=2026-05-27T09:17:22.686152}
+[print-p1] {id='6f2755bc-73f0-4498-8170-d6089040bc92', payload={inputPort=in, tick=90, timestamp=1779841042688}, timestamp=2026-05-27T09:17:22.689019}
+[print-p1] {id='a020d254-9c1e-4b45-a3c3-e1729048e6b8', payload={inputPort=in, tick=91, timestamp=1779841043178}, timestamp=2026-05-27T09:17:23.178245}
+[print-p1] {id='3801c0be-a8d4-4240-8d64-effb65360367', payload={inputPort=in, tick=91, timestamp=1779841043187}, timestamp=2026-05-27T09:17:23.187156}
+[print-p1] {id='7bb5f855-fe01-4e8f-98f8-f48ef953b22d', payload={inputPort=in, tick=92, timestamp=1779841043678}, timestamp=2026-05-27T09:17:23.678713}
+[print-p2] {id='29ce9d30-fd8d-4e97-9605-d7551c9542de', payload={inputPort=in, tick=46, timestamp=1779841043685}, timestamp=2026-05-27T09:17:23.685942}
+[print-p1] {id='c3620196-9fb0-4848-8f81-55b2f285164a', payload={inputPort=in, tick=92, timestamp=1779841043685}, timestamp=2026-05-27T09:17:23.686034}
+[print-p1] {id='345be9b9-5350-4e52-8815-5075dc91f44e', payload={inputPort=in, tick=93, timestamp=1779841044180}, timestamp=2026-05-27T09:17:24.181007}
+[print-p1] {id='ec359b8a-69f5-4e9a-9934-25b2936fea22', payload={inputPort=in, tick=93, timestamp=1779841044184}, timestamp=2026-05-27T09:17:24.184892}
+[print-p1] {id='339fef31-d992-47f3-96b1-8186b03564fe', payload={inputPort=in, tick=94, timestamp=1779841044678}, timestamp=2026-05-27T09:17:24.678621}
+[print-p2] {id='b06c8696-954c-4dd5-84ee-c8736396900a', payload={inputPort=in, tick=47, timestamp=1779841044684}, timestamp=2026-05-27T09:17:24.684316}
+[print-p1] {id='48dcf449-601f-4f9c-89eb-b074c1c3e281', payload={inputPort=in, tick=94, timestamp=1779841044688}, timestamp=2026-05-27T09:17:24.688567}
+[print-p1] {id='95c0ef8d-0d79-484e-bc38-95e04b7be330', payload={inputPort=in, tick=95, timestamp=1779841045177}, timestamp=2026-05-27T09:17:25.177565}
+[print-p1] {id='0b7321c5-037d-4ebf-a7fb-0c8a2fb2dd82', payload={inputPort=in, tick=95, timestamp=1779841045189}, timestamp=2026-05-27T09:17:25.189739}
+[print-p1] {id='254ea5b3-53ad-43cb-8694-8cb4d08d288b', payload={inputPort=in, tick=96, timestamp=1779841045681}, timestamp=2026-05-27T09:17:25.681693}
+[print-p2] {id='fa82e3e0-9049-474d-b7ee-00023c39c68c', payload={inputPort=in, tick=48, timestamp=1779841045686}, timestamp=2026-05-27T09:17:25.686132}
+[print-p1] {id='69f89f4c-fd17-4bc4-8961-7d10274a3159', payload={inputPort=in, tick=96, timestamp=1779841045686}, timestamp=2026-05-27T09:17:25.686134}
+[print-p1] {id='c3e1912b-9e92-40ae-adb7-58e97e76b467', payload={inputPort=in, tick=97, timestamp=1779841046179}, timestamp=2026-05-27T09:17:26.179385}
+[print-p1] {id='4ee05f13-af31-42ef-97ad-43e483c5c425', payload={inputPort=in, tick=97, timestamp=1779841046189}, timestamp=2026-05-27T09:17:26.189350}
+[print-p1] {id='b0a7fa07-f0b6-48f9-9d70-8330dbcadcad', payload={inputPort=in, tick=98, timestamp=1779841046677}, timestamp=2026-05-27T09:17:26.677644}
+[print-p2] {id='abd0f493-ad10-4ef4-b7f5-1b8a67960cc4', payload={inputPort=in, tick=49, timestamp=1779841046682}, timestamp=2026-05-27T09:17:26.682613}
+[print-p1] {id='23eef6d8-85d1-44cc-a57d-71bd5bf0791f', payload={inputPort=in, tick=98, timestamp=1779841046686}, timestamp=2026-05-27T09:17:26.686882}
+[print-p1] {id='d7fce653-b956-49b2-a27e-b280a142bcd0', payload={inputPort=in, tick=99, timestamp=1779841047176}, timestamp=2026-05-27T09:17:27.176966}
+[print-p1] {id='6e1a15dc-7903-4858-8825-a5a0cddd0a3e', payload={inputPort=in, tick=99, timestamp=1779841047184}, timestamp=2026-05-27T09:17:27.184873}
+[print-p1] {id='6675c481-0d46-426a-a605-d4554768a21d', payload={inputPort=in, tick=100, timestamp=1779841047678}, timestamp=2026-05-27T09:17:27.678745}
+[print-p1] {id='e94b86f1-c83d-46ba-b0a7-a686f9e2e6bb', payload={inputPort=in, tick=100, timestamp=1779841047685}, timestamp=2026-05-27T09:17:27.685380}
+[print-p2] {id='b0d092e9-6f43-43d1-ab3a-2c3b168061cc', payload={inputPort=in, tick=50, timestamp=1779841047686}, timestamp=2026-05-27T09:17:27.686159}
+[print-p1] {id='d2c4e846-8a49-430e-a941-8b19589f07a2', payload={inputPort=in, tick=101, timestamp=1779841048177}, timestamp=2026-05-27T09:17:28.177880}
+[print-p1] {id='883dd588-977f-455e-abe2-e9e2af4d22a7', payload={inputPort=in, tick=101, timestamp=1779841048189}, timestamp=2026-05-27T09:17:28.189751}
+[print-p1] {id='5277adab-d11c-4444-b3bb-92dca3e5db15', payload={inputPort=in, tick=102, timestamp=1779841048678}, timestamp=2026-05-27T09:17:28.678439}
+[print-p2] {id='5d6e60f7-b9a0-4a7d-816a-f3882c6951d2', payload={inputPort=in, tick=51, timestamp=1779841048684}, timestamp=2026-05-27T09:17:28.684121}
+[print-p1] {id='d55ac716-c58b-4bab-9622-bf00e8255417', payload={inputPort=in, tick=102, timestamp=1779841048685}, timestamp=2026-05-27T09:17:28.685846}
+[print-p1] {id='271164ab-e624-4efd-9ad4-b4b2220d3a5f', payload={inputPort=in, tick=103, timestamp=1779841049180}, timestamp=2026-05-27T09:17:29.180687}
+[print-p1] {id='23fb90da-3667-47f4-9db3-64e71f1e98d9', payload={inputPort=in, tick=103, timestamp=1779841049184}, timestamp=2026-05-27T09:17:29.184878}
+[print-p2] {id='c8579ada-27f8-40c7-ab30-d9c9d16cb953', payload={inputPort=in, tick=52, timestamp=1779841049681}, timestamp=2026-05-27T09:17:29.681673}
+[print-p1] {id='7b472bff-3917-4b2f-898c-5cc440f327be', payload={inputPort=in, tick=104, timestamp=1779841049681}, timestamp=2026-05-27T09:17:29.681677}
+[print-p1] {id='256a6f46-2432-4fef-bc57-70da632155dd', payload={inputPort=in, tick=104, timestamp=1779841049685}, timestamp=2026-05-27T09:17:29.685382}
+[print-p1] {id='773a1647-8f79-480a-b126-6d78dd56810d', payload={inputPort=in, tick=105, timestamp=1779841050180}, timestamp=2026-05-27T09:17:30.180943}
+[print-p1] {id='2e5805a5-a0c2-40c9-a47b-6559ea52359f', payload={inputPort=in, tick=105, timestamp=1779841050189}, timestamp=2026-05-27T09:17:30.189739}
+[print-p1] {id='2fbc78eb-606f-49a6-af97-c57d621b79da', payload={inputPort=in, tick=106, timestamp=1779841050679}, timestamp=2026-05-27T09:17:30.679355}
+[print-p2] {id='fcb15a89-35f6-47e8-81f0-3d96ad4c4619', payload={inputPort=in, tick=53, timestamp=1779841050685}, timestamp=2026-05-27T09:17:30.685365}
+[print-p1] {id='cfb35a63-13e6-40cb-b140-30b568b3d612', payload={inputPort=in, tick=106, timestamp=1779841050685}, timestamp=2026-05-27T09:17:30.685364}
+[print-p1] {id='fc8f6eea-7cf6-4e1f-b832-11c9ec388eae', payload={inputPort=in, tick=107, timestamp=1779841051177}, timestamp=2026-05-27T09:17:31.177706}
+[print-p1] {id='f8aa58d9-9ed8-4e25-9508-adcf53f64f3b', payload={inputPort=in, tick=107, timestamp=1779841051189}, timestamp=2026-05-27T09:17:31.189727}
+[print-p1] {id='dafabdac-555b-469f-9ef8-de0909133990', payload={inputPort=in, tick=108, timestamp=1779841051678}, timestamp=2026-05-27T09:17:31.678166}
+[print-p2] {id='c04c1df7-cfb0-4613-8bc4-e718f93e1154', payload={inputPort=in, tick=54, timestamp=1779841051685}, timestamp=2026-05-27T09:17:31.685664}
+[print-p1] {id='8bb12551-e191-4044-8fad-2c50a0788d49', payload={inputPort=in, tick=108, timestamp=1779841051688}, timestamp=2026-05-27T09:17:31.689011}
+[print-p1] {id='86696f72-cec9-431c-b8f8-c36e21aa5fe4', payload={inputPort=in, tick=109, timestamp=1779841052178}, timestamp=2026-05-27T09:17:32.178525}
+[print-p1] {id='c8b2aaad-dbde-4ee4-9913-78bab65de307', payload={inputPort=in, tick=109, timestamp=1779841052187}, timestamp=2026-05-27T09:17:32.187340}
+[print-p1] {id='1bb47f33-b2d8-4e8c-8612-20c7813e4205', payload={inputPort=in, tick=110, timestamp=1779841052681}, timestamp=2026-05-27T09:17:32.681682}
+[print-p2] {id='4bf4f63a-f46a-4768-a3f5-d90593606e9c', payload={inputPort=in, tick=55, timestamp=1779841052686}, timestamp=2026-05-27T09:17:32.686140}
+[print-p1] {id='4697dff4-9415-427e-91c0-e0470dda4d4b', payload={inputPort=in, tick=110, timestamp=1779841052689}, timestamp=2026-05-27T09:17:32.689481}
+[print-p1] {id='6910192c-36e9-439a-acf0-b80422578fd9', payload={inputPort=in, tick=111, timestamp=1779841053179}, timestamp=2026-05-27T09:17:33.179874}
+[print-p1] {id='9bcb3f72-af87-49be-aa06-adf43fbf3ab8', payload={inputPort=in, tick=111, timestamp=1779841053189}, timestamp=2026-05-27T09:17:33.189722}
+[print-p1] {id='4c125bbb-0b12-4b5d-84e9-d0abcf20ea05', payload={inputPort=in, tick=112, timestamp=1779841053678}, timestamp=2026-05-27T09:17:33.678130}
+[print-p1] {id='0fe3107c-5978-46e5-b6f5-2cc6af13a514', payload={inputPort=in, tick=112, timestamp=1779841053685}, timestamp=2026-05-27T09:17:33.685249}
+[print-p2] {id='7a7daf55-0c5c-4810-a0ff-93598b5bb1db', payload={inputPort=in, tick=56, timestamp=1779841053685}, timestamp=2026-05-27T09:17:33.685266}
+[print-p1] {id='f392fc21-5d7b-42b3-bc1b-8549621352e0', payload={inputPort=in, tick=113, timestamp=1779841054181}, timestamp=2026-05-27T09:17:34.181660}
+[print-p1] {id='b45fa434-4418-4324-b692-5b5f8e4553a0', payload={inputPort=in, tick=113, timestamp=1779841054189}, timestamp=2026-05-27T09:17:34.189701}
+[print-p1] {id='a5c3a85a-c8cc-4567-8347-b546e9605300', payload={inputPort=in, tick=114, timestamp=1779841054680}, timestamp=2026-05-27T09:17:34.680806}
+[print-p2] {id='bac23331-65d0-4c47-8c15-4ab64ba7367a', payload={inputPort=in, tick=57, timestamp=1779841054684}, timestamp=2026-05-27T09:17:34.684432}
+[print-p1] {id='570907fa-d6e3-49dd-a9bd-51cff2442eb2', payload={inputPort=in, tick=114, timestamp=1779841054684}, timestamp=2026-05-27T09:17:34.684766}
+[print-p1] {id='73c85c2e-1f79-44dd-81e2-fd7f1cc38e75', payload={inputPort=in, tick=115, timestamp=1779841055181}, timestamp=2026-05-27T09:17:35.181682}
+[print-p1] {id='78128d06-a1b4-401f-8613-4d8e3d7349db', payload={inputPort=in, tick=115, timestamp=1779841055184}, timestamp=2026-05-27T09:17:35.184955}
+[print-p1] {id='9d971232-08d5-448e-9a71-98d8ff163f24', payload={inputPort=in, tick=116, timestamp=1779841055681}, timestamp=2026-05-27T09:17:35.681657}
+[print-p2] {id='e272e3bf-65c5-4c64-98f7-25aded81b930', payload={inputPort=in, tick=58, timestamp=1779841055684}, timestamp=2026-05-27T09:17:35.684922}
+[print-p1] {id='9c48cdce-5512-4053-a9f2-85755b24e073', payload={inputPort=in, tick=116, timestamp=1779841055689}, timestamp=2026-05-27T09:17:35.689327}
+[print-p1] {id='b44b4cbb-41f5-4dd5-b3e7-5d3b617676f7', payload={inputPort=in, tick=117, timestamp=1779841056178}, timestamp=2026-05-27T09:17:36.178085}
+[print-p1] {id='1583ed34-1187-490b-931c-0b28cd4c9be6', payload={inputPort=in, tick=117, timestamp=1779841056189}, timestamp=2026-05-27T09:17:36.189710}
+[print-p1] {id='e8e43957-704e-40ad-9586-107cf8454d6a', payload={inputPort=in, tick=118, timestamp=1779841056681}, timestamp=2026-05-27T09:17:36.681666}
+[print-p2] {id='4c8492ca-a184-4944-ae42-a789ade7c822', payload={inputPort=in, tick=59, timestamp=1779841056683}, timestamp=2026-05-27T09:17:36.683275}
+[print-p1] {id='d71a3a85-46af-4131-be9b-061fda8a00c8', payload={inputPort=in, tick=118, timestamp=1779841056689}, timestamp=2026-05-27T09:17:36.689720}
+[print-p1] {id='ab3e4875-cb79-41a1-9151-fa02dd93bffd', payload={inputPort=in, tick=119, timestamp=1779841057181}, timestamp=2026-05-27T09:17:37.181653}
+[print-p1] {id='607c148d-b123-4f3b-96f8-23455e2ab131', payload={inputPort=in, tick=119, timestamp=1779841057189}, timestamp=2026-05-27T09:17:37.189701}
+[print-p1] {id='ea68fb53-2144-4c89-941b-304da4328fa8', payload={inputPort=in, tick=120, timestamp=1779841057678}, timestamp=2026-05-27T09:17:37.678572}
+[print-p2] {id='0e638dc0-49ad-439b-b446-61b5fdff08ac', payload={inputPort=in, tick=60, timestamp=1779841057684}, timestamp=2026-05-27T09:17:37.684807}
+[print-p1] {id='9325c5cb-73e6-4ecf-9b17-57dc8f055a37', payload={inputPort=in, tick=120, timestamp=1779841057688}, timestamp=2026-05-27T09:17:37.688459}
+[print-p1] {id='a372be1b-0437-4f3d-bbad-cfc9194dc360', payload={inputPort=in, tick=121, timestamp=1779841058178}, timestamp=2026-05-27T09:17:38.178352}
+[print-p1] {id='8363c699-5b8e-4fcc-a97a-f957db550c71', payload={inputPort=in, tick=121, timestamp=1779841058185}, timestamp=2026-05-27T09:17:38.185548}
+[print-p1] {id='694ff578-b42d-408e-bb1e-f1fda1303d29', payload={inputPort=in, tick=122, timestamp=1779841058681}, timestamp=2026-05-27T09:17:38.681211}
+[print-p2] {id='d599b868-44f0-4ed2-8391-ebf2035df075', payload={inputPort=in, tick=61, timestamp=1779841058681}, timestamp=2026-05-27T09:17:38.681223}
+[print-p1] {id='e22d8e9a-f9f3-43ca-89d7-d2cddb7f3f98', payload={inputPort=in, tick=122, timestamp=1779841058684}, timestamp=2026-05-27T09:17:38.684855}
+[print-p1] {id='96a563ca-bdad-4b59-ad4e-bbc0be3404cb', payload={inputPort=in, tick=123, timestamp=1779841059177}, timestamp=2026-05-27T09:17:39.178182}
+[print-p1] {id='2d52999d-b36c-41b2-9206-77b7ba588b63', payload={inputPort=in, tick=123, timestamp=1779841059189}, timestamp=2026-05-27T09:17:39.189718}
+[print-p1] {id='3395513f-cd5c-475c-a4db-d1d90005a559', payload={inputPort=in, tick=124, timestamp=1779841059680}, timestamp=2026-05-27T09:17:39.680113}
+[print-p1] {id='d9fe5dec-991c-4edc-854d-9b0b03e0bbee', payload={inputPort=in, tick=124, timestamp=1779841059684}, timestamp=2026-05-27T09:17:39.684869}
+[print-p2] {id='11524a8b-9de2-480e-942a-7c1f4d33e7c8', payload={inputPort=in, tick=62, timestamp=1779841059686}, timestamp=2026-05-27T09:17:39.686118}
+[print-p1] {id='34a1a76b-2f3b-4e2a-87aa-537037e6540c', payload={inputPort=in, tick=125, timestamp=1779841060181}, timestamp=2026-05-27T09:17:40.181647}
+[print-p1] {id='fff842ad-1102-4e5c-bffc-1435856ffd50', payload={inputPort=in, tick=125, timestamp=1779841060186}, timestamp=2026-05-27T09:17:40.186214}
+[print-p1] {id='72ab8c3f-7a76-4642-a015-eed85b49ce0e', payload={inputPort=in, tick=126, timestamp=1779841060681}, timestamp=2026-05-27T09:17:40.681655}
+[print-p2] {id='8da6febd-22a0-4f72-8aed-1cc1624244f3', payload={inputPort=in, tick=63, timestamp=1779841060685}, timestamp=2026-05-27T09:17:40.685181}
+[print-p1] {id='6b6b49b0-9842-41b3-a122-d7b10fba8773', payload={inputPort=in, tick=126, timestamp=1779841060686}, timestamp=2026-05-27T09:17:40.686320}
+[print-p1] {id='b0523b58-3382-43a2-a3f8-0fced18ff5a9', payload={inputPort=in, tick=127, timestamp=1779841061181}, timestamp=2026-05-27T09:17:41.181644}
+[print-p1] {id='5b38b264-f4fd-4af2-a949-9a35cc2e252a', payload={inputPort=in, tick=127, timestamp=1779841061189}, timestamp=2026-05-27T09:17:41.189697}
+[print-p1] {id='d47ee9e4-2921-4715-8ede-dad52cb89520', payload={inputPort=in, tick=128, timestamp=1779841061677}, timestamp=2026-05-27T09:17:41.677901}
+[print-p2] {id='435fe157-302a-4ad5-92fc-7ad3fc1844c6', payload={inputPort=in, tick=64, timestamp=1779841061684}, timestamp=2026-05-27T09:17:41.684878}
+[print-p1] {id='784ce675-234e-4421-9501-acb94d3574cd', payload={inputPort=in, tick=128, timestamp=1779841061689}, timestamp=2026-05-27T09:17:41.689688}
+[print-p1] {id='10b6cd55-7fc1-4c7a-99ff-f887d707039f', payload={inputPort=in, tick=129, timestamp=1779841062179}, timestamp=2026-05-27T09:17:42.179727}
+[print-p1] {id='67b7a9d1-2e0f-4db5-a9ee-ed0becc1577b', payload={inputPort=in, tick=129, timestamp=1779841062184}, timestamp=2026-05-27T09:17:42.184851}
+[print-p1] {id='07522d62-082f-4c1a-b2fd-5e3216b377e0', payload={inputPort=in, tick=130, timestamp=1779841062677}, timestamp=2026-05-27T09:17:42.677840}
+[print-p2] {id='0b1674f3-0a8a-4ee8-98b0-59569ada839b', payload={inputPort=in, tick=65, timestamp=1779841062685}, timestamp=2026-05-27T09:17:42.685156}
+[print-p1] {id='f747a9b2-b177-4800-bae8-063295c8f561', payload={inputPort=in, tick=130, timestamp=1779841062687}, timestamp=2026-05-27T09:17:42.687884}
+[print-p1] {id='f8f36f79-02b7-48bb-ad27-5d88fafa4bf6', payload={inputPort=in, tick=131, timestamp=1779841063181}, timestamp=2026-05-27T09:17:43.181653}
+[print-p1] {id='08286764-04ec-4ee7-aad1-be4b6874b06d', payload={inputPort=in, tick=131, timestamp=1779841063189}, timestamp=2026-05-27T09:17:43.189535}
+[print-p1] {id='b7547731-d36f-47b8-8b9b-ea0a1d65d331', payload={inputPort=in, tick=132, timestamp=1779841063679}, timestamp=2026-05-27T09:17:43.679373}
+[print-p1] {id='7c968a74-5813-4c48-8d9f-6ed4427e3022', payload={inputPort=in, tick=132, timestamp=1779841063684}, timestamp=2026-05-27T09:17:43.684940}
+[print-p2] {id='5bac0d41-7480-45e7-9ac8-8e916eb7454d', payload={inputPort=in, tick=66, timestamp=1779841063686}, timestamp=2026-05-27T09:17:43.686160}
+[print-p1] {id='91b219d2-ec88-492e-94f4-dda67b539e28', payload={inputPort=in, tick=133, timestamp=1779841064179}, timestamp=2026-05-27T09:17:44.180089}
+[print-p1] {id='346e2617-0ac9-41f4-b98b-86ecda19af48', payload={inputPort=in, tick=133, timestamp=1779841064189}, timestamp=2026-05-27T09:17:44.189734}
+[print-p1] {id='34a85cad-9c34-48d4-bb3e-ef9e2ad66689', payload={inputPort=in, tick=134, timestamp=1779841064677}, timestamp=2026-05-27T09:17:44.677977}
+[print-p2] {id='6c89c2ee-081d-4d73-b04b-76fa24b76e2e', payload={inputPort=in, tick=67, timestamp=1779841064682}, timestamp=2026-05-27T09:17:44.682807}
+[print-p1] {id='c367abe9-6a20-46ac-98d6-8218ffe33177', payload={inputPort=in, tick=134, timestamp=1779841064684}, timestamp=2026-05-27T09:17:44.684768}
+[print-p1] {id='d8e62b08-d9d2-45be-8bf8-86001d95bf2f', payload={inputPort=in, tick=135, timestamp=1779841065181}, timestamp=2026-05-27T09:17:45.181911}
+[print-p1] {id='12791118-6063-472c-b67f-7065c69a42c7', payload={inputPort=in, tick=135, timestamp=1779841065185}, timestamp=2026-05-27T09:17:45.185588}
+[print-p1] {id='cf3eb2ab-6710-46f6-bf61-95d7e085ca5a', payload={inputPort=in, tick=136, timestamp=1779841065680}, timestamp=2026-05-27T09:17:45.680922}
+[print-p2] {id='5595a8fe-8934-4a38-b68c-9d37518604d0', payload={inputPort=in, tick=68, timestamp=1779841065686}, timestamp=2026-05-27T09:17:45.686138}
+[print-p1] {id='dcc311e8-8602-4fcc-be19-0a1e3918fb11', payload={inputPort=in, tick=136, timestamp=1779841065689}, timestamp=2026-05-27T09:17:45.689610}
+Memory Change: 41MB -> 22MB
+[n1] shutdown.
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test5_ThreadEfficiency" classname="com.fbp.engine.performance.EnginePerformanceTest" time="0.103">
+    <system-out><![CDATA[[Engine] Flow 'thread-test' registered
+[node-0] initialized.
+[node-1] initialized.
+[node-2] initialized.
+[node-3] initialized.
+[node-15] initialized.
+[node-4] initialized.
+[node-14] initialized.
+[node-5] initialized.
+[node-13] initialized.
+[node-6] initialized.
+[node-12] initialized.
+[node-7] initialized.
+[node-11] initialized.
+[node-8] initialized.
+[node-10] initialized.
+[node-9] initialized.
+[node-19] initialized.
+[node-18] initialized.
+[node-17] initialized.
+[node-16] initialized.
+[Engine] Flow 'thread-test' started
+Threads created for 20 nodes: 10 (Total: 120)
+[node-0] shutdown.
+[node-1] shutdown.
+[node-2] shutdown.
+[node-3] shutdown.
+[node-15] shutdown.
+[node-4] shutdown.
+[node-14] shutdown.
+[node-5] shutdown.
+[node-13] shutdown.
+[node-6] shutdown.
+[node-12] shutdown.
+[node-7] shutdown.
+[node-11] shutdown.
+[node-8] shutdown.
+[node-10] shutdown.
+[node-9] shutdown.
+[node-19] shutdown.
+[node-18] shutdown.
+[node-17] shutdown.
+[node-16] shutdown.
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+  <testcase name="test6_QueueCongestionControl" classname="com.fbp.engine.performance.EnginePerformanceTest" time="0.103">
+    <system-out><![CDATA[Current Queue Size: 100
+[MqttPool] 모든 시스템 브로커 연결이 종료되었습니다.
+]]></system-out>
+  </testcase>
+</testsuite>

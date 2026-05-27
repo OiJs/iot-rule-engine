@@ -38,8 +38,8 @@ public class TestScenario {
         engine.startFlow("bridge-flow");
         System.out.println(">>> [INFO] 모든시나리오 가동 중...");
 
-//        runPerformanceTest(100, 5);
-//        runPerformanceTest(500, 5);
+        runPerformanceTest(100, 5);
+        runPerformanceTest(500, 5);
         runPerformanceTest(1000, 5);
 
         // 에러 시뮬레이션
@@ -63,7 +63,7 @@ public class TestScenario {
     }
 
     public static void setupScenario2(FlowEngine engine, int port) {
-        TimerNode timer = new TimerNode("timer2", 1000);
+        TimerNode timer = new TimerNode("timer2", Map.of("intervalMs", 1000));
         ModbusReaderNode reader = new ModbusReaderNode("reader2", Map.of(
                 "host", "localhost", "port", port, "startAddress", 0, "count", 1,
                 "registerMapping", Map.of("temp", 0)));

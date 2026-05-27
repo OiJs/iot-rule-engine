@@ -2,6 +2,7 @@ package com.fbp.engine.api;
 
 import com.fbp.engine.core.FlowEngine;
 import com.fbp.engine.engine.FlowManager;
+import com.fbp.engine.metrics.MetricsAggregator;
 import com.fbp.engine.metrics.MetricsCollector;
 import com.fbp.engine.node.TimerNode;
 import com.fbp.engine.parser.JsonFlowParser;
@@ -16,6 +17,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Map;
 
 class HttpApiServerTest {
     private HttpApiServer server;
@@ -29,7 +31,7 @@ class HttpApiServerTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        collector = new MetricsCollector();
+        collector = new MetricsCollector(new MetricsAggregator());
         engine = new FlowEngine();
         nodeRegistry = new NodeRegistry();
         manager = new FlowManager(engine, nodeRegistry);
@@ -39,7 +41,7 @@ class HttpApiServerTest {
             if (config != null && config.containsKey("interval")) {
                 interval = ((Number) config.get("interval")).longValue();
             }
-            return new TimerNode(id, interval);
+            return new TimerNode(id, Map.of("intervalMs", interval));
         });
 
         manager.addParser(new JsonFlowParser());

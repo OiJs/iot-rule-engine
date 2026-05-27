@@ -1,0 +1,53 @@
+{
+  "id": "smart-building",
+  "name": "Smart Building Monitoring Flow",
+  "description": "Monitors temperature and triggers alerts via MQTT bridge.",
+  "transport": {
+    "type": "mqtt",
+    "broker": "tcp://localhost:1883",
+    "qos": 1
+  },
+  "metrics": {
+    "domain": [
+      {
+        "name": "temperature",
+        "source": { "node": "sensor", "port": "out" },
+        "field": "value",
+        "tags": { "location": "room-1" },
+        "windows": ["1m", "1h", "1d"]
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "sensor",
+      "type": "MqttSubscriberNode",
+      "config": {
+        "brokerUrl": "tcp://localhost:1883",
+        "topic": "sensor/temp",
+        "clientId": "sub-sensor"
+      }
+    },
+    {
+      "id": "temp-rule",
+      "type": "ThresholdFilterNode",
+      "config": {
+        "fieldName": "value",
+        "threshold": 30.0
+      }
+    },
+    {
+      "id": "alert",
+      "type": "MqttPublisherNode",
+      "config": {
+        "brokerUrl": "tcp://localhost:1883",
+        "topic": "alert/temp",
+        "clientId": "pub-alert"
+      }
+    }
+  ],
+  "connections": [
+    { "from": "sensor:out", "to": "temp-rule:in" },
+    { "from": "temp-rule:alert", "to": "alert:in" }
+  ]
+}

@@ -45,7 +45,7 @@ class MqttSubscriberNodeTest {
     @Test
     @DisplayName("3. Config 조회 확인")
     void testConfig() {
-        assertEquals(brokerUrl, node.getConfig("brokerUrl"));
+        assertEquals(brokerUrl, node.getConfig().get("brokerUrl"));
     }
 
     @Nested

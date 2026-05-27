@@ -10,18 +10,20 @@ public record FlowDefinition(
         String name,
         String description,
         TransportDefinition transport,
+        MetricsDefinition metrics,
         List<NodeDefinition> nodes,
         List<ConnectionDefinition> connections
 ) {
     public FlowDefinition {
         transport = (transport != null) ? transport : new TransportDefinition("local", null, 1);
+        metrics = (metrics != null) ? metrics : new MetricsDefinition(List.of());
         nodes = (nodes != null) ? List.copyOf(nodes) : List.of();
         connections = (connections != null) ? List.copyOf(connections) : List.of();
     }
 
     public FlowDefinition(String id, String name, String description,
                           List<NodeDefinition> nodes, List<ConnectionDefinition> connections) {
-        this(id, name, description, null, nodes, connections);
+        this(id, name, description, null, null, nodes, connections);
     }
 
     public NodeDefinition getNode(String nodeId) {

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +22,7 @@ class TimerNodeTest {
 
     @BeforeEach
     void setUp() {
-        timer = new TimerNode("timer", 500);
+        timer = new TimerNode("timer", Map.of("intervalMs", 500L));
         connection = new LocalConnection("conn");
         timer.getOutputPort("out").connect(connection);
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.ModbusReaderNodeTest" time="0.845" tests="8" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fbp.engine.node.ModbusReaderNodeTest" time="8.466" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-05-27T09-16-36_876-jvmRun1 surefire-20260527091636931_1tmp surefire_0-20260527091636931_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/junseo"/>
     <property name="user.language" value="ko"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -59,184 +59,102 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test2_InitialState" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.107">
-    <system-out><![CDATA[[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
+  <testcase name="test2_InitialState" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.011">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='9dd80c4e-e6f0-49e4-b6c5-29f55b4fcf2b', payload={inputPort=in, tick=32, timestamp=1779841013681}, timestamp=2026-05-27T09:16:53.681857}
+[print-p2] {id='b0c72486-79b3-4df6-9111-5588f3d678e4', payload={inputPort=in, tick=16, timestamp=1779841013683}, timestamp=2026-05-27T09:16:53.683714}
+[print-p1] {id='2bc50253-81f8-45c0-8c1c-0e5cd89997bd', payload={inputPort=in, tick=32, timestamp=1779841013685}, timestamp=2026-05-27T09:16:53.685430}
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='86547aac-0729-46c3-9fdd-a7cf22d33a99', payload={inputPort=in, tick=33, timestamp=1779841014177}, timestamp=2026-05-27T09:16:54.177755}
+[print-p1] {id='d1767d05-f688-42bb-9b6b-822a2349e548', payload={inputPort=in, tick=33, timestamp=1779841014189}, timestamp=2026-05-27T09:16:54.189883}
 ]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
   </testcase>
-  <testcase name="test3_ConfigVerification" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.102">
-    <system-out><![CDATA[[p1] processing message...
-[print-p1] {id='bce24365-0f69-48d5-b5af-1637278f63eb', payload={timestamp=1776754074992, inputPort=in, tick=670}, timestamp=2026-04-21T15:47:54.992468}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='75db3971-4804-47ff-a27a-15a7c34a5e88', payload={timestamp=1776754074998, inputPort=in, tick=335}, timestamp=2026-04-21T15:47:54.998871}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='90108473-fa7c-4bdc-868e-c0470b85689b', payload={timestamp=1776754075002, inputPort=in, tick=670}, timestamp=2026-04-21T15:47:55.002475}
-[p1] done.
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
+  <testcase name="test3_ConfigVerification" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.005">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p2] {id='05a3c96d-232f-43ab-a48e-8effb954ff9a', payload={inputPort=in, tick=17, timestamp=1779841014681}, timestamp=2026-05-27T09:16:54.681795}
+[print-p1] {id='119c5cdc-77ea-471d-868c-9ae0b281867c', payload={inputPort=in, tick=34, timestamp=1779841014681}, timestamp=2026-05-27T09:16:54.681793}
+[print-p1] {id='e33a0fd0-28ae-469c-b1ee-e7c9961d00ec', payload={inputPort=in, tick=34, timestamp=1779841014687}, timestamp=2026-05-27T09:16:54.687330}
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='db4c92ed-6de4-423f-bb91-51999db8d777', payload={inputPort=in, tick=35, timestamp=1779841015181}, timestamp=2026-05-27T09:16:55.181784}
+[print-p1] {id='0e3e23e6-cd18-4949-809a-7216f7f4164f', payload={inputPort=in, tick=35, timestamp=1779841015187}, timestamp=2026-05-27T09:16:55.187257}
 ]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
   </testcase>
-  <testcase name="test1_PortConfiguration" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.104">
-    <system-out><![CDATA[[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
+  <testcase name="test1_PortConfiguration" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.009">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='430da890-0f61-4969-92c2-4d23bc512e0c', payload={inputPort=in, tick=36, timestamp=1779841015680}, timestamp=2026-05-27T09:16:55.680524}
+[print-p1] {id='48a6d881-f700-4987-8312-bbc22e644269', payload={inputPort=in, tick=36, timestamp=1779841015686}, timestamp=2026-05-27T09:16:55.686168}
+[print-p2] {id='62359d56-ca56-499e-864f-df57f1a9d761', payload={inputPort=in, tick=18, timestamp=1779841015686}, timestamp=2026-05-27T09:16:55.686191}
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='a20a1d9d-4be5-4450-8d31-b88f1a3d08e6', payload={inputPort=in, tick=37, timestamp=1779841016177}, timestamp=2026-05-27T09:16:56.177434}
+[print-p1] {id='9728e6a4-7099-4c78-852b-b76ab82fea5d', payload={inputPort=in, tick=37, timestamp=1779841016189}, timestamp=2026-05-27T09:16:56.189821}
 ]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
   </testcase>
-  <testcase name="test7_ErrorPortOutput" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.106">
-    <system-out><![CDATA[[reader] 외부 시스템 연결 성공
-[reader] processing message...
-[reader] done.
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
-]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
-  </testcase>
-  <testcase name="test5_RegisterRead" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.106">
-    <failure message="expected: &lt;[111]&gt; but was: &lt;[0]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[111]> but was: <[0]>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at com.fbp.engine.node.ModbusReaderNodeTest.test5_RegisterRead(ModbusReaderNodeTest.java:82)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></failure>
-    <system-out><![CDATA[[reader] 외부 시스템 연결 성공
-[reader] processing message...
-[reader] done.
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
-]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
-  </testcase>
-  <testcase name="test8_ShutdownDisconnection" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.107">
-    <system-out><![CDATA[[reader] 외부 시스템 연결 성공
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
-]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
-  </testcase>
-  <testcase name="test6_RegisterMapping" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.107">
-    <failure message="expected: &lt;255&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <255> but was: <0>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at com.fbp.engine.node.ModbusReaderNodeTest.test6_RegisterMapping(ModbusReaderNodeTest.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></failure>
-    <system-out><![CDATA[[p1] processing message...
-[print-p1] {id='ac4d501e-c799-42aa-b3f5-74122406d8dc', payload={timestamp=1776754075491, inputPort=in, tick=671}, timestamp=2026-04-21T15:47:55.491768}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='51a006a1-14d8-4811-8b65-d971d101c769', payload={timestamp=1776754075501, inputPort=in, tick=671}, timestamp=2026-04-21T15:47:55.501969}
-[p1] done.
+  <testcase name="test7_ErrorPortOutput" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.005">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='2ffc5d08-44a1-4d6a-9674-4ea5ae468846', payload={inputPort=in, tick=38, timestamp=1779841016679}, timestamp=2026-05-27T09:16:56.679343}
+[print-p2] {id='43613c44-5e45-43b5-90d8-2a7cfb1852c2', payload={inputPort=in, tick=19, timestamp=1779841016684}, timestamp=2026-05-27T09:16:56.684967}
+[print-p1] {id='7a6c60ac-d30d-4850-bc73-14586c880471', payload={inputPort=in, tick=38, timestamp=1779841016689}, timestamp=2026-05-27T09:16:56.689465}
 [reader] 외부 시스템 연결 성공
-[reader] processing message...
-[reader] done.
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='0a131ac8-f2ff-44a4-a299-944a75e6bde2', payload={inputPort=in, tick=39, timestamp=1779841017181}, timestamp=2026-05-27T09:16:57.181800}
+[print-p1] {id='417774f7-ff00-43c0-86d2-6427bd4fdc1f', payload={inputPort=in, tick=39, timestamp=1779841017189}, timestamp=2026-05-27T09:16:57.189824}
 ]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
   </testcase>
-  <testcase name="test4_ConnectionSuccess" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="0.104">
-    <system-out><![CDATA[[reader] 외부 시스템 연결 성공
-[reader] 노드 종료 및 자원 해제 중...
-[reader] 연결이 안전하게 종료되었습니다.
+  <testcase name="test5_RegisterRead" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.21">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='e22085e0-b26e-4236-975c-3df3629e40c4', payload={inputPort=in, tick=40, timestamp=1779841017681}, timestamp=2026-05-27T09:16:57.681803}
+[print-p2] {id='a005af72-75c5-45d4-af63-1e181f7f5f8a', payload={inputPort=in, tick=20, timestamp=1779841017685}, timestamp=2026-05-27T09:16:57.686110}
+[print-p1] {id='059b1c4a-6160-4a14-9e8b-12056caf9160', payload={inputPort=in, tick=40, timestamp=1779841017689}, timestamp=2026-05-27T09:16:57.689989}
+[print-p1] {id='39b64fba-69dd-4bf1-8475-20aff85c5fcd', payload={inputPort=in, tick=41, timestamp=1779841018177}, timestamp=2026-05-27T09:16:58.177203}
+[print-p1] {id='76192ca3-a778-4580-bf2d-2e66727d319f', payload={inputPort=in, tick=41, timestamp=1779841018189}, timestamp=2026-05-27T09:16:58.189801}
+[reader] 외부 시스템 연결 성공
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='cfcd79df-b247-462e-a1cc-bb05340bf466', payload={inputPort=in, tick=42, timestamp=1779841018681}, timestamp=2026-05-27T09:16:58.681828}
+[print-p2] {id='8fd42577-713f-4b74-a686-4cd1fc741587', payload={inputPort=in, tick=21, timestamp=1779841018684}, timestamp=2026-05-27T09:16:58.684871}
+[print-p1] {id='9037b97e-f466-4c27-9753-20dfe4db9f9f', payload={inputPort=in, tick=42, timestamp=1779841018689}, timestamp=2026-05-27T09:16:58.689751}
 ]]></system-out>
-    <system-err><![CDATA[java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.Net.bind(Net.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
-	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
-	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:171)
-	at com.fbp.engine.protocol.ModbusTcpSimulator.lambda$start$1(ModbusTcpSimulator.java:39)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-]]></system-err>
+  </testcase>
+  <testcase name="test8_ShutdownDisconnection" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.007">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='a2b26546-2a23-4bbe-a8a4-89da04cf8921', payload={inputPort=in, tick=43, timestamp=1779841019179}, timestamp=2026-05-27T09:16:59.179477}
+[print-p1] {id='a41cc31b-7c41-4b16-a5d5-60e365a3794e', payload={inputPort=in, tick=43, timestamp=1779841019188}, timestamp=2026-05-27T09:16:59.188763}
+[reader] 외부 시스템 연결 성공
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='2d6c3433-e9ee-4131-85b9-91c0df7d1471', payload={inputPort=in, tick=44, timestamp=1779841019681}, timestamp=2026-05-27T09:16:59.681773}
+[print-p2] {id='c7709e6a-df36-4298-a0cd-f4417ebbe502', payload={inputPort=in, tick=22, timestamp=1779841019686}, timestamp=2026-05-27T09:16:59.686197}
+[print-p1] {id='27d80ead-a5be-4409-911c-d8e7eb1c6bd0', payload={inputPort=in, tick=44, timestamp=1779841019686}, timestamp=2026-05-27T09:16:59.686891}
+]]></system-out>
+  </testcase>
+  <testcase name="test6_RegisterMapping" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.213">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='920fd763-7d1f-4aa2-8f75-c7972c3b1afc', payload={inputPort=in, tick=45, timestamp=1779841020177}, timestamp=2026-05-27T09:17:00.177470}
+[print-p1] {id='0f07ac5f-31ff-474f-8529-9fba9ab51d82', payload={inputPort=in, tick=45, timestamp=1779841020187}, timestamp=2026-05-27T09:17:00.187862}
+[reader] 외부 시스템 연결 성공
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='875195f4-5ee8-4562-a1cb-2e9f5a7bdfb2', payload={inputPort=in, tick=46, timestamp=1779841020681}, timestamp=2026-05-27T09:17:00.681900}
+[print-p2] {id='ea2bc9cc-55b9-4951-896d-1c983b77db81', payload={inputPort=in, tick=23, timestamp=1779841020683}, timestamp=2026-05-27T09:17:00.683828}
+[print-p1] {id='ec15efe6-21ea-4cb9-814c-9af91f401481', payload={inputPort=in, tick=46, timestamp=1779841020686}, timestamp=2026-05-27T09:17:00.686536}
+]]></system-out>
+  </testcase>
+  <testcase name="test4_ConnectionSuccess" classname="com.fbp.engine.node.ModbusReaderNodeTest" time="1.003">
+    <system-out><![CDATA[ModbusSimulator Start (Port: 5028)
+[print-p1] {id='555146d9-8e2c-481a-81cd-5c2e06c2f78d', payload={inputPort=in, tick=47, timestamp=1779841021180}, timestamp=2026-05-27T09:17:01.181018}
+[print-p1] {id='f7fd0310-1270-4001-ae0d-db8ffa70429a', payload={inputPort=in, tick=47, timestamp=1779841021187}, timestamp=2026-05-27T09:17:01.187395}
+[reader] 외부 시스템 연결 성공
+[reader] 자원 해제 중...
+[reader] 연결 종료.
+[print-p1] {id='cf71def1-56cb-4290-9cd3-fff3c4f8125f', payload={inputPort=in, tick=48, timestamp=1779841021677}, timestamp=2026-05-27T09:17:01.677652}
+[print-p1] {id='d87b3d1d-0686-465f-b96b-643d307c2fd4', payload={inputPort=in, tick=48, timestamp=1779841021685}, timestamp=2026-05-27T09:17:01.685440}
+[print-p2] {id='cbf01cb3-de50-4e7d-93a6-c412b7db17be', payload={inputPort=in, tick=24, timestamp=1779841021686}, timestamp=2026-05-27T09:17:01.686168}
+]]></system-out>
   </testcase>
 </testsuite>

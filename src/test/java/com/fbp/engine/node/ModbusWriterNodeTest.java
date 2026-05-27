@@ -46,7 +46,7 @@ class ModbusWriterNodeTest {
     void test3_ConfigVerification() {
         Map<String, Object> config = Map.of("registerAddress", 10, "port", PORT);
         writer = new ModbusWriterNode("writer", config);
-        assertEquals(10, writer.getConfig("registerAddress"));
+        assertEquals(10, writer.getConfig().get("registerAddress"));
     }
 
     @Test

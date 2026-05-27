@@ -79,17 +79,14 @@ class JsonFlowParserTest {
     @DisplayName("4. 필수 필드 누락 - id: id가 없으면 예외 발생")
     void test4_MissingId() {
         String json = "{ \"nodes\": [], \"connections\": [] }";
-        FlowDefinition def = parser.parse(new ByteArrayInputStream(json.getBytes()));
-        assertThrows(FlowParserException.class, def::validate);
+        assertThrows(FlowParserException.class, () -> parser.parse(new ByteArrayInputStream(json.getBytes())));
     }
 
     @Test
     @DisplayName("5. 필수 필드 누락 - nodes: nodes 배열이 없으면 예외 발생")
     void test5_MissingNodes() {
         String json = "{ \"id\": \"f1\", \"connections\": [] }";
-        // Jackson 파싱 시 필드가 없으면 null 혹은 빈 리스트로 바인딩됨에 따라 validate에서 체크
-        FlowDefinition def = parser.parse(new ByteArrayInputStream(json.getBytes()));
-        assertThrows(FlowParserException.class, def::validate);
+        assertThrows(FlowParserException.class, () -> parser.parse(new ByteArrayInputStream(json.getBytes())));
     }
 
     @Test

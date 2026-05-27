@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.fbp.engine.node.TimerNodeTest" time="4.226" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fbp.engine.node.TimerNodeTest" time="4.22" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="java.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-04-21T15-42-19_372-jvmRun1 surefire-20260421154219463_1tmp surefire_0-20260421154219463_2tmp"/>
+    <property name="sun.java.command" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar /Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire 2026-05-27T09-16-36_876-jvmRun1 surefire-20260527091636931_1tmp surefire_0-20260527091636931_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/test-classes:/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/classes:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/junseo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/junseo/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/junseo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/junseo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/junseo/.m2/repository/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar:/Users/junseo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/junseo/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy/1.14.12/byte-buddy-1.14.12.jar:/Users/junseo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar:/Users/junseo/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/junseo/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/junseo/.m2/repository/org/eclipse/paho/org.eclipse.paho.mqttv5.client/1.2.5/org.eclipse.paho.mqttv5.client-1.2.5.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.0/jackson-databind-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.0/jackson-annotations-2.17.0.jar:/Users/junseo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.0/jackson-core-2.17.0.jar:/Users/junseo/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-java/7.2.0/influxdb-client-java-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-core/7.2.0/influxdb-client-core-7.2.0.jar:/Users/junseo/.m2/repository/com/influxdb/influxdb-client-utils/7.2.0/influxdb-client-utils-7.2.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio/3.9.0/okio-3.9.0.jar:/Users/junseo/.m2/repository/com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar:/Users/junseo/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/junseo/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/retrofit/2.11.0/retrofit-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/okhttp3/logging-interceptor/4.12.0/logging-interceptor-4.12.0.jar:/Users/junseo/.m2/repository/org/apache/commons/commons-csv/1.11.0/commons-csv-1.11.0.jar:/Users/junseo/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/Users/junseo/.m2/repository/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.jar:/Users/junseo/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/junseo/.m2/repository/io/reactivex/rxjava3/rxjava/3.1.8/rxjava-3.1.8.jar:/Users/junseo/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/adapter-rxjava3/2.11.0/adapter-rxjava3-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-scalars/2.11.0/converter-scalars-2.11.0.jar:/Users/junseo/.m2/repository/com/squareup/retrofit2/converter-gson/2.11.0/converter-gson-2.11.0.jar:/Users/junseo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/junseo"/>
     <property name="user.language" value="ko"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260421154219463_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/junseo/Desktop/AIOT/IOT/fbp-engine/target/surefire/surefirebooter-20260527091636931_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -59,90 +59,47 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test3_ShutdownStopsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="1.215">
+  <testcase name="test3_ShutdownStopsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="1.21">
     <system-out><![CDATA[[timer] initialized.
-[p1] processing message...
-[print-p1] {id='3db038cf-17df-492b-a598-0a21a8960e16', payload={timestamp=1776754085494, inputPort=in, tick=691}, timestamp=2026-04-21T15:48:05.494303}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='aff7209c-b442-477c-9e65-787f1b080aee', payload={timestamp=1776754085501, inputPort=in, tick=691}, timestamp=2026-04-21T15:48:05.501895}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='3ec4670a-4b29-4149-9358-88072542c265', payload={timestamp=1776754085996, inputPort=in, tick=692}, timestamp=2026-04-21T15:48:05.996523}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='01dd9fe6-37a4-46c0-abda-e7383988e653', payload={timestamp=1776754085999, inputPort=in, tick=346}, timestamp=2026-04-21T15:48:05.999812}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='c278cc5a-3b95-4c07-9532-d5bc2bd06784', payload={timestamp=1776754086003, inputPort=in, tick=692}, timestamp=2026-04-21T15:48:06.003241}
-[p1] done.
+[print-p1] {id='4cf17b28-1e39-4c90-b304-84ecd806a586', payload={inputPort=in, tick=62, timestamp=1779841028678}, timestamp=2026-05-27T09:17:08.679070}
+[print-p2] {id='84604cbe-6d74-4d8c-b787-12468f01ec10', payload={inputPort=in, tick=31, timestamp=1779841028681}, timestamp=2026-05-27T09:17:08.681294}
+[print-p1] {id='2a8ef141-b150-48ba-b05f-672d23c6e4b8', payload={inputPort=in, tick=62, timestamp=1779841028689}, timestamp=2026-05-27T09:17:08.689759}
 [timer] shutdown.
-[p1] processing message...
-[print-p1] {id='9041fec3-09eb-4186-9a1b-03b8b6435a41', payload={timestamp=1776754086494, inputPort=in, tick=693}, timestamp=2026-04-21T15:48:06.494959}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='c908df9f-af84-47c2-8dda-4b25c513fdfd', payload={timestamp=1776754086502, inputPort=in, tick=693}, timestamp=2026-04-21T15:48:06.502218}
-[p1] done.
+[print-p1] {id='ff87a11f-746e-4de0-a093-07a6a639fef6', payload={inputPort=in, tick=63, timestamp=1779841029177}, timestamp=2026-05-27T09:17:09.178181}
+[print-p1] {id='40fa63d1-f4cb-4e77-897f-aefd4e500b22', payload={inputPort=in, tick=63, timestamp=1779841029189}, timestamp=2026-05-27T09:17:09.189840}
+[print-p1] {id='1dc5292a-94c0-4994-a7d9-5f14dff83f0d', payload={inputPort=in, tick=64, timestamp=1779841029678}, timestamp=2026-05-27T09:17:09.678758}
+[print-p2] {id='9448c2c0-8ea4-4074-b5ee-2c5f51017fd6', payload={inputPort=in, tick=32, timestamp=1779841029683}, timestamp=2026-05-27T09:17:09.683903}
+[print-p1] {id='d1d62485-5028-49ce-bd9c-0e1f3b8f6c01', payload={inputPort=in, tick=64, timestamp=1779841029689}, timestamp=2026-05-27T09:17:09.689525}
 [timer] shutdown.
 ]]></system-out>
   </testcase>
-  <testcase name="test2_TickIncrementsSequentially" classname="com.fbp.engine.node.TimerNodeTest" time="1.006">
+  <testcase name="test2_TickIncrementsSequentially" classname="com.fbp.engine.node.TimerNodeTest" time="1.001">
     <system-out><![CDATA[[timer] initialized.
-[p1] processing message...
-[print-p1] {id='1417b240-a1ec-4cd3-8aa3-6b570a0b5320', payload={timestamp=1776754086993, inputPort=in, tick=694}, timestamp=2026-04-21T15:48:06.993921}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='68a48f2f-e117-4bed-be76-5512bb1cc40a', payload={timestamp=1776754086999, inputPort=in, tick=347}, timestamp=2026-04-21T15:48:06.999911}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='f3cf3920-3ad4-4fc6-a8cd-8c58e38dca75', payload={timestamp=1776754087002, inputPort=in, tick=694}, timestamp=2026-04-21T15:48:07.002191}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='0378162d-8ec0-4ad3-a8ab-dbe0ff93f14a', payload={timestamp=1776754087495, inputPort=in, tick=695}, timestamp=2026-04-21T15:48:07.495966}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='8969f2e1-3015-4eae-bac0-1bf11e122ce3', payload={timestamp=1776754087503, inputPort=in, tick=695}, timestamp=2026-04-21T15:48:07.503416}
-[p1] done.
+[print-p1] {id='ca8c71cc-cd66-49e3-911c-e9c2f2c063f9', payload={inputPort=in, tick=65, timestamp=1779841030181}, timestamp=2026-05-27T09:17:10.181809}
+[print-p1] {id='4576e7a1-0db1-4726-b8b8-5537ae606bd3', payload={inputPort=in, tick=65, timestamp=1779841030189}, timestamp=2026-05-27T09:17:10.189798}
+[print-p1] {id='d41c5804-9f2e-4515-9900-e75bdc7a8445', payload={inputPort=in, tick=66, timestamp=1779841030678}, timestamp=2026-05-27T09:17:10.679017}
+[print-p2] {id='a10f8844-8cad-4bf0-b8ce-53f3fdd184ae', payload={inputPort=in, tick=33, timestamp=1779841030685}, timestamp=2026-05-27T09:17:10.685477}
+[print-p1] {id='054365bb-07db-493c-847d-2158884c2cc4', payload={inputPort=in, tick=66, timestamp=1779841030685}, timestamp=2026-05-27T09:17:10.685512}
 [timer] shutdown.
 ]]></system-out>
   </testcase>
-  <testcase name="test4_IntervalProducesExpectedMessageCount" classname="com.fbp.engine.node.TimerNodeTest" time="2.003">
+  <testcase name="test4_IntervalProducesExpectedMessageCount" classname="com.fbp.engine.node.TimerNodeTest" time="2.006">
     <system-out><![CDATA[[timer] initialized.
-[p1] processing message...
-[print-p1] {id='574bb0b4-016a-490e-8377-5ac9888105d6', payload={timestamp=1776754087991, inputPort=in, tick=696}, timestamp=2026-04-21T15:48:07.992266}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='9bef730f-10e9-43d0-b8da-c509177dfa1e', payload={timestamp=1776754088000, inputPort=in, tick=348}, timestamp=2026-04-21T15:48:08.000307}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='e571fa04-935f-4b35-8fcc-21b8f8a3f752', payload={timestamp=1776754088005, inputPort=in, tick=696}, timestamp=2026-04-21T15:48:08.006167}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='b74fd324-94a1-4fc2-9442-f5244a9a05f0', payload={timestamp=1776754088491, inputPort=in, tick=697}, timestamp=2026-04-21T15:48:08.491910}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='099d683f-d39e-43fb-80ad-b1e3fe2d153d', payload={timestamp=1776754088502, inputPort=in, tick=697}, timestamp=2026-04-21T15:48:08.502894}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='c5f5f3e9-ba8f-4c81-b37e-90a7a2189de4', payload={timestamp=1776754088993, inputPort=in, tick=698}, timestamp=2026-04-21T15:48:08.993789}
-[p1] done.
-[p2] processing message...
-[print-p2] {id='0f602b91-dd60-4fbc-adf2-3dcc9039ed4b', payload={timestamp=1776754088997, inputPort=in, tick=349}, timestamp=2026-04-21T15:48:08.998027}
-[p2] done.
-[p1] processing message...
-[print-p1] {id='799318d7-6bde-45b2-9d0f-ee3c9b728d0e', payload={timestamp=1776754089004, inputPort=in, tick=698}, timestamp=2026-04-21T15:48:09.004845}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='093f8be1-650f-475e-9bd5-9f5b3d1c5d36', payload={timestamp=1776754089496, inputPort=in, tick=699}, timestamp=2026-04-21T15:48:09.496466}
-[p1] done.
-[p1] processing message...
-[print-p1] {id='040a15b0-41e9-466c-9eee-755daf134f99', payload={timestamp=1776754089505, inputPort=in, tick=699}, timestamp=2026-04-21T15:48:09.505799}
-[p1] done.
+[print-p1] {id='ab2e42c0-f0b4-4f4c-997c-b6d632a51962', payload={inputPort=in, tick=67, timestamp=1779841031181}, timestamp=2026-05-27T09:17:11.181802}
+[print-p1] {id='b88400c2-e093-43f2-9d97-f4f87027ae8e', payload={inputPort=in, tick=67, timestamp=1779841031189}, timestamp=2026-05-27T09:17:11.189122}
+[print-p1] {id='90b0657d-e3a3-4515-a2d5-3cc27bbe6e32', payload={inputPort=in, tick=68, timestamp=1779841031681}, timestamp=2026-05-27T09:17:11.681170}
+[print-p2] {id='38ba6ceb-d78b-4b54-9a54-81e3c4735dab', payload={inputPort=in, tick=34, timestamp=1779841031683}, timestamp=2026-05-27T09:17:11.683890}
+[print-p1] {id='ad203084-e1db-4c0b-b464-851a500a831d', payload={inputPort=in, tick=68, timestamp=1779841031689}, timestamp=2026-05-27T09:17:11.689759}
+[print-p1] {id='dcac0708-3673-462b-9eeb-cb9674e46d42', payload={inputPort=in, tick=69, timestamp=1779841032179}, timestamp=2026-05-27T09:17:12.180001}
+[print-p1] {id='60846694-7d8b-42ef-bee6-d091e9379399', payload={inputPort=in, tick=69, timestamp=1779841032184}, timestamp=2026-05-27T09:17:12.184970}
+[print-p1] {id='52548fe5-d2ff-4ed2-a7f7-b304a6725439', payload={inputPort=in, tick=70, timestamp=1779841032679}, timestamp=2026-05-27T09:17:12.679460}
+[print-p2] {id='79b5757f-51a8-4c44-827e-f200a609a2ad', payload={inputPort=in, tick=35, timestamp=1779841032681}, timestamp=2026-05-27T09:17:12.681599}
+[print-p1] {id='71d53e3b-f80d-4cad-8dee-b3a9f208fc67', payload={inputPort=in, tick=70, timestamp=1779841032689}, timestamp=2026-05-27T09:17:12.689845}
 [timer] shutdown.
 [timer] shutdown.
 ]]></system-out>
   </testcase>
-  <testcase name="test1_InitializeStartsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="0.002">
+  <testcase name="test1_InitializeStartsMessageGeneration" classname="com.fbp.engine.node.TimerNodeTest" time="0.001">
     <system-out><![CDATA[[timer] initialized.
 [timer] shutdown.
 ]]></system-out>
